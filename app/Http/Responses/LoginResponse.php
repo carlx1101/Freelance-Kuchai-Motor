@@ -20,7 +20,9 @@ class LoginResponse implements LoginResponseContract
         else if(auth()->user()->role == 'customer'){
             $home = "/dashboard";
         }
-
+        else if(auth()->user()->role == 'salesman'){
+            $home = "/salesman/dashboard";
+        }
         return redirect()->intended($home);
     }
 }

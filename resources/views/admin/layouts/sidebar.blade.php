@@ -34,7 +34,20 @@
             </div>
             <!-- End Collapse -->
 
-            <span class="dropdown-header mt-4">Pages</span>
+
+            <span class="dropdown-header mt-4">Team Management</span>
+            <small class="bi-three-dots nav-subtitle-replacer"></small>
+
+            <div class="nav-item">
+              <a class="nav-link " href="{{route('salesman.index')}}" data-placement="left">
+                <i class="bi-people nav-icon"></i>
+                <span class="nav-link-title">Register Salesman</span>
+              </a>
+            </div>
+
+
+
+            <span class="dropdown-header mt-4">Product Management</span>
             <small class="bi-three-dots nav-subtitle-replacer"></small>
 
             <!-- Collapse -->
@@ -46,13 +59,12 @@
               <div class="nav-item">
                 <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesUsersMenu" role="button" data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesUsersMenu" aria-expanded="false" aria-controls="navbarVerticalMenuPagesUsersMenu">
                   <i class="bi-people nav-icon"></i>
-                  <span class="nav-link-title">Users</span>
+                  <span class="nav-link-title">Motorbikes</span>
                 </a>
 
                 <div id="navbarVerticalMenuPagesUsersMenu" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenu">
                   <a class="nav-link " href="./users.html">Overview</a>
-                  <a class="nav-link " href="./users-leaderboard.html">Leaderboard</a>
-                  <a class="nav-link " href="./users-add-user.html">Add User <span class="badge bg-info rounded-pill ms-1">Hot</span></a>
+                  <a class="nav-link " href="./users-leaderboard.html">Add Motorbikes</a>
                 </div>
               </div>
               <!-- End Collapse -->
@@ -60,38 +72,18 @@
               <div class="nav-item">
                 <a class="nav-link " href="./welcome-page.html" data-placement="left">
                   <i class="bi-eye nav-icon"></i>
-                  <span class="nav-link-title">Welcome Page</span>
+                  <span class="nav-link-title">Accessories</span>
                 </a>
               </div>
 
-              <div class="nav-item">
-                <a class="nav-link " href="./landing.html" data-placement="left">
-                  <i class="bi-box-seam nav-icon"></i>
-                  <span class="nav-link-title">Landing Page <span class="badge bg-info rounded-pill ms-1">New</span></span>
-                </a>
-              </div>
             </div>
             <!-- End Collapse -->
 
 
 
-            <span class="dropdown-header mt-4">Layouts</span>
-            <small class="bi-three-dots nav-subtitle-replacer"></small>
-
-            <div class="nav-item">
-              <a class="nav-link " href="./layouts/index.html" data-placement="left">
-                <i class="bi-grid-1x2 nav-icon"></i>
-                <span class="nav-link-title">Layouts</span>
-              </a>
-            </div>
 
 
-            <div class="nav-item">
-              <a class="nav-link " href="./documentation/typography.html" data-placement="left">
-                <i class="bi-layers nav-icon"></i>
-                <span class="nav-link-title">Components</span>
-              </a>
-            </div>
+
           </div>
 
         </div>

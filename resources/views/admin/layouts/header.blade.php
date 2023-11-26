@@ -28,13 +28,13 @@
                 <i class="bi-search"></i>
               </div>
 
-              <input type="search" class="js-form-search form-control" placeholder="Search in front" aria-label="Search in front" data-hs-form-search-options='{
+              {{-- <input type="search" class="js-form-search form-control" placeholder="Search in front" aria-label="Search in front" data-hs-form-search-options='{
                        "clearIcon": "#clearSearchResultsIcon",
                        "dropMenuElement": "#searchDropdownMenu",
                        "dropMenuOffset": 20,
                        "toggleIconOnFocus": true,
                        "activeClass": "focus"
-                     }'>
+                     }'> --}}
               <a class="input-group-append input-group-text" href="javascript:;">
                 <i id="clearSearchResultsIcon" class="bi-x-lg" style="display: none;"></i>
               </a>
@@ -788,7 +788,7 @@
                     <button type="submit" class="dropdown-item text-danger" href="{{ route('logout') }}">Sign out</button>
                 </form>
 
-                
+
               </div>
             </div>
             <!-- End Account -->

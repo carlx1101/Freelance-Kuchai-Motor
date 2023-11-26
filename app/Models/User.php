@@ -27,7 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'name', 'email', 'password','role'
+        'name', 'email', 'password','role', 'phone_number'
 
     ];
 
@@ -64,7 +64,7 @@ class User extends Authenticatable implements MustVerifyEmail
     protected function role(): Attribute
     {
         return new Attribute(
-            get: fn ($value) => ["customer", "admin"][$value],
+            get: fn ($value) => ["customer", "admin", "salesman"][$value],
         );
     }
 }

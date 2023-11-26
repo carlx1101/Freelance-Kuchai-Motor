@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
 
 class SalesmanController extends Controller
@@ -16,7 +17,7 @@ class SalesmanController extends Controller
         $salesmans = User::where('role', 2)->get();
         $totalSalesman = $salesmans->count(); // Count the total number of salesmen
 
-        return view('admin.salesman.index', compact('salesmans','totalSalesman'));
+        return view('admin.salesman.index', compact('salesmans', 'totalSalesman'));
     }
 
 
@@ -64,7 +65,21 @@ class SalesmanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => ['required', 'email', Rule::unique('users', 'email')->ignore($id)],
+            'phone_number' => 'required|string',
+            'password' => 'nullable|string|min:8',
+        ]);
+
+        $data['password'] = empty($data['password']) ? User::findOrFail($id)->password : (Hash::check($data['password'], User::findOrFail($id)->password) ? User::findOrFail($id)->password : $data['password']);
+
+
+        if (User::findOrFail($id)->update($data)) {
+            return back()->with('success', $data['name'] . " has been updated.");
+        } else {
+            abort(500);
+        }
     }
 
     /**
@@ -72,6 +87,10 @@ class SalesmanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        if (User::findOrFail($id)->delete()) {
+            return back()->with('success', User::findOrFail($id)->name . " has been removed!");
+        } else {
+            abort(500);
+        }
     }
 }

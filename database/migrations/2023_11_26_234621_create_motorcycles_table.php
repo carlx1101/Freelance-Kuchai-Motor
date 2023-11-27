@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('manufacture_year')->nullable();
             $table->string('capacity')->nullable();
             $table->string('colour')->nullable();
+            $table->string('brand')->nullable();
             $table->string('description')->nullable();
 
             $table->string('engine_type')->nullable();

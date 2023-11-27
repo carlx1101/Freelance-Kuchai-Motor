@@ -204,10 +204,10 @@
                 <div class="col-sm-6">
                   <!-- Form -->
                   <div class="mb-4">
-                    <label for="weightLabel" class="form-label">Manufacture Year</label>
+                    <label for="weightLabel" class="form-label">Brand</label>
 
                     <div class="input-group">
-                        <input type="text" class="form-control" name="manufacture_year" id="SKULabel" placeholder="eg. 348121032" aria-label="eg. 348121032">
+                        <input type="text" class="form-control" name="brand" id="SKULabel" placeholder="eg. 348121032" aria-label="eg. 348121032">
 
                     </div>
 
@@ -250,6 +250,22 @@
               <!-- End Row -->
 
 
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- Form -->
+                  <div class="mb-4">
+                    <label for="SKULabel" class="form-label">Manufacture Year</label>
+
+                    <input type="text" class="form-control" name="manufacture_year" id="SKULabel" placeholder="eg. 348121032" aria-label="eg. 348121032">
+                  </div>
+                  <!-- End Form -->
+                </div>
+                <!-- End Col -->
+
+
+              </div>
+              <!-- End Row -->
 
               <label class="form-label">Description <span class="form-label-secondary">(Optional)</span></label>
 

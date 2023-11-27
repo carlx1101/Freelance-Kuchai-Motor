@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SalesmanController;
+use App\Http\Controllers\AccessoryController;
+use App\Http\Controllers\MotorcycleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +44,11 @@ Route::middleware([
     // Manage Salesman
     Route::resource('salesman', SalesmanController::class);
 
+    // Manage Motorcycles
+    Route::resource('/motorcycles', MotorcycleController::class);
 
+    // Manage Accessories
+    Route::resource('/accessories', AccessoryController::class);
 });
 
 

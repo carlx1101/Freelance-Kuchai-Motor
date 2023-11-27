@@ -72,23 +72,38 @@
                 data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesUsersMenu" aria-expanded="false"
                 aria-controls="navbarVerticalMenuPagesUsersMenu">
                 <i class="bi-people nav-icon"></i>
-                <span class="nav-link-title">Motorbikes</span>
+                <span class="nav-link-title">Motorcycles</span>
               </a>
 
               <div id="navbarVerticalMenuPagesUsersMenu" class="nav-collapse collapse "
                 data-bs-parent="#navbarVerticalMenuPagesMenu">
-                <a class="nav-link " href="./users.html">Overview</a>
-                <a class="nav-link " href="./users-leaderboard.html">Add Motorbikes</a>
+                <a class="nav-link " href="{{route('motorcycles.index')}}">Overview</a>
+                <a class="nav-link " href="{{route('motorcycles.create')}}">Add Motorcycle</a>
               </div>
             </div>
             <!-- End Collapse -->
 
-            <div class="nav-item">
-              <a class="nav-link " href="./welcome-page.html" data-placement="left">
-                <i class="bi-eye nav-icon"></i>
-                <span class="nav-link-title">Accessories</span>
-              </a>
-            </div>
+
+
+              <!-- Collapse -->
+              <div class="nav-item">
+                <a class="nav-link dropdown-toggle " href="#navbarVerticalMenuPagesAccessoriesMenu" role="button"
+                  data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesAccessoriesMenu" aria-expanded="false"
+                  aria-controls="navbarVerticalMenuPagesAccessoriesMenu">
+                  <i class="bi-people nav-icon"></i>
+                  <span class="nav-link-title">Accessories</span>
+                </a>
+
+                <div id="navbarVerticalMenuPagesAccessoriesMenu" class="nav-collapse collapse "
+                  data-bs-parent="#navbarVerticalMenuPagesMenu">
+                  <a class="nav-link " href="{{route('accessories.index')}}">Overview</a>
+                  <a class="nav-link " href="{{route('accessories.create')}}">Add Accessory</a>
+                </div>
+              </div>
+              <!-- End Collapse -->
+
+
+
 
           </div>
           <!-- End Collapse -->

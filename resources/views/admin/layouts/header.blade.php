@@ -186,7 +186,7 @@
     <div class="navbar-nav-wrap-content-end">
       <!-- Navbar -->
       <ul class="navbar-nav">
-        <li class="nav-item d-none d-sm-inline-block">
+        {{-- <li class="nav-item d-none d-sm-inline-block">
           <!-- Notification -->
           <div class="dropdown">
             <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle"
@@ -618,9 +618,9 @@
             </div>
           </div>
           <!-- End Notification -->
-        </li>
+        </li> --}}
 
-        <li class="nav-item d-none d-sm-inline-block">
+        {{-- <li class="nav-item d-none d-sm-inline-block">
           <!-- Apps -->
           <div class="dropdown">
             <button type="button" class="btn btn-icon btn-ghost-secondary rounded-circle" id="navbarAppsDropdown"
@@ -732,16 +732,16 @@
             </div>
           </div>
           <!-- End Apps -->
-        </li>
+        </li> --}}
 
-        <li class="nav-item d-none d-sm-inline-block">
+        {{-- <li class="nav-item d-none d-sm-inline-block">
           <!-- Activity -->
           <button class="btn btn-ghost-secondary btn-icon rounded-circle" type="button" data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasActivityStream" aria-controls="offcanvasActivityStream">
             <i class="bi-x-diamond"></i>
           </button>
           <!-- Activity -->
-        </li>
+        </li> --}}
 
         <li class="nav-item">
           <!-- Account -->
@@ -769,10 +769,10 @@
                 </div>
               </div>
 
-              <div class="dropdown-divider"></div>
+              {{-- <div class="dropdown-divider"></div> --}}
 
               <!-- Dropdown -->
-              <div class="dropdown">
+              {{-- <div class="dropdown">
                 <a class="navbar-dropdown-submenu-item dropdown-item dropdown-toggle" href="javascript:;"
                   id="navSubmenuPagesAccountDropdown1" data-bs-toggle="dropdown" aria-expanded="false">Set status</a>
 
@@ -792,13 +792,13 @@
                   <a class="dropdown-item" href="#"> Reset status
                   </a>
                 </div>
-              </div>
+              </div> --}}
               <!-- End Dropdown -->
 
-              <a class="dropdown-item" href="#">Profile &amp; account</a>
-              <a class="dropdown-item" href="#">Settings</a>
+              {{-- <a class="dropdown-item" href="#">Profile &amp; account</a>
+              <a class="dropdown-item" href="#">Settings</a> --}}
 
-              <div class="dropdown-divider"></div>
+              {{-- <div class="dropdown-divider"></div>
 
               <a class="dropdown-item" href="#">
                 <div class="d-flex align-items-center">
@@ -813,12 +813,12 @@
                     <span class="card-text">hs.example.com</span>
                   </div>
                 </div>
-              </a>
+              </a> --}}
 
-              <div class="dropdown-divider"></div>
+              {{-- <div class="dropdown-divider"></div> --}}
 
               <!-- Dropdown -->
-              <div class="dropdown">
+              {{-- <div class="dropdown">
                 <a class="navbar-dropdown-submenu-item dropdown-item dropdown-toggle" href="javascript:;"
                   id="navSubmenuPagesAccountDropdown2" data-bs-toggle="dropdown" aria-expanded="false">Customization</a>
 
@@ -837,10 +837,10 @@
                     <i class="bi-box-arrow-in-up-right"></i>
                   </a>
                 </div>
-              </div>
+              </div> --}}
               <!-- End Dropdown -->
 
-              <a class="dropdown-item" href="#">Manage team</a>
+              {{-- <a class="dropdown-item" href="#">Manage team</a> --}}
 
               <div class="dropdown-divider"></div>
 

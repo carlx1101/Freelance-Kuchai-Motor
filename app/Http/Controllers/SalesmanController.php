@@ -87,8 +87,10 @@ class SalesmanController extends Controller
      */
     public function destroy(string $id)
     {
-        if (User::findOrFail($id)->delete()) {
-            return back()->with('success', User::findOrFail($id)->name . " has been removed!");
+        $user = User::findOrFail($id);
+
+        if ($user->delete()) {
+            return back()->with('success', $user->name . " has been removed!");
         } else {
             abort(500);
         }

@@ -67,4 +67,9 @@ class User extends Authenticatable implements MustVerifyEmail
             get: fn ($value) => ["customer", "admin", "salesman"][$value],
         );
     }
+
+    public function motorcycles()
+    {
+        return $this->hasMany(Motorcycle::class, 'salesman_id');
+    }
 }

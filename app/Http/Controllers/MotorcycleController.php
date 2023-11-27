@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Motorcycle;
 use Illuminate\Http\Request;
 
 class MotorcycleController extends Controller
@@ -20,7 +21,6 @@ class MotorcycleController extends Controller
     public function create()
     {
         return view('admin.motorcycles.create');
-
     }
 
     /**
@@ -28,7 +28,47 @@ class MotorcycleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data =
+            $request->validate([
+                'model' => 'nullable|string',
+                'manufacture_year' => 'nullable|integer|digits:4',
+                'capacity' => 'nullable|string',
+                'colour' => 'nullable|string',
+                'brand' => 'nullable|string',
+                'description' => 'nullable|string',
+
+                'engine_type' => 'nullable|string',
+                'displacement' => 'nullable|string',
+                'max_power' => 'nullable|string',
+                'max_torque' => 'nullable|string',
+                'transmission' => 'nullable|string',
+                'fuel_system' => 'nullable|string',
+                'ignition_system' => 'nullable|string',
+
+                'frame_type' => 'nullable|string',
+                'front_suspension' => 'nullable|string',
+                'rear_suspension' => 'nullable|string',
+                'fuel_capacity' => 'nullable|string',
+                'battery' => 'nullable|string',
+
+                'pricing' => 'nullable|string',
+                'availability' => 'nullable|in:on',
+
+                'salesman_id' => 'nullable|exists:users,id',
+
+                'mileage' => 'nullable|integer',
+                'vehicle_registration_date' => 'nullable|date',
+                'road_tax_expiry_date' => 'nullable|date',
+            ]);
+
+        $data['availability'] =
+            $request->has('availability');
+
+        if (Motorcycle::create($data)) {
+            return redirect()->route('motorcycles.index')->with('success', 'Motorcycle registration successful');
+        } else {
+            return back()->with('error', 'Motorcycle registration failed');
+        }
     }
 
     /**

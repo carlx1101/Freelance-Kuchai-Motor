@@ -29,7 +29,6 @@ Route::middleware([
     'user-access:customer'
 ])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'customerHome'])->name('dashboard');
-
 });
 
 
@@ -42,7 +41,7 @@ Route::middleware([
     Route::get('/dashboard', [HomeController::class, 'adminHome'])->name('admin.dashboard');
 
     // Manage Salesman
-    Route::resource('salesman', SalesmanController::class);
+    Route::resource('salesman', SalesmanController::class)->only(['index', 'store', 'update', 'destroy']);
 
     // Manage Motorcycles
     Route::resource('/motorcycles', MotorcycleController::class);
@@ -59,7 +58,4 @@ Route::middleware([
     'user-access:salesman'
 ])->prefix('salesman')->group(function () {
     Route::get('/dashboard', [HomeController::class, 'salesmanHome'])->name('salesman.dashboard');
-
 });
-
-

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Motorcycle;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class MotorcycleController extends Controller
@@ -20,7 +21,8 @@ class MotorcycleController extends Controller
      */
     public function create()
     {
-        return view('admin.motorcycles.create');
+        $salesmen = User::where('role', 2)->get();
+        return view('admin.motorcycles.create', compact('salesmen'));
     }
 
     /**

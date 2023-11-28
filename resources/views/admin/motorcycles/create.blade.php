@@ -308,7 +308,8 @@
 
                 <!-- Quill -->
                 <div class="quill-custom">
-                  <div class="js-quill" style="height: 15rem;" data-hs-quill-options='{
+                  <div id="quill_description" class="js-quill @error('description') is-invalid @enderror"
+                    style="height: 15rem;" data-hs-quill-options='{
                      "placeholder": "Type your description...",
                       "modules": {
                         "toolbar": [
@@ -319,6 +320,7 @@
                   </div>
                 </div>
                 <!-- End Quill -->
+                <input type="hidden" id="description" name="description" value="{{ old('description') }}">
               </div>
               <!-- Body -->
             </div>
@@ -667,7 +669,7 @@
                 <label for="SKULabel" class="form-label">Motor Cover</label>
 
                 <!-- Dropzone -->
-                <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
+                <div id="motorCoverDropzone" class="js-dropzone dz-dropzone dz-dropzone-card">
                   <div class="dz-message">
                     <img class="avatar avatar-xl avatar-4x3 mb-3"
                       src="{{asset('backend/svg/illustrations/oc-browse.svg')}}" alt="Image Description"
@@ -683,6 +685,7 @@
                     <span class="btn btn-white btn-sm">Browse files</span>
                   </div>
                 </div>
+                <input type="hidden" name="motor_cover" id="hiddenMotorCover">
                 <!-- End Dropzone -->
 
 
@@ -865,13 +868,10 @@
 
               <!-- Body -->
               <div class="card-body">
-
-
                 <!-- Form -->
                 <div class="mb-4">
                   <label for="categoryLabel" class="form-label">Sales Person</label>
 
-                  <!-- Select -->
                   <!-- Select -->
                   <div class="tom-select-custom">
                     <select class="js-select form-select @error('salesman_id') is-invalid @enderror" autocomplete="off"
@@ -879,10 +879,10 @@
                             "placeholder": "Select sales person..."
                             }' name="salesman_id">
                       <option value="">Select a person...</option>
-                      <option value="4">Thomas Edison</option>
-                      <option value="1">Nikola</option>
-                      <option value="3">Nikola Tesla</option>
-                      <option value="5">Arnold Schwarzenegger</option>
+                      @foreach ($salesmen as $salesman)
+                      <option value="{{ $salesman->id }}" @if (old('salesman_id')==$salesman->id) selected @endif>{{
+                        $salesman->name }}</option>
+                      @endforeach
                     </select>
                     @error('salesman_id')
                     <div class="invalid-feedback">
@@ -891,13 +891,8 @@
                     @enderror
                   </div>
                   <!-- End Select -->
-                  <!-- End Select -->
                 </div>
                 <!-- Form -->
-
-
-
-
               </div>
               <!-- Body -->
             </div>
@@ -1017,7 +1012,7 @@
                 <div class="col-auto">
                   <div class="d-flex gap-3">
                     <button type="button" class="btn btn-ghost-light">Discard</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary" id="addMotorcycleFormSubmitBtn">Save</button>
                   </div>
                 </div>
                 <!-- End Col -->
@@ -2048,10 +2043,36 @@
         // =======================================================
         HSCore.components.HSDropzone.init('.js-dropzone')
 
+        let motorCoverDropzone = Dropzone.forElement('#motorCoverDropzone', {
+            paramName: "motor_cover",
+            maxFiles: 1,
+            acceptedFiles: "image/*",
+        });
+
+        motorCoverDropzone.on('addedfile', function(file){
+          document.getElementById('addMotorcycleFormSubmitBtn').setAttribute("disabled", "disabled");
+        });
+        
+        motorCoverDropzone.on('complete', function(file){
+          if(file.accepted){
+            document.getElementById('hiddenMotorCover').value = JSON.stringify(file);
+            document.getElementById('addMotorcycleFormSubmitBtn').removeAttribute("disabled");
+          }
+        });
+
+        motorCoverDropzone.on('removedfile', function(file){
+          document.getElementById('hiddenMotorCover').value = null;
+        });
+
 
         // INITIALIZATION OF QUILLJS EDITOR
         // =======================================================
         HSCore.components.HSQuill.init('.js-quill')
+        var quill_instance = Quill.find(document.getElementById('quill_description'));
+
+        quill_instance.on('text-change', function(delta, oldDelta, source) {
+        $('#description').val(quill_instance.root.innerHTML);
+        });
       }
     })()
   </script>

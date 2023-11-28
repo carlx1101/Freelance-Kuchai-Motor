@@ -50,6 +50,6 @@ class Motorcycle extends Model
 
     public function motorcycleImages()
     {
-        return $this->hasMany(MotorcycleImage::class, 'motorcycle_id');
+        return $this->hasMany(MotorImage::class, 'motorcycle_id', 'id');
     }
 }

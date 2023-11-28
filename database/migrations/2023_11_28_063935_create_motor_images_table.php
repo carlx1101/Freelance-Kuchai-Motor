@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('url');
-            $table->foreignId('motorcycle_id')->nullable()->references('id')->on('motorcycles');
+            $table->foreignId('motorcycle_id')->nullable()->references('id')->on('motorcycles')->onDelete('cascade');
             $table->timestamps();
         });
     }

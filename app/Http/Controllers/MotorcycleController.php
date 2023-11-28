@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Motorcycle;
+use App\Models\MotorImage;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -61,6 +62,7 @@ class MotorcycleController extends Controller
 
                 'salesman_id' => 'nullable|exists:users,id',
                 'motor_cover' => 'nullable|json',
+                'motor_images' => 'nullable|json',
 
                 'mileage' => 'nullable|integer',
                 'vehicle_registration_date' => 'nullable|date',
@@ -84,7 +86,30 @@ class MotorcycleController extends Controller
                 url('storage/motor_covers/' . $fileStoreName);
         }
 
-        if (Motorcycle::create($data)) {
+        if ($motorcycle = Motorcycle::create($data)) {
+            if (isset($request->motor_images)) {
+                $files = json_decode($request->motor_images);
+                $parentDirectoryName =
+                    Str::uuid() . '_' . Carbon::now()->timestamp; // Create a parent directory
+
+                foreach ($files as $file) {
+                    $base64 =
+                        substr($file->dataURL, strpos($file->dataURL, ',') + 1);
+                    $filename = $file->upload->filename;
+                    $fileExtension = pathinfo($filename, PATHINFO_EXTENSION);
+
+                    $fileStoreName = Str::uuid() . '_' . Carbon::now()->timestamp . '.' . $fileExtension;
+
+                    if (Storage::put('public/motor_images/' . $motorcycle->id . '_' . $parentDirectoryName . '/' . $fileStoreName, base64_decode($base64))) {
+                        MotorImage::create([
+                            'name' => $fileStoreName,
+                            'url' => url('storage/motor_images/' . $motorcycle->id . '_' . $parentDirectoryName . '/' . $fileStoreName),
+                            'motorcycle_id' => $motorcycle->id,
+                        ]);
+                    }
+                }
+            }
+
             return redirect()->route('motorcycles.index')->with('success', 'Motorcycle registration successful');
         } else {
             return back()->with('error', 'Motorcycle registration failed');

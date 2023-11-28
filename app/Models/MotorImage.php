@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MotorcycleImage extends Model
+class MotorImage extends Model
 {
     use HasFactory;
 
@@ -17,11 +17,11 @@ class MotorcycleImage extends Model
     protected $fillable = [
         'name',
         'url',
-        'motorcycle_id '
+        'motorcycle_id'
     ];
 
-    public function user()
+    public function motorcycle()
     {
-        return $this->belongsTo(Motorcycle::class, 'motorcycle_id');
+        return $this->belongsTo(Motorcycle::class, 'motorcycle_id', 'id');
     }
 }

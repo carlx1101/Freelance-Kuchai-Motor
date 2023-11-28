@@ -15,8 +15,8 @@
             <li><a href="#">Motorcycles </a>
               <div class="uk-navbar-dropdown">
                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                  <li><a href="page-shop-grid.html">New Motorcycles</a></li>
-                  <li><a href="page-shop-list.html">Used Motorcycles</a></li>
+                  <li><a href="{{route('new.motors')}}">New Motorcycles</a></li>
+                  <li><a href="{{route('used.motors')}}">Used Motorcycles</a></li>
                 </ul>
               </div>
             </li>

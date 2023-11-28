@@ -6,29 +6,27 @@
             <div class="uk-margin-medium">
               <div class="logo"><a class="logo__link" href="index.html">
                   <div class="logo__icon"><img src="assets/img/logo.svg" alt="KeyMoto"></div>
-                  <div class="logo__text">KEYMOTO</div>
+                  <div class="logo__text">Kuchai Motor Sdn Bhd</div>
                 </a></div>
             </div>
             <div class="uk-margin-medium">
               <p>Dolore magna aliq quis nostrud ulamco laboris nisi ut aliquip exa comads conseq asuis aute irure dolor reprehenderit.</p>
             </div>
             <div class="uk-margin-medium">
-              <div class="support"><a class="support__link" href="tel:13004905008">
+              <div class="support"><a class="support__link" href="tel:0379810331">
                   <div class="support__icon"><i class="fas fa-headset"></i></div>
                   <div class="support__desc">
                     <div class="support__label">Talk with our support</div>
-                    <div class="support__phone">+1 (300) 490 5008</div>
+                    <div class="support__phone">03-7981 0331</div>
                   </div>
                 </a></div>
             </div>
             <div class="uk-margin-medium">
               <div class="social">
                 <ul class="social-list">
-                  <li class="social-list__item"><a class="social-list__link" href="#!"><i class="fab fa-twitter"></i></a></li>
-                  <li class="social-list__item"><a class="social-list__link" href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                  <li class="social-list__item"><a class="social-list__link" href="#!"><i class="fab fa-google-plus-g"></i></a></li>
-                  <li class="social-list__item"><a class="social-list__link" href="#!"><i class="fab fa-youtube"></i></a></li>
-                  <li class="social-list__item"><a class="social-list__link" href="#!"><i class="fab fa-pinterest-p"></i></a></li>
+                  <li class="social-list__item"><a class="social-list__link" href="https://www.facebook.com/p/Kuchai-Motor-100063841241853/"><i class="fab fa-facebook-f"></i></a></li>
+                  <li class="social-list__item"><a class="social-list__link" href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fkuchaimotor_official%3Ffbclid%3DIwAR0KQymkBphCaSI4nE69rFRgL0I31OKduTXh5e01viBBSaSWLB0Aoe7oosI&h=AT2AWyTF3YpehIrM9jkkqjnZinVu8f4SzV3EaHHj49nZMTIpGJloA8CprhGXawnY1_UOX2Rt0lHsAGmUnW2MuNYB3kWf5EyCc-ZOixgG-YxSWYg_JnA-8V_aiT2OKq1OSf9wrMvBxiS8BlqtiV_j"><i class="fab fa-instagram"></i></a></li>
+                  <li class="social-list__item"><a class="social-list__link" href="https://www.tiktok.com/@kuchaimotor_official?fbclid=IwAR2mOT5vc7iKzlJnBXZ7SWyVdzbYPLo1mBGq66iUMEm_AcL-rDV8WIZfnI4"><i class="fab fa-tiktok"></i></a></li>
                 </ul>
               </div>
             </div>
@@ -47,7 +45,7 @@
               </ul>
             </div>
           </div>
-          <div>
+          {{-- <div>
             <div class="page-footer__column page-footer__news">
               <div class="uk-h4">Latest News</div>
               <ul class="latest-news-list">
@@ -77,29 +75,52 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> --}}
           <div>
             <div class="page-footer__column page-footer__info">
-              <div class="uk-h4">Dealer Information</div>
+              <div class="uk-h4">Contact Us</div>
               <ul class="info-list">
+
+
+                <li>
+                    <div class="info-list-item">
+                      <div class="info-list-item__title">Call us on </div>
+                      <div class="info-list-item__value">03-7981 0331</div>
+                    </div>
+                  </li>
+
+
                 <li>
                   <div class="info-list-item">
-                    <div class="info-list-item__title">Sales Hours</div>
-                    <div class="info-list-item__value">Monday - Friday: <br> 09:00 am to 06:00 pm</div>
+                    <div class="info-list-item__title">Operation Hours</div>
+                    <div class="info-list-item__value">Monday - Saturday: <br> 09:00 am to 07:00 pm</div>
                   </div>
                 </li>
+
                 <li>
-                  <div class="info-list-item">
-                    <div class="info-list-item__title">Service Hours</div>
-                    <div class="info-list-item__value">Monday - Friday: <br> 09:00 am to 06:00 pm</div>
-                  </div>
-                </li>
-                <li>
+                    <div class="info-list-item">
+                      <div class="info-list-item__title">Reach us by email</div>
+                      <div class="info-list-item__value">kuchaimotor@hotmail.my</div>
+                    </div>
+                  </li>
+
+
+                  <li>
+                    <div class="info-list-item">
+                      <div class="info-list-item__title">Showroom Address </div>
+                      <div class="info-list-item__value">kuchaimotor@hotmail.my</div>
+                    </div>
+                  </li>
+
+
+
+
+                {{-- <li>
                   <div class="info-list-item">
                     <div class="info-list-item__title">Parts Shop Hours</div>
                     <div class="info-list-item__value">Monday - Friday: <br> 09:00 am to 06:00 pm</div>
                   </div>
-                </li>
+                </li> --}}
               </ul>
             </div>
           </div>
@@ -141,11 +162,11 @@
           </ul>
         </div>
         <div class="uk-margin-auto-top">
-          <div class="support"><a class="support__link" href="tel:13004905008">
+          <div class="support"><a class="support__link" href="tel:0379810331">
               <div class="support__icon"><i class="fas fa-headset"></i></div>
               <div class="support__desc">
                 <div class="support__label">Talk with our support</div>
-                <div class="support__phone">+1 (300) 490 5008</div>
+                <div class="support__phone">03-7981 0331</div>
               </div>
             </a></div>
         </div>

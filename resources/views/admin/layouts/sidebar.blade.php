@@ -45,6 +45,18 @@
           </div>
           <!-- End Collapse -->
 
+          <span class="dropdown-header mt-4">Customer Management</span>
+          <small class="bi-three-dots nav-subtitle-replacer"></small>
+
+          <div class="nav-item">
+            <a class="nav-link " href="{{route('bookings.index')}}" data-placement="left">
+              <i class="bi-people nav-icon"></i>
+              <span class="nav-link-title">Manage Booking</span>
+            </a>
+          </div>
+
+
+
 
           <span class="dropdown-header mt-4">Team Management</span>
           <small class="bi-three-dots nav-subtitle-replacer"></small>
@@ -53,6 +65,17 @@
             <a class="nav-link " href="{{route('salesman.index')}}" data-placement="left">
               <i class="bi-people nav-icon"></i>
               <span class="nav-link-title">Register Salesman</span>
+            </a>
+          </div>
+
+
+          <span class="dropdown-header mt-4">Category Management</span>
+          <small class="bi-three-dots nav-subtitle-replacer"></small>
+
+          <div class="nav-item">
+            <a class="nav-link " href="{{route('categories.index')}}" data-placement="left">
+              <i class="bi-people nav-icon"></i>
+              <span class="nav-link-title">Manage Category</span>
             </a>
           </div>
 
@@ -72,7 +95,7 @@
                 data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesUsersMenu" aria-expanded="false"
                 aria-controls="navbarVerticalMenuPagesUsersMenu">
                 <i class="bi-people nav-icon"></i>
-                <span class="nav-link-title">Motorcycles</span>
+                <span class="nav-link-title">Manage Motorcycles</span>
               </a>
 
               <div id="navbarVerticalMenuPagesUsersMenu" class="nav-collapse collapse "
@@ -91,7 +114,7 @@
                   data-bs-toggle="collapse" data-bs-target="#navbarVerticalMenuPagesAccessoriesMenu" aria-expanded="false"
                   aria-controls="navbarVerticalMenuPagesAccessoriesMenu">
                   <i class="bi-people nav-icon"></i>
-                  <span class="nav-link-title">Accessories</span>
+                  <span class="nav-link-title">Manage Accessories</span>
                 </a>
 
                 <div id="navbarVerticalMenuPagesAccessoriesMenu" class="nav-collapse collapse "
@@ -149,7 +172,7 @@
             <!-- End Style Switcher -->
           </li>
 
-          <li class="navbar-vertical-footer-list-item">
+          {{-- <li class="navbar-vertical-footer-list-item">
             <!-- Other Links -->
             <div class="dropdown dropup">
               <button type="button" class="btn btn-ghost-secondary btn-icon rounded-circle" id="otherLinksDropdown"
@@ -184,7 +207,7 @@
               </div>
             </div>
             <!-- End Other Links -->
-          </li>
+          </li> --}}
 
           <li class="navbar-vertical-footer-list-item">
             <!-- Language -->

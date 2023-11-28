@@ -3,9 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SalesmanController;
 use App\Http\Controllers\AccessoryController;
 use App\Http\Controllers\MotorcycleController;
+use App\Http\Controllers\SubCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +23,9 @@ use App\Http\Controllers\MotorcycleController;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/contact-us', [PageController::class, 'contact'])->name('contact');
+Route::get('/about-us', [PageController::class, 'contact'])->name('about.us');
+Route::get('/new-motors', [PageController::class, 'newMotors'])->name('new.motors');
+Route::get('/used-motors', [PageController::class, 'usedMotors'])->name('used.motors');
 
 
 Route::middleware([
@@ -49,6 +55,17 @@ Route::middleware([
 
     // Manage Accessories
     Route::resource('/accessories', AccessoryController::class);
+
+
+    // Manage Booking
+    Route::resource('/bookings', BookingController::class);
+
+    // Categories
+    Route::resource('/categories', CategoryController::class);
+
+    // Subcategories
+    Route::resource('/subcategories', SubCategoryController::class);
+
 });
 
 

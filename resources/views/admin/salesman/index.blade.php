@@ -1798,14 +1798,16 @@
                 </td>
                 <td class="table-column-ps-0">
                   <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-circle">
+                    {{-- <div class="avatar avatar-circle">
                       <img class="avatar-img" src="{{ asset('backend/img/160x160/img10.jpg') }}"
                         alt="Image Description">
-                    </div>
+                    </div> --}}
                     <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">{{ $salesman->name }} <i
+                      <span class="d-block h5 text-inherit mb-0">{{ $salesman->name }}
+                        {{-- <i
                           class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top"
-                          title="Top endorsed"></i></span>
+                          title="Top endorsed"></i> --}}
+                        </span>
                       <span class="d-block fs-5 text-body">{{ $salesman->email }}</span>
                     </div>
                   </a>
@@ -4312,7 +4314,7 @@
   </div>
   <!-- End Edit user -->
 
-  {{-- Delete Property --}}
+  {{-- Delete Salesman --}}
   <div class="modal fade" id="deleteSalesmanModal" tabindex="-1" aria-labelledby="deleteSalesmanModalLabel"
     aria-hidden="true">
     <div class="modal-dialog">
@@ -4334,7 +4336,7 @@
       </div>
     </div>
   </div>
-  {{-- END Delete Property --}}
+  {{-- END Delete Saleman --}}
   <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Global Compulsory  -->
@@ -4506,7 +4508,7 @@
   <script>
     $(document).on('click', '.editSalesman', function(){
       let salesman = $(this).data('salesman');
-      
+
       let editSalesmanModalBody = $('#editSalesmanModal .modal-body');
 
       let template = `
@@ -4516,13 +4518,13 @@
           <form action="salesman/${salesman.id}" method="POST">
             @method('PUT')
             @csrf
-            
+
             <!-- Form -->
             <div class="row mb-4">
               <label for="editFullNameModalLabel" class="col-sm-3 col-form-label form-label">Full name <i
                   class="tio-help-outlined text-body ms-1" data-bs-toggle="tooltip" data-bs-placement="top"
                   title="Displayed on public forums, such as Front."></i></label>
-      
+
               <div class="col-sm-9">
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="editFullNameModalLabel" placeholder="Your full name"
                   aria-label="Your full name" value="${salesman.name ? salesman.name : ''}">
@@ -4534,11 +4536,11 @@
               </div>
             </div>
             <!-- End Form -->
-      
+
             <!-- Form -->
             <div class="row mb-4">
               <label for="editEmailModalLabel" class="col-sm-3 col-form-label form-label">Email</label>
-      
+
               <div class="col-sm-9">
                 <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="editEmailModalLabel" placeholder="Email"
                   aria-label="Email" value="${salesman.email ? salesman.email : ''}">
@@ -4550,12 +4552,12 @@
               </div>
             </div>
             <!-- End Form -->
-      
+
             <!-- Form -->
             <div class="row mb-4">
               <label for="editPhoneLabel" class="col-sm-3 col-form-label form-label">Phone <span
                   class="form-label-secondary">(Optional)</span></label>
-      
+
               <div class="col-sm-9">
                 <input type="text" class="js-masked-input form-control @error('phone_number') is-invalid @enderror" name="phone_number" id="editPhoneLabel" placeholder="+x(xxx)xxx-xx-xx"
                   aria-label="+x(xxx)xxx-xx-xx" value="${salesman.phone_number ? salesman.phone_number : ''}" data-hs-mask-options='{ "template": "+0(000)000-00-00" }'>
@@ -4567,12 +4569,12 @@
               </div>
             </div>
             <!-- End Form -->
-      
+
             <!-- Form -->
             <div class="row mb-4">
               <label for="editUserModalCurrentPasswordLabel" class="col-sm-3 col-form-label form-label">Current
                 password</label>
-      
+
               <div class="col-sm-9">
                 <!-- Input Group -->
                 <div class="input-group input-group-merge">
@@ -4591,8 +4593,8 @@
                 @enderror
               </div>
             </div>
-            <!-- End Form -->  
-      
+            <!-- End Form -->
+
             <div class="d-flex justify-content-end">
               <div class="d-flex gap-3">
                 <button type="button" class="btn btn-white" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
@@ -4609,7 +4611,7 @@
 
       editSalesmanModalBody.empty(); // Clear existing modal
       div.innerHTML = template;
-      
+
       editSalesmanModalBody.append(div);
     });
   </script>
@@ -4617,11 +4619,11 @@
   <script>
     $(document).on('click', '.deleteSalesman', function() {
               var salesman = $(this).data('salesman');
-              
+
               var modalBody = $('#deleteSalesmanModal .modal-body');
-              
+
               modalBody.empty();
-  
+
               let deleteModal =
               `
                   <p class="fs-4">Are you sure you want to remove this salesman: <b>${salesman.name}</b> ?</p>
@@ -4632,10 +4634,10 @@
                       @method('DELETE')
                   </form>
               `;
-  
+
               const div = document.createElement('div');
               div.innerHTML = deleteModal;
-              
+
               modalBody.append(div);
           });
   </script>

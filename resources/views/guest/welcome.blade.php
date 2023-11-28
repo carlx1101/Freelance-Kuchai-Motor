@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Kuchai Motor </title>
+  <title>Kuchai Motor Sdn Bhd </title>
   <meta content="Templines" name="author">
   <meta content="KeyMoto" name="description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

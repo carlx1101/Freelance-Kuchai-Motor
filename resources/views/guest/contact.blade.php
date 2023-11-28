@@ -44,7 +44,9 @@
           </div>
         </div>
       </div>
-      <div class="contact-map"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3076.515310719304!2d-75.04652368429473!3d39.54798681593648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c72c312084a583%3A0xede8aadeaa53ed5f!2zNDIyNyBMYWtlIFJkLCBOZXdmaWVsZCwgTkogMDgzNDQsINCh0KjQkA!5e0!3m2!1sru!2sua!4v1608717865402!5m2!1sru!2sua"></iframe></div>
+      <div class="contact-map">
+
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15936.088809698!2d101.6922005!3d3.0887465!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4a6c369c33af%3A0xd30533569045fdbb!2sKuchai%20Motor%20sdn%20bhd!5e0!3m2!1sen!2smy!4v1701052925899!5m2!1sen!2smy" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
       <div class="page-content">
         <div class="uk-section-large uk-container">
           <div class="contact-info">
@@ -53,40 +55,39 @@
               <div>
                 <div class="contact-info-item">
                   <div class="contact-info-item__icon"><img src="assets/img/icons/contact-icon-1.png" alt="contact-icon"></div>
-                  <div class="contact-info-item__title">Schedule A Ride</div>
-                  <div class="contact-info-item__value"> <a href="tel:17108796054">+1 (710) 879 6054</a></div>
+                  <div class="contact-info-item__title">Schedule A Viewing</div>
+                  <div class="contact-info-item__value"> <a href="tel:0379810331">03-7981 0331</a></div>
                   <div class="contact-info-item__title">Buying or Selling</div>
-                  <div class="contact-info-item__value"> <a href="tel:08004564040">0 (800) 456 4040</a></div>
+                  <div class="contact-info-item__value"> <a href="tel:0379810331">03-7981 0331</a></div>
                 </div>
               </div>
               <div>
                 <div class="contact-info-item">
                   <div class="contact-info-item__icon"><img src="assets/img/icons/contact-icon-2.png" alt="contact-icon"></div>
                   <div class="contact-info-item__title">Operating Hours</div>
-                  <div class="contact-info-item__value">Mon - Fri 9.30am - 8pm</div>
-                  <div class="contact-info-item__title">Operating Hours</div>
-                  <div class="contact-info-item__value">Sat - Sun 10am - 7pm</div>
+                  <div class="contact-info-item__value">Mon - Sat 9am - 7pm</div>
+                  <div class="contact-info-item__title">Closed On</div>
+                  <div class="contact-info-item__value">Sunday</div>
                 </div>
               </div>
               <div>
                 <div class="contact-info-item">
                   <div class="contact-info-item__icon"><img src="assets/img/icons/contact-icon-3.png" alt="contact-icon"></div>
                   <div class="contact-info-item__title">Reach us by email</div>
-                  <div class="contact-info-item__value"> <a href="mailto:dealers@keymoto.com">dealers@keymoto.com</a></div>
-                  <div class="contact-info-item__title">Customer Service</div>
-                  <div class="contact-info-item__value"> <a href="mailto:m.cycle@domain.com">m.cycle@domain.com</a></div>
+                  <div class="contact-info-item__value"> <a href="mailto:dealers@keymoto.com">kuchaimotor@hotmail.my</a></div>
+
                 </div>
               </div>
               <div>
                 <div class="contact-info-item">
                   <div class="contact-info-item__icon"><img src="assets/img/icons/contact-icon-4.png" alt="contact-icon"></div>
                   <div class="contact-info-item__title">Showroom Address</div>
-                  <div class="contact-info-item__value">4227 Lake Road, Surf<br> City, New Jersey<br> 36026 - USA</div>
+                  <div class="contact-info-item__value">56-58, Jalan 2/116B, Kuchai Entrepreneurs Park, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="contact-form">
+          {{-- <div class="contact-form">
             <div class="section-title uk-text-center"><img src="assets/img/logo-dark.svg" alt=""><span>Taking rides to a newer level</span>
               <h3 class="uk-h2">send a message</h3>
             </div>
@@ -101,11 +102,11 @@
                 </div>
               </form>
             </div>
-          </div>
+          </div> --}}
         </div>
       </div>
     </main>
-    <div class="section-subscribe">
+    {{-- <div class="section-subscribe">
       <div class="uk-container">
         <div class="subscribe-box">
           <div class="uk-grid uk-flex-middle uk-child-width-1-2@m" data-uk-grid>
@@ -124,7 +125,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     @include('guest.layouts.footer')
 

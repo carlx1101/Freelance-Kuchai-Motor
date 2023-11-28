@@ -175,7 +175,8 @@
       </div>
       <!-- End Page Header -->
 
-      <form action="{{ route('motorcycles.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('motorcycles.store') }}" method="POST" enctype="multipart/form-data"
+        id="addMotorcycleForm">
         @csrf
         @method('POST')
 
@@ -692,7 +693,7 @@
                 <label for="SKULabel" class="form-label mt-2">Motor Images</label>
 
                 <!-- Dropzone -->
-                <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
+                <div id="motorImagesDropzone" class="js-dropzone dz-dropzone dz-dropzone-card">
                   <div class="dz-message">
                     <img class="avatar avatar-xl avatar-4x3 mb-3"
                       src="{{asset('backend/svg/illustrations/oc-browse.svg')}}" alt="Image Description"
@@ -2062,6 +2063,28 @@
 
         motorCoverDropzone.on('removedfile', function(file){
           document.getElementById('hiddenMotorCover').value = null;
+        });
+
+        // Motor Images
+        let motorImagesDropzone = Dropzone.forElement('#motorImagesDropzone', {
+          paramName: "motor_images",
+          acceptedFiles: "image/*",
+        });
+
+        motorImagesDropzone.on('addedfile', function(file){
+          document.getElementById('addMotorcycleFormSubmitBtn').setAttribute("disabled", "disabled");
+        });
+
+        motorImagesDropzone.on('complete', function(file){
+          if(file.accepted){
+            document.getElementById('addMotorcycleFormSubmitBtn').removeAttribute("disabled");
+          }
+        });
+
+        document.getElementById('addMotorcycleForm').addEventListener('submit', function(event) {
+          event.preventDefault();
+          $('<input>').attr({type:'hidden', name:'motor_images', value:JSON.stringify(motorImagesDropzone.files)}).appendTo(this);
+          this.submit();
         });
 
 

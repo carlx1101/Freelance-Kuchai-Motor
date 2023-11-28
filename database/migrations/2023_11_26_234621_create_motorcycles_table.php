@@ -44,8 +44,8 @@ return new class extends Migration
             $table->date('vehicle_registration_date')->nullable();
             $table->date('road_tax_expiry_date')->nullable();
 
-            $table->string('motor_cover')->nullable();
-            $table->string('motor_images')->nullable();
+            $table->string('motor_cover_filename')->nullable();
+            $table->string('motor_cover_url')->nullable();
 
 
             $table->timestamps();

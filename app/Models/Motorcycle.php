@@ -39,12 +39,17 @@ class Motorcycle extends Model
         'mileage',
         'vehicle_registration_date',
         'road_tax_expiry_date',
-        'motor_cover',
-        'motor_images',
+        'motor_cover_filename',
+        'motor_cover_url'
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class, 'salesman_id');
+    }
+
+    public function motorcycleImages()
+    {
+        return $this->hasMany(MotorcycleImage::class, 'motorcycle_id');
     }
 }

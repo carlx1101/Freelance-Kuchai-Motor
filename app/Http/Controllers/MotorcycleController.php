@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Motorcycle;
 use App\Models\User;
+use App\Models\Motorcycle;
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MotorcycleController extends Controller
 {
@@ -57,6 +60,7 @@ class MotorcycleController extends Controller
                 'availability' => 'nullable|in:on',
 
                 'salesman_id' => 'nullable|exists:users,id',
+                'motor_cover' => 'nullable|json',
 
                 'mileage' => 'nullable|integer',
                 'vehicle_registration_date' => 'nullable|date',
@@ -65,6 +69,20 @@ class MotorcycleController extends Controller
 
         $data['availability'] =
             $request->has('availability');
+
+        if (isset($request->motor_cover)) {
+            $file = substr(json_decode($request->motor_cover)->dataURL, strpos(json_decode($request->motor_cover)->dataURL, ',') + 1);
+            $filename = json_decode($request->motor_cover)->upload->filename;
+            $fileExtension = pathinfo($filename, PATHINFO_EXTENSION);
+
+            $fileStoreName = Str::uuid() . '_' . Carbon::now()->timestamp . '.' . $fileExtension; // Create unique name for cover picture
+
+            Storage::put('public/motor_covers/' . $fileStoreName, base64_decode($file)); // Store image in motor_covers directory
+
+            $data['motor_cover_filename'] = $fileStoreName; // Assign to array for Database Storage
+            $data['motor_cover_url'] =
+                url('storage/motor_covers/' . $fileStoreName);
+        }
 
         if (Motorcycle::create($data)) {
             return redirect()->route('motorcycles.index')->with('success', 'Motorcycle registration successful');

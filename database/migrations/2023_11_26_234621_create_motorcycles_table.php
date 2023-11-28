@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
 
             $table->string('model')->nullable();
-            $table->string('manufacture_year')->nullable();
+            $table->year('manufacture_year')->nullable();
             $table->string('capacity')->nullable();
             $table->string('colour')->nullable();
             $table->string('brand')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
 
             $table->string('engine_type')->nullable();
             $table->string('displacement')->nullable();
@@ -36,16 +36,16 @@ return new class extends Migration
             $table->string('battery')->nullable();
 
             $table->string('pricing')->nullable();
-            $table->string('availability')->nullable();
+            $table->boolean('availability')->nullable();
 
-            $table->string('user_id')->nullable(); // assuming this is a foreign key reference to a salesperson
+            $table->foreignId('salesman_id')->nullable()->references('id')->on('users');
 
-            $table->string('mileage')->nullable();
+            $table->integer('mileage')->nullable();
             $table->date('vehicle_registration_date')->nullable();
             $table->date('road_tax_expiry_date')->nullable();
 
-            $table->string('motor_cover')->nullable();
-            $table->string('motor_images')->nullable();
+            $table->string('motor_cover_filename')->nullable();
+            $table->string('motor_cover_url')->nullable();
 
 
             $table->timestamps();

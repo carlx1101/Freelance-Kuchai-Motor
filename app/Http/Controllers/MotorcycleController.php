@@ -17,7 +17,9 @@ class MotorcycleController extends Controller
      */
     public function index()
     {
-        return view('admin.motorcycles.index');
+        $motorcycles = Motorcycle::all();
+
+        return view('admin.motorcycles.index', compact('motorcycles'));
     }
 
     /**

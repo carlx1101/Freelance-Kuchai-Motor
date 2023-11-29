@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('accessories', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->longText('description')->nullable();
+            $table->string('pricing')->nullable();
+            $table->boolean('availability')->nullable();
             $table->timestamps();
         });
     }

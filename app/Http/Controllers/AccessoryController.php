@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accessory;
+use App\Models\Subcategory;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AccessoryController extends Controller
@@ -11,7 +14,9 @@ class AccessoryController extends Controller
      */
     public function index()
     {
-        return view('admin.accessories.index');
+        $accessories = Accessory::all();
+
+        return view('admin.accessories.index', compact('accessories'));
     }
 
     /**
@@ -19,8 +24,10 @@ class AccessoryController extends Controller
      */
     public function create()
     {
-        return view('admin.accessories.create');
+        $salesmen = User::where('role', 2)->get();
+        $subcategories = Subcategory::select('id', 'subcategory_name')->get();
 
+        return view('admin.accessories.create', compact('salesmen', 'subcategories'));
     }
 
     /**
@@ -28,7 +35,18 @@ class AccessoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->validateRequest($request);
+
+        $data['availability'] =
+            $request->has('availability');
+
+        $accessory = Accessory::create($data);
+
+        if ($accessory) {
+            return redirect()->route('accessories.index')->with('success', 'Accessory added successful');
+        } else {
+            return back()->with('error', 'Something went wrong, please try again later');
+        }
     }
 
     /**
@@ -61,5 +79,23 @@ class AccessoryController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    /**
+     * Validate Rule
+     */
+    public function validateRequest($request)
+    {
+        return $this->validate($request, [
+            'name' => 'nullable|string',
+            'description' => 'nullable|string',
+            'pricing' => 'nullable|string',
+            'availability' => 'nullable|in:on',
+
+            'accessory_cover' => 'nullable|json',
+            'accessory_images' => 'nullable|json',
+            'salesman_id' => 'nullable|exists:users,id',
+            'subcategory_id' => 'nullable|exists:subcategories,id',
+        ]);
     }
 }

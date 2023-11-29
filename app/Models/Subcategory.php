@@ -12,7 +12,13 @@ class Subcategory extends Model
 
     protected $guarded = [];
 
-    public function category() {
+    public function category()
+    {
         return $this->belongsTo(Category::class);
+    }
+
+    public function accessories()
+    {
+        return $this->hasMany(Accessory::class, 'subcategory_id', 'id');
     }
 }

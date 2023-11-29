@@ -154,11 +154,11 @@
                 <li class="breadcrumb-item"><a class="breadcrumb-link"
                     href="{{ route('motorcycles.index') }}">Motorcycles</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Add Motorcycle</li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Motorcycle</li>
               </ol>
             </nav>
 
-            <h1 class="page-header-title">Add Motorcycle</h1>
+            <h1 class="page-header-title">Edit Motorcycle</h1>
 
             {{-- <div class="mt-2">
               <a class="text-body me-3" href="javascript:;">
@@ -175,10 +175,10 @@
       </div>
       <!-- End Page Header -->
 
-      <form action="{{ route('motorcycles.store') }}" method="POST" enctype="multipart/form-data"
-        id="addMotorcycleForm">
+      <form action="{{ route('motorcycles.update', $motorcycle->id) }}" method="POST" enctype="multipart/form-data"
+        id="editMotorcycleForm">
         @csrf
-        @method('POST')
+        @method('PUT')
 
         <div class="row">
           <div class="col-lg-8 mb-3 mb-lg-0">
@@ -201,7 +201,7 @@
                       <label for="modelLabel" class="form-label">Model</label>
 
                       <input type="text" class="form-control @error('model') is-invalid @enderror" name="model"
-                        id="modelLabel" placeholder="eg. Sedan" aria-label="eg. Sedan" value="{{ old('model') }}">
+                        id="modelLabel" placeholder="eg. Sedan" aria-label="eg. Sedan" value="{{ $motorcycle->model }}">
                       @error('model')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -222,7 +222,7 @@
                       <div class="input-group">
                         <input type="text" class="form-control @error('brand') is-invalid @enderror" name=" brand"
                           id="brandLabel" placeholder="eg. ABC Motors" aria-label="eg. ABC Motors"
-                          value="{{ old('brand') }}">
+                          value="{{ $motorcycle->brand }}">
                         @error('brand')
                         <div class="invalid-feedback">
                           {{ $message }}
@@ -247,7 +247,7 @@
 
                       <input type="text" class="form-control @error('capacity') is-invalid @enderror" name="capacity"
                         id="capacityLabel" placeholder="eg. 2-person" aria-label="eg. 2-person"
-                        value="{{ old('capacity') }}">
+                        value="{{ $motorcycle->capacity }}">
                       @error('capacity')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -265,7 +265,8 @@
 
                       <div class="input-group">
                         <input type="text" class="form-control @error('colour') is-invalid @enderror" name="colour"
-                          id="colorLabel" placeholder="eg. Blue" aria-label="eg. Blue" value="{{ old('colour') }}">
+                          id="colorLabel" placeholder="eg. Blue" aria-label="eg. Blue"
+                          value="{{ $motorcycle->colour }}">
                         @error('colour')
                         <div class="invalid-feedback">
                           {{ $message }}
@@ -290,7 +291,7 @@
 
                       <input type="number" class="form-control @error('manufacture_year') is-invalid @enderror"
                         name="manufacture_year" id="manufactureYearLabel" placeholder="eg. 2023" aria-label="eg. 2023"
-                        value="{{ old('manufacture_year') }}">
+                        value="{{ $motorcycle->manufacture_year }}">
                       @error('manufacture_year')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -321,7 +322,7 @@
                   </div>
                 </div>
                 <!-- End Quill -->
-                <input type="hidden" id="description" name="description" value="{{ old('description') }}">
+                <input type="hidden" id="description" name="description" value="{{ $motorcycle->description }}">
               </div>
               <!-- Body -->
             </div>
@@ -348,7 +349,7 @@
 
                       <input type="text" class="form-control @error('engine_type') is-invalid @enderror"
                         name="engine_type" id="engineTypeLabel" placeholder="eg. Petrol" aria-label="eg. Petrol"
-                        value="{{ old('engine_type') }}">
+                        value="{{ $motorcycle->engine_type }}">
                       @error('engine_type')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -367,7 +368,7 @@
                       <div class="input-group">
                         <input type="text" class="form-control @error('displacement') is-invalid @enderror"
                           name="displacement" id="displacementLabel" placeholder="eg. 2000 cc" aria-label="eg. 2000 cc"
-                          value="{{ old('displacement') }}">
+                          value="{{ $motorcycle->displacement }}">
                         @error('displacement')
                         <div class="invalid-feedback">
                           {{ $message }}
@@ -393,7 +394,7 @@
 
                       <input type="text" class="form-control @error('max_power') is-invalid @enderror" name="max_power"
                         id="maxPowerLabel" placeholder="eg. 180 HP" aria-label="eg. 180 HP"
-                        value="{{ old('max_power') }}">
+                        value="{{ $motorcycle->max_power }}">
                       @error('max_power')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -412,7 +413,7 @@
                       <div class="input-group">
                         <input type="text" class="form-control @error('max_torque') is-invalid @enderror"
                           name="max_torque" id="maxTorqueLabel" placeholder="eg. 160 Nm" aria-label="eg. 160 Nm"
-                          value="{{ old('max_torque') }}">
+                          value="{{ $motorcycle->max_torque }}">
                         @error('max_torque')
                         <div class="invalid-feedback">
                           {{ $message }}
@@ -437,7 +438,7 @@
 
                       <input type="text" class="form-control @error('transmission') is-invalid @enderror"
                         name="transmission" id="transmissionLabel" placeholder="eg. Automatic"
-                        aria-label="eg. Automatic" value="{{ old('transmission') }}">
+                        aria-label="eg. Automatic" value="{{ $motorcycle->transmission }}">
                       @error('transmission')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -456,7 +457,7 @@
                       <div class="input-group">
                         <input type="text" class="form-control @error('fuel_system') is-invalid @enderror"
                           name="fuel_system" id="fuelSystemLabel" placeholder="eg. Direct Injection"
-                          aria-label="eg. Direct Injection" value="{{ old('fuel_system') }}">
+                          aria-label="eg. Direct Injection" value="{{ $motorcycle->fuel_system }}">
                         @error('fuel_system')
                         <div class="invalid-feedback">
                           {{ $message }}
@@ -482,7 +483,7 @@
 
                       <input type="text" class="form-control @error('ignition_system') is-invalid @enderror"
                         name="ignition_system" id="ignitionSystemLabel" placeholder="eg. Electronic"
-                        aria-label="eg. Electronic" value="{{ old('ignition_system') }}">
+                        aria-label="eg. Electronic" value="{{ $motorcycle->ignition_system }}">
                       @error('ignition_system')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -524,7 +525,7 @@
 
                       <input type="text" class="form-control @error('frame_type') is-invalid @enderror"
                         name="frame_type" id="frameTypeLabel" placeholder="eg. Monocoque" aria-label="eg. Monocoque"
-                        value="{{ old('frame_type') }}">
+                        value="{{ $motorcycle->frame_type }}">
                       @error('frame_type')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -543,7 +544,7 @@
                       <div class="input-group">
                         <input type="text" class="form-control @error('front_suspension') is-invalid @enderror"
                           name="front_suspension" id="FrontSuspensionLabel" placeholder="eg. MacPherson Strut"
-                          aria-label="eg. MacPherson Strut" value="{{ old('front_suspension') }}">
+                          aria-label="eg. MacPherson Strut" value="{{ $motorcycle->front_suspension }}">
                         @error('front_suspension')
                         <div class="invalid-feedback">
                           {{ $message }}
@@ -569,7 +570,7 @@
 
                       <input type="text" class="form-control @error('rear_suspension') is-invalid @enderror"
                         name="rear_suspension" id="rearSuspensionLabel" placeholder="eg. Multi-link"
-                        aria-label="eg. Multi-link" value="{{ old('rear_suspension') }}">
+                        aria-label="eg. Multi-link" value="{{ $motorcycle->rear_suspension }}">
                       @error('rear_suspension')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -588,7 +589,7 @@
                       <div class="input-group">
                         <input type="text" class="form-control @error('fuel_capacity') is-invalid @enderror"
                           name="fuel_capacity" id="fuelCapacityLabel" placeholder="eg. 60 liters"
-                          aria-label="eg. 60 liters" value="{{ old('fuel_capacity') }}">
+                          aria-label="eg. 60 liters" value="{{ $motorcycle->fuel_capacity }}">
                         @error('fuel_capacity')
                         <div class="invalid-feedback">
                           {{ $message }}
@@ -613,7 +614,7 @@
 
                       <input type="text" class="form-control @error('battery') is-invalid @enderror" name="battery"
                         id="batteryLabel" placeholder="eg. 12V Lithium-ion" aria-label="eg. 12V Lithium-ion"
-                        value="{{ old('battery') }}">
+                        value="{{ $motorcycle->battery }}">
                       @error('battery')
                       <div class="invalid-feedback">
                         {{ $message }}
@@ -822,7 +823,7 @@
                     <input type="text" class="js-input-mask form-control @error('pricing') is-invalid @enderror"
                       id="priceLabel" placeholder="RM x,xx.xx" data-hs-mask-options='{
                       "mask": "RM 00,000.00"
-                    }' name="pricing" value="{{ old('pricing') }}">
+                    }' name="pricing" value="{{ $motorcycle->pricing }}">
                     @error('pricing')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -845,7 +846,7 @@
                   </span>
                   <span class="col-4 col-sm-3 text-end">
                     <input type="checkbox" class="form-check-input @error('availability') is-invalid @enderror"
-                      id="availabilitySwitch1" name="availability">
+                      id="availabilitySwitch1" name="availability" @if ($motorcycle->availability) checked @endif>
                   </span>
                   @error('availability')
                   <div class="invalid-feedback @error('availability') d-block @enderror">
@@ -881,7 +882,8 @@
                             }' name="salesman_id">
                       <option value="">Select a person...</option>
                       @foreach ($salesmen as $salesman)
-                      <option value="{{ $salesman->id }}" @if (old('salesman_id')==$salesman->id) selected @endif>{{
+                      <option value="{{ $salesman->id }}" @if ($motorcycle->salesman_id==$salesman->id) selected
+                        @endif>{{
                         $salesman->name }}</option>
                       @endforeach
                     </select>
@@ -921,7 +923,7 @@
 
                   <input type="text" class="form-control @error('mileage') is-invalid @enderror" name="mileage"
                     id="mileageLabel" placeholder="eg. 348121032" aria-label="eg. 348121032"
-                    value="{{ old('mileage') }}">
+                    value="{{ $motorcycle->mileage }}">
                   @error('mileage')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -950,7 +952,7 @@
                     <input type="text"
                       class="flatpickr-custom-form-control form-control @error('vehicle_registration_date') is-invalid @enderror"
                       id="vehicleRegistrationDate" placeholder="Select dates" data-input
-                      name="vehicle_registration_date" value="{{ old('vehicle_registration_date') }}">
+                      name="vehicle_registration_date" value="{{ $motorcycle->vehicle_registration_date }}">
                     @error('vehicle_registration_date')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -979,7 +981,7 @@
                     <input type="text"
                       class="flatpickr-custom-form-control form-control @error('road_tax_expiry_date') is-invalid @enderror"
                       id="roadTaxExpiryDate" placeholder="Select dates" data-input name="road_tax_expiry_date"
-                      value="{{ old('road_tax_expiry_date') }}">
+                      value="{{ $motorcycle->road_tax_expiry_date }}">
                     @error('road_tax_expiry_date')
                     <div class="invalid-feedback">
                       {{ $message }}
@@ -1006,14 +1008,14 @@
             <div class="card-body">
               <div class="row justify-content-center justify-content-sm-between">
                 <div class="col">
-                  <button type="button" class="btn btn-ghost-primary">Add motocycle to listing</button>
+                  <button type="button" class="btn btn-ghost-primary">Save Changes</button>
                 </div>
                 <!-- End Col -->
 
                 <div class="col-auto">
                   <div class="d-flex gap-3">
                     <button type="button" class="btn btn-ghost-light">Discard</button>
-                    <button type="submit" class="btn btn-primary" id="addMotorcycleFormSubmitBtn">Save</button>
+                    <button type="submit" class="btn btn-primary" id="editMotorcycleFormSubmitBtn">Save</button>
                   </div>
                 </div>
                 <!-- End Col -->
@@ -2044,54 +2046,12 @@
         // =======================================================
         HSCore.components.HSDropzone.init('.js-dropzone')
 
-        let motorCoverDropzone = Dropzone.forElement('#motorCoverDropzone', {
-            paramName: "motor_cover",
-            maxFiles: 1,
-            acceptedFiles: "image/*",
-        });
-
-        motorCoverDropzone.on('addedfile', function(file){
-          document.getElementById('addMotorcycleFormSubmitBtn').setAttribute("disabled", "disabled");
-        });
-        
-        motorCoverDropzone.on('complete', function(file){
-          if(file.accepted){
-            document.getElementById('hiddenMotorCover').value = JSON.stringify(file);
-            document.getElementById('addMotorcycleFormSubmitBtn').removeAttribute("disabled");
-          }
-        });
-
-        motorCoverDropzone.on('removedfile', function(file){
-          document.getElementById('hiddenMotorCover').value = null;
-        });
-
-        // Motor Images
-        let motorImagesDropzone = Dropzone.forElement('#motorImagesDropzone', {
-          paramName: "motor_images",
-          acceptedFiles: "image/*",
-        });
-
-        motorImagesDropzone.on('addedfile', function(file){
-          document.getElementById('addMotorcycleFormSubmitBtn').setAttribute("disabled", "disabled");
-        });
-
-        motorImagesDropzone.on('complete', function(file){
-          if(file.accepted){
-            document.getElementById('addMotorcycleFormSubmitBtn').removeAttribute("disabled");
-          }
-        });
-
-        document.getElementById('addMotorcycleForm').addEventListener('submit', function(event) {
-          event.preventDefault();
-          $('<input>').attr({type:'hidden', name:'motor_images', value:JSON.stringify(motorImagesDropzone.files)}).appendTo(this);
-          this.submit();
-        });
-
-
         // INITIALIZATION OF QUILLJS EDITOR
         // =======================================================
         HSCore.components.HSQuill.init('.js-quill')
         var quill_instance = Quill.find(document.getElementById('quill_description'));
+        
+        quill_instance.clipboard.dangerouslyPasteHTML({!! json_encode($motorcycle->description) !!});
 
         quill_instance.on('text-change', function(delta, oldDelta, source) {
         $('#description').val(quill_instance.root.innerHTML);

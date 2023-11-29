@@ -2093,6 +2093,10 @@
         HSCore.components.HSQuill.init('.js-quill')
         var quill_instance = Quill.find(document.getElementById('quill_description'));
 
+        @if(old('description'))
+        quill_instance.clipboard.dangerouslyPasteHTML({!! json_encode(old('description')) !!});
+        @endif
+
         quill_instance.on('text-change', function(delta, oldDelta, source) {
         $('#description').val(quill_instance.root.innerHTML);
         });

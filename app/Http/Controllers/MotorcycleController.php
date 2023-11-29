@@ -36,40 +36,7 @@ class MotorcycleController extends Controller
      */
     public function store(Request $request)
     {
-        $data =
-            $request->validate([
-                'model' => 'nullable|string',
-                'manufacture_year' => 'nullable|integer|digits:4',
-                'capacity' => 'nullable|string',
-                'colour' => 'nullable|string',
-                'brand' => 'nullable|string',
-                'description' => 'nullable|string',
-
-                'engine_type' => 'nullable|string',
-                'displacement' => 'nullable|string',
-                'max_power' => 'nullable|string',
-                'max_torque' => 'nullable|string',
-                'transmission' => 'nullable|string',
-                'fuel_system' => 'nullable|string',
-                'ignition_system' => 'nullable|string',
-
-                'frame_type' => 'nullable|string',
-                'front_suspension' => 'nullable|string',
-                'rear_suspension' => 'nullable|string',
-                'fuel_capacity' => 'nullable|string',
-                'battery' => 'nullable|string',
-
-                'pricing' => 'nullable|string',
-                'availability' => 'nullable|in:on',
-
-                'salesman_id' => 'nullable|exists:users,id',
-                'motor_cover' => 'nullable|json',
-                'motor_images' => 'nullable|json',
-
-                'mileage' => 'nullable|integer',
-                'vehicle_registration_date' => 'nullable|date',
-                'road_tax_expiry_date' => 'nullable|date',
-            ]);
+        $data = $this->validateRequest($request);
 
         $data['availability'] =
             $request->has('availability');
@@ -131,7 +98,10 @@ class MotorcycleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $salesmen = User::where('role', 2)->get();
+        $motorcycle = Motorcycle::with('motorcycleImages')->findorFail($id);
+
+        return view('admin.motorcycles.edit', compact('motorcycle', 'salesmen'));
     }
 
     /**
@@ -139,7 +109,15 @@ class MotorcycleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $this->validateRequest($request);
+
+        $motorcycle = Motorcycle::findOrFail($id);
+
+        if ($motorcycle->update($data)) {
+            return redirect()->route('motorcycles.index')->with('success', 'Motorcycle updated successful');
+        } else {
+            return back()->with('error', 'Something went wrong, please try again later');
+        }
     }
 
     /**
@@ -148,5 +126,45 @@ class MotorcycleController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    /**
+     * Validate Rule
+     */
+    public function validateRequest($request)
+    {
+        return $this->validate($request, [
+            'model' => 'nullable|string',
+            'manufacture_year' => 'nullable|integer|digits:4',
+            'capacity' => 'nullable|string',
+            'colour' => 'nullable|string',
+            'brand' => 'nullable|string',
+            'description' => 'nullable|string',
+
+            'engine_type' => 'nullable|string',
+            'displacement' => 'nullable|string',
+            'max_power' => 'nullable|string',
+            'max_torque' => 'nullable|string',
+            'transmission' => 'nullable|string',
+            'fuel_system' => 'nullable|string',
+            'ignition_system' => 'nullable|string',
+
+            'frame_type' => 'nullable|string',
+            'front_suspension' => 'nullable|string',
+            'rear_suspension' => 'nullable|string',
+            'fuel_capacity' => 'nullable|string',
+            'battery' => 'nullable|string',
+
+            'pricing' => 'nullable|string',
+            'availability' => 'nullable|in:on',
+
+            'salesman_id' => 'nullable|exists:users,id',
+            'motor_cover' => 'nullable|json',
+            'motor_images' => 'nullable|json',
+
+            'mileage' => 'nullable|integer',
+            'vehicle_registration_date' => 'nullable|date',
+            'road_tax_expiry_date' => 'nullable|date',
+        ]);
     }
 }

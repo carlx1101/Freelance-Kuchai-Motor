@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Motorcycles Dashboard| Kuchai Motor</title>
+  <title>Motorcycles Dashboard | Kuchai Motor</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./favicon.ico">
@@ -159,7 +159,7 @@
           <!-- End Col -->
 
           <div class="col-sm-auto">
-            <a class="btn btn-primary" href="{{ motorcycle.create }}">
+            <a class="btn btn-primary" href="{{ route('motorcycles.create') }}">
               <i class="bi-person-plus-fill me-1"></i> Add Motorcycles
             </a>
           </div>
@@ -1864,8 +1864,8 @@
                 </td>
                 <td>Employee</td>
                 <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal"
-                    data-bs-target="#editUserModal">
+                  <button type="button" class="btn btn-white btn-sm"
+                    onclick="window.location.href='{{ route('motorcycles.edit', $motorcycle->id) }}'">
                     <i class="bi-pencil-fill me-1"></i> Edit
                   </button>
                 </td>

@@ -195,7 +195,33 @@ class AccessoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $accessory = Accessory::findOrFail($id);
+
+        if (isset($accessory->accessory_cover_filename) && isset($accessory->accessory_cover_url)) {
+            if (file_exists(public_path('storage/accessory_covers/' . $accessory->accessory_cover_filename))) {
+                Storage::delete('storage/accessory_covers/' . $accessory->accessory_cover_filename);
+                unlink(public_path('storage/accessory_covers/' . $accessory->accessory_cover_filename));
+            }
+        }
+
+        if (count($accessory->accessoryImages) > 0) {
+            $parentDirectoryName = preg_match('/\/([^\/]+)\/[^\/]+$/', $accessory->accessoryImages->first()->url, $matches) ? $matches[1] : abort(401);
+            foreach ($accessory->accessoryImages as $accessory_image) {
+                if (file_exists(public_path('storage/accessory_images/' . $parentDirectoryName . '/' . $accessory_image->name))) {
+                    Storage::delete('storage/accessory_images/' . $parentDirectoryName . '/' . $accessory_image->name);
+                    unlink(public_path('storage/accessory_images/' . $parentDirectoryName . '/' . $accessory_image->name));
+
+                    // $accessory_image->delete(); Truncate from database
+                }
+            }
+            count(File::files(public_path('storage/accessory_images/' . $parentDirectoryName))) == 0 ? File::deleteDirectory(public_path('storage/accessory_images/' . $parentDirectoryName)) : '';
+        }
+
+        if ($accessory->delete()) {
+            return redirect()->route('accessories.index')->with('success', 'Accessory successful deleted');
+        } else {
+            return back()->with('error', 'Something went wrong, please try again later');
+        }
     }
 
     /**

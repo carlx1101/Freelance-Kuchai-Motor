@@ -1868,6 +1868,11 @@
                     onclick="window.location.href='{{ route('motorcycles.edit', $motorcycle->id) }}'">
                     <i class="bi-pencil-fill me-1"></i> Edit
                   </button>
+                  <button type="button" class="btn btn-white btn-sm deleteMotorcycle" data-bs-toggle="modal"
+                    data-bs-target="#deleteMotorcycleModal"
+                    data-motorcycle='{"id":"{{ $motorcycle->id }}", "model":"{{ $motorcycle->model }}"}'>
+                    <i class="bi-trash-fill me-1"></i> Delete
+                  </button>
                 </td>
               </tr>
               @endforeach
@@ -4682,6 +4687,30 @@
     </div>
   </div>
   <!-- End Edit user -->
+
+  {{-- Delete Accessory --}}
+  <div class="modal fade" id="deleteMotorcycleModal" tabindex="-1" aria-labelledby="deleteMotorcycleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleteMotorcycleModalLabel">Delete Motorcycle
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{-- Modal Content Will be Added Here --}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger"
+            onclick="document.getElementById('motorcycle-destroy').submit();">Confirm
+            changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- END Delete Accessory --}}
   <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Global Compulsory  -->
@@ -4886,8 +4915,33 @@
         })
       })()
   </script>
-
   <!-- End Style Switcher JS -->
+
+  <script>
+    $(document).on('click', '.deleteMotorcycle', function() {
+                var motorcycle = $(this).data('motorcycle');
+                
+                var modalBody = $('#deleteMotorcycleModal .modal-body');
+                
+                modalBody.empty();
+    
+                let deleteModal =
+                `
+                    <p class="fs-4">Are you sure you want to remove this accessory: <b>${motorcycle.model}</b> ?</p>
+                    <small>This action is <span class="text-danger">IRREVERSIBLE</span>.</small>
+                    <form id="motorcycle-destroy" action="/admin/motorcycles/${motorcycle.id}" class="d-none"
+                        method="POST">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                `;
+    
+                const div = document.createElement('div');
+                div.innerHTML = deleteModal;
+                
+                modalBody.append(div);
+            });
+  </script>
 </body>
 
 </html>

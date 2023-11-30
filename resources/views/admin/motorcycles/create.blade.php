@@ -1777,7 +1777,7 @@
                 <img class="img-fluid" src="{{ asset('backend/svg/brands/flow-xo-gray.svg') }}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="{{ asset('backend/svg/brands/layar-gray.svg') }} alt=" Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/layar-gray.svg') }}" alt=" Image Description">
               </div>
             </div>
           </div>

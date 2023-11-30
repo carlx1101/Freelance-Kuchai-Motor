@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Edit Motorcycle | Kuchai Motor</title>
+  <title>Edit Accessory | Kuchai Motor</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./favicon.ico">
@@ -25,7 +25,7 @@
 
   <link rel="preload" href="{{asset('backend/css/theme.min.css')}}" data-hs-appearance="default" as="style">
   <link rel="preload" href="{{asset('backend/css/theme-dark.min.css')}}" data-hs-appearance="dark" as="style">
-  <link rel="stylesheet" href="{{asset('backend/vendor/flatpickr/dist/flatpickr.min.css')}}">
+
   <style data-hs-appearance-onload-styles>
     * {
       transition: unset !important;
@@ -151,14 +151,13 @@
           <div class="col-sm mb-2 mb-sm-0">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb breadcrumb-no-gutter">
-                <li class="breadcrumb-item"><a class="breadcrumb-link"
-                    href="{{ route('motorcycles.index') }}">Motorcycles</a>
+                <li class="breadcrumb-item"><a class="breadcrumb-link" href="./ecommerce-products.html">Accessories</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Motorcycle</li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Accessory</li>
               </ol>
             </nav>
 
-            <h1 class="page-header-title">Edit Motorcycle</h1>
+            <h1 class="page-header-title">Edit Accessory</h1>
 
             {{-- <div class="mt-2">
               <a class="text-body me-3" href="javascript:;">
@@ -175,8 +174,7 @@
       </div>
       <!-- End Page Header -->
 
-      <form action="{{ route('motorcycles.update', $motorcycle->id) }}" method="POST" enctype="multipart/form-data"
-        id="editMotorcycleForm">
+      <form action="{{ route('accessories.update', $accessory->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -198,37 +196,41 @@
                   <div class="col-sm-6">
                     <!-- Form -->
                     <div class="mb-4">
-                      <label for="modelLabel" class="form-label">Model</label>
+                      <label for="addAccessoriesName" class="form-label">Name</label>
 
-                      <input type="text" class="form-control @error('model') is-invalid @enderror" name="model"
-                        id="modelLabel" placeholder="eg. Sedan" aria-label="eg. Sedan" value="{{ $motorcycle->model }}">
-                      @error('model')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
+                      <input type="text" class="form-control" name="name" id="addAccessoriesName"
+                        placeholder="eg. Helmet" aria-label="eg. Helmet" value="{{ $accessory->name }}">
                     </div>
                     <!-- End Form -->
-
-
                   </div>
                   <!-- End Col -->
 
                   <div class="col-sm-6">
                     <!-- Form -->
                     <div class="mb-4">
-                      <label for="brandLabel" class="form-label">Brand</label>
+                      <label for="weightLabel" class="form-label">Category</label>
 
-                      <div class="input-group">
-                        <input type="text" class="form-control @error('brand') is-invalid @enderror" name=" brand"
-                          id="brandLabel" placeholder="eg. ABC Motors" aria-label="eg. ABC Motors"
-                          value="{{ $motorcycle->brand }}">
-                        @error('brand')
+                      <!-- Select -->
+                      <div class="tom-select-custom">
+                        <select class="js-select form-select @error('subcategory_id') is-invalid @enderror"
+                          autocomplete="off" data-hs-tom-select-options='{
+                                  "placeholder": "Select category..."
+                                  }' name="subcategory_id">
+                          <option value="">Select a category...</option>
+                          @foreach ($subcategories as $subcategory)
+                          <option value="{{ $subcategory->id }}" @if ($accessory->subcategory_id==$subcategory->id)
+                            selected
+                            @endif>{{
+                            $subcategory->subcategory_name }}</option>
+                          @endforeach
+                        </select>
+                        @error('subcategory_id')
                         <div class="invalid-feedback">
                           {{ $message }}
                         </div>
                         @enderror
                       </div>
+                      <!-- End Select -->
 
                     </div>
                     <!-- End Form -->
@@ -238,405 +240,32 @@
                 <!-- End Row -->
 
 
-
-                <div class="row">
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="capacityLabel" class="form-label">Capacity</label>
-
-                      <input type="text" class="form-control @error('capacity') is-invalid @enderror" name="capacity"
-                        id="capacityLabel" placeholder="eg. 2-person" aria-label="eg. 2-person"
-                        value="{{ $motorcycle->capacity }}">
-                      @error('capacity')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="colorLabel" class="form-label">Colour</label>
-
-                      <div class="input-group">
-                        <input type="text" class="form-control @error('colour') is-invalid @enderror" name="colour"
-                          id="colorLabel" placeholder="eg. Blue" aria-label="eg. Blue"
-                          value="{{ $motorcycle->colour }}">
-                        @error('colour')
-                        <div class="invalid-feedback">
-                          {{ $message }}
-                        </div>
-                        @enderror
-                      </div>
-
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-                </div>
-                <!-- End Row -->
-
-
-
-                <div class="row">
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="manufactureYearLabel" class="form-label">Manufacture Year</label>
-
-                      <input type="number" class="form-control @error('manufacture_year') is-invalid @enderror"
-                        name="manufacture_year" id="manufactureYearLabel" placeholder="eg. 2023" aria-label="eg. 2023"
-                        value="{{ $motorcycle->manufacture_year }}">
-                      @error('manufacture_year')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-
-
-                </div>
-                <!-- End Row -->
 
                 <label class="form-label">Description <span class="form-label-secondary">(Optional)</span></label>
 
                 <!-- Quill -->
                 <div class="quill-custom">
-                  <div id="quill_description" class="js-quill @error('description') is-invalid @enderror"
-                    style="height: 15rem;" data-hs-quill-options='{
-                     "placeholder": "Type your description...",
-                      "modules": {
-                        "toolbar": [
-                          ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
-                        ]
-                      }
-                     }'>
+                  <div id="quill_description" class="js-quill" style="height: 15rem;" data-hs-quill-options='{
+                       "placeholder": "Type your description...",
+                        "modules": {
+                          "toolbar": [
+                            ["bold", "italic", "underline", "strike", "link", "image", "blockquote", "code", {"list": "bullet"}]
+                          ]
+                        }
+                       }'>
                   </div>
                 </div>
+                <input type="hidden" id="description" name="description" value="{{ $accessory->description }}">
                 <!-- End Quill -->
-                <input type="hidden" id="description" name="description" value="{{ $motorcycle->description }}">
+                @error('description')
+                <div class="invalid-feedback @error('description') d-block @enderror">
+                  {{ $message }}
+                </div>
+                @enderror
               </div>
               <!-- Body -->
             </div>
             <!-- End Card -->
-
-
-            <!-- Card -->
-            <div class="card mb-3 mb-lg-5">
-              <!-- Header -->
-              <div class="card-header">
-                <h4 class="card-header-title">Engine information</h4>
-              </div>
-              <!-- End Header -->
-
-              <!-- Body -->
-              <div class="card-body">
-
-
-                <div class="row">
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="engineTypeLabel" class="form-label">Engine Type</label>
-
-                      <input type="text" class="form-control @error('engine_type') is-invalid @enderror"
-                        name="engine_type" id="engineTypeLabel" placeholder="eg. Petrol" aria-label="eg. Petrol"
-                        value="{{ $motorcycle->engine_type }}">
-                      @error('engine_type')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="displacementLabel" class="form-label">Displacement</label>
-
-                      <div class="input-group">
-                        <input type="text" class="form-control @error('displacement') is-invalid @enderror"
-                          name="displacement" id="displacementLabel" placeholder="eg. 2000 cc" aria-label="eg. 2000 cc"
-                          value="{{ $motorcycle->displacement }}">
-                        @error('displacement')
-                        <div class="invalid-feedback">
-                          {{ $message }}
-                        </div>
-                        @enderror
-
-                      </div>
-
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-                </div>
-                <!-- End Row -->
-
-
-
-                <div class="row">
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="maxPowerLabel" class="form-label">Max Power</label>
-
-                      <input type="text" class="form-control @error('max_power') is-invalid @enderror" name="max_power"
-                        id="maxPowerLabel" placeholder="eg. 180 HP" aria-label="eg. 180 HP"
-                        value="{{ $motorcycle->max_power }}">
-                      @error('max_power')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="maxTorqueLabel" class="form-label">Max Torque</label>
-
-                      <div class="input-group">
-                        <input type="text" class="form-control @error('max_torque') is-invalid @enderror"
-                          name="max_torque" id="maxTorqueLabel" placeholder="eg. 160 Nm" aria-label="eg. 160 Nm"
-                          value="{{ $motorcycle->max_torque }}">
-                        @error('max_torque')
-                        <div class="invalid-feedback">
-                          {{ $message }}
-                        </div>
-                        @enderror
-
-                      </div>
-
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-                </div>
-                <!-- End Row -->
-
-
-                <div class="row">
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="transmissionLabel" class="form-label">Transmission</label>
-
-                      <input type="text" class="form-control @error('transmission') is-invalid @enderror"
-                        name="transmission" id="transmissionLabel" placeholder="eg. Automatic"
-                        aria-label="eg. Automatic" value="{{ $motorcycle->transmission }}">
-                      @error('transmission')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="fuelSystemLabel" class="form-label">Fuel System</label>
-
-                      <div class="input-group">
-                        <input type="text" class="form-control @error('fuel_system') is-invalid @enderror"
-                          name="fuel_system" id="fuelSystemLabel" placeholder="eg. Direct Injection"
-                          aria-label="eg. Direct Injection" value="{{ $motorcycle->fuel_system }}">
-                        @error('fuel_system')
-                        <div class="invalid-feedback">
-                          {{ $message }}
-                        </div>
-                        @enderror
-
-                      </div>
-
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-                </div>
-                <!-- End Row -->
-
-
-
-                <div class="row">
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="ignitionSystemLabel" class="form-label">Ignition System</label>
-
-                      <input type="text" class="form-control @error('ignition_system') is-invalid @enderror"
-                        name="ignition_system" id="ignitionSystemLabel" placeholder="eg. Electronic"
-                        aria-label="eg. Electronic" value="{{ $motorcycle->ignition_system }}">
-                      @error('ignition_system')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-
-                </div>
-                <!-- End Row -->
-
-              </div>
-              <!-- Body -->
-            </div>
-            <!-- End Card -->
-
-
-
-
-            <!-- Card -->
-            <div class="card mb-3 mb-lg-5">
-              <!-- Header -->
-              <div class="card-header">
-                <h4 class="card-header-title">Chasis information</h4>
-              </div>
-              <!-- End Header -->
-
-              <!-- Body -->
-              <div class="card-body">
-
-
-                <div class="row">
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="frameTypeLabel" class="form-label">Frame Type</label>
-
-                      <input type="text" class="form-control @error('frame_type') is-invalid @enderror"
-                        name="frame_type" id="frameTypeLabel" placeholder="eg. Monocoque" aria-label="eg. Monocoque"
-                        value="{{ $motorcycle->frame_type }}">
-                      @error('frame_type')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="FrontSuspensionLabel" class="form-label">Front Suspension</label>
-
-                      <div class="input-group">
-                        <input type="text" class="form-control @error('front_suspension') is-invalid @enderror"
-                          name="front_suspension" id="FrontSuspensionLabel" placeholder="eg. MacPherson Strut"
-                          aria-label="eg. MacPherson Strut" value="{{ $motorcycle->front_suspension }}">
-                        @error('front_suspension')
-                        <div class="invalid-feedback">
-                          {{ $message }}
-                        </div>
-                        @enderror
-
-                      </div>
-
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-                </div>
-                <!-- End Row -->
-
-
-
-                <div class="row">
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="rearSuspensionLabel" class="form-label">Rear Suspension</label>
-
-                      <input type="text" class="form-control @error('rear_suspension') is-invalid @enderror"
-                        name="rear_suspension" id="rearSuspensionLabel" placeholder="eg. Multi-link"
-                        aria-label="eg. Multi-link" value="{{ $motorcycle->rear_suspension }}">
-                      @error('rear_suspension')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="fuelCapacityLabel" class="form-label">Fuel Capacity</label>
-
-                      <div class="input-group">
-                        <input type="text" class="form-control @error('fuel_capacity') is-invalid @enderror"
-                          name="fuel_capacity" id="fuelCapacityLabel" placeholder="eg. 60 liters"
-                          aria-label="eg. 60 liters" value="{{ $motorcycle->fuel_capacity }}">
-                        @error('fuel_capacity')
-                        <div class="invalid-feedback">
-                          {{ $message }}
-                        </div>
-                        @enderror
-
-                      </div>
-
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-                </div>
-                <!-- End Row -->
-
-
-                <div class="row">
-                  <div class="col-sm-6">
-                    <!-- Form -->
-                    <div class="mb-4">
-                      <label for="batteryLabel" class="form-label">Battery</label>
-
-                      <input type="text" class="form-control @error('battery') is-invalid @enderror" name="battery"
-                        id="batteryLabel" placeholder="eg. 12V Lithium-ion" aria-label="eg. 12V Lithium-ion"
-                        value="{{ $motorcycle->battery }}">
-                      @error('battery')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
-                    </div>
-                    <!-- End Form -->
-                  </div>
-                  <!-- End Col -->
-
-
-                </div>
-                <!-- End Row -->
-
-
-
-
-              </div>
-              <!-- Body -->
-            </div>
-            <!-- End Card -->
-
 
             <!-- Card -->
             <div class="card mb-3 mb-lg-5">
@@ -668,33 +297,10 @@
 
               <!-- Body -->
               <div class="card-body">
-                <label for="SKULabel" class="form-label">Motor Cover</label>
+                <label for="addAccessoriesCover" class="form-label">Accessory Cover</label>
 
                 <!-- Dropzone -->
-                <div id="motorCoverDropzone" class="js-dropzone dz-dropzone dz-dropzone-card">
-                  <div class="dz-message">
-                    <img class="avatar avatar-xl avatar-4x3 mb-3"
-                      src="{{asset('backend/svg/illustrations/oc-browse.svg')}}" alt="Image Description"
-                      data-hs-theme-appearance="default">
-                    <img class="avatar avatar-xl avatar-4x3 mb-3"
-                      src="{{asset('backend/svg/illustrations-light/oc-browse.svg')}}" alt="Image Description"
-                      data-hs-theme-appearance="dark">
-
-                    <h5>Drag and drop your file here</h5>
-
-                    <p class="mb-2">or</p>
-
-                    <span class="btn btn-white btn-sm">Browse files</span>
-                  </div>
-                </div>
-                <input type="hidden" name="motor_cover" id="hiddenMotorCover">
-                <!-- End Dropzone -->
-
-
-                <label for="SKULabel" class="form-label mt-2">Motor Images</label>
-
-                <!-- Dropzone -->
-                <div id="motorImagesDropzone" class="js-dropzone dz-dropzone dz-dropzone-card">
+                <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
                   <div class="dz-message">
                     <img class="avatar avatar-xl avatar-4x3 mb-3"
                       src="{{asset('backend/svg/illustrations/oc-browse.svg')}}" alt="Image Description"
@@ -711,7 +317,39 @@
                   </div>
                 </div>
                 <!-- End Dropzone -->
-                <input type="hidden" name="motor_images" id="hiddenMotorImages">
+                @error('accessory_cover')
+                <div class="invalid-feedback @error('accessory_cover') d-block @enderror">
+                  {{ $message }}
+                </div>
+                @enderror
+
+
+                <label for="addAccessoriesImages" class="form-label mt-2">Accessory Images</label>
+
+                <!-- Dropzone -->
+                <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
+                  <div class="dz-message">
+                    <img class="avatar avatar-xl avatar-4x3 mb-3"
+                      src="{{asset('backend/svg/illustrations/oc-browse.svg')}}" alt="Image Description"
+                      data-hs-theme-appearance="default">
+                    <img class="avatar avatar-xl avatar-4x3 mb-3"
+                      src="{{asset('backend/svg/illustrations-light/oc-browse.svg')}}" alt="Image Description"
+                      data-hs-theme-appearance="dark">
+
+                    <h5>Drag and drop your file here</h5>
+
+                    <p class="mb-2">or</p>
+
+                    <span class="btn btn-white btn-sm">Browse files</span>
+                  </div>
+                </div>
+                <!-- End Dropzone -->
+                @error('accessory_images')
+                <div class="invalid-feedback @error('accessory_images') d-block @enderror">
+                  {{ $message }}
+                </div>
+                @enderror
+
               </div>
               <!-- Body -->
             </div>
@@ -730,18 +368,18 @@
                 <h6 class="text-cap">Options</h6>
 
                 <div class="js-add-field" data-hs-add-field-options='{
-                    "template": "#addAnotherOptionFieldTemplate",
-                    "container": "#addAnotherOptionFieldContainer",
-                    "defaultCreated": 0
-                  }'>
+                      "template": "#addAnotherOptionFieldTemplate",
+                      "container": "#addAnotherOptionFieldContainer",
+                      "defaultCreated": 0
+                    }'>
                   <div class="row mb-4">
                     <div class="col-sm-4 mb-2 mb-sm-0">
                       <!-- Select -->
                       <div class="tom-select-custom">
                         <select class="js-select form-select" data-hs-tom-select-options='{
-                                "searchInDropdown": false,
-                                "hideSearch": true
-                              }'>
+                                  "searchInDropdown": false,
+                                  "hideSearch": true
+                                }'>
                           <option value="Size">Size</option>
                           <option value="Color">Color</option>
                           <option value="Material">Material</option>
@@ -775,9 +413,9 @@
                       <!-- Select -->
                       <div class="tom-select-custom">
                         <select class="js-select-dynamic form-select" data-hs-tom-select-options='{
-                                "searchInDropdown": false,
-                                "hideSearch": true
-                              }'>
+                                  "searchInDropdown": false,
+                                  "hideSearch": true
+                                }'>
                           <option value="Size">Size</option>
                           <option value="Color">Color</option>
                           <option value="Material">Material</option>
@@ -817,19 +455,20 @@
               <div class="card-body">
                 <!-- Form -->
                 <div class="mb-4">
-                  <label for="priceLabel" class="form-label">Price</label>
+                  <label for="addAccessoriesPrice" class="form-label">Price</label>
 
                   <div class="input-group">
-                    <input type="text" class="js-input-mask form-control @error('pricing') is-invalid @enderror"
-                      id="priceLabel" placeholder="RM x,xx.xx" data-hs-mask-options='{
-                      "mask": "RM 00,000.00"
-                    }' name="pricing" value="{{ $motorcycle->pricing }}">
-                    @error('pricing')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                    @enderror
+                    <input type="text" class="js-input-mask form-control @error('salesman_id') is-invalid @enderror"
+                      id="addAccessoriesPrice" placeholder="RM x,xx.xx" data-hs-mask-options='{
+                        "mask": "RM 00,000.00"
+                      }' name="pricing" value="{{ $accessory->pricing }}">
                   </div>
+
+                  @error('pricing')
+                  <div class="invalid-feedback">
+                    {{ $message }}
+                  </div>
+                  @enderror
                 </div>
                 <!-- End Form -->
 
@@ -845,8 +484,8 @@
                         title="Swith on to show in the listing page."></i></span>
                   </span>
                   <span class="col-4 col-sm-3 text-end">
-                    <input type="checkbox" class="form-check-input @error('availability') is-invalid @enderror"
-                      id="availabilitySwitch1" name="availability" @if ($motorcycle->availability) checked @endif>
+                    <input type="checkbox" class="form-check-input @error('salesman_id') is-invalid @enderror"
+                      id="availabilitySwitch1" name="availability" @if ($accessory->availability) checked @endif>
                   </span>
                   @error('availability')
                   <div class="invalid-feedback @error('availability') d-block @enderror">
@@ -872,17 +511,16 @@
               <div class="card-body">
                 <!-- Form -->
                 <div class="mb-4">
-                  <label for="categoryLabel" class="form-label">Sales Person</label>
-
+                  <label for="" class="form-label">Sales Person</label>
                   <!-- Select -->
                   <div class="tom-select-custom">
                     <select class="js-select form-select @error('salesman_id') is-invalid @enderror" autocomplete="off"
                       data-hs-tom-select-options='{
-                            "placeholder": "Select sales person..."
-                            }' name="salesman_id">
+                              "placeholder": "Select sales person..."
+                              }' name="salesman_id">
                       <option value="">Select a person...</option>
                       @foreach ($salesmen as $salesman)
-                      <option value="{{ $salesman->id }}" @if ($motorcycle->salesman_id==$salesman->id) selected
+                      <option value="{{ $salesman->id }}" @if ($accessory->salesman_id==$salesman->id) selected
                         @endif>{{
                         $salesman->name }}</option>
                       @endforeach
@@ -896,112 +534,19 @@
                   <!-- End Select -->
                 </div>
                 <!-- Form -->
-              </div>
-              <!-- Body -->
-            </div>
-            <!-- End Card -->
 
 
-            <!-- Card -->
-            <div class="card mt-5">
-              <!-- Header -->
-              <div class="card-header">
-                <h4 class="card-header-title">Used Motor Only</h4>
-              </div>
-              <!-- End Header -->
-
-              <!-- Body -->
-              <div class="card-body">
-
-
-
-
-                <!-- Form -->
-                <div class="mb-4">
-
-                  <label for="mileageLabel" class="form-label">Mileage (KM) </label>
-
-                  <input type="text" class="form-control @error('mileage') is-invalid @enderror" name="mileage"
-                    id="mileageLabel" placeholder="eg. 348121032" aria-label="eg. 348121032"
-                    value="{{ $motorcycle->mileage }}">
-                  @error('mileage')
-                  <div class="invalid-feedback">
-                    {{ $message }}
-                  </div>
-                  @enderror
-                </div>
-                <!-- End Form -->
-
-
-                <!-- Form -->
-                <div class="mb-4">
-
-                  <label for="vehicleRegistrationDate" class="input-label">Vehicle Registration
-                    Date</label>
-
-                  <div id="projectDeadlineNewProjectFlatpickr" class="js-flatpickr mt-2 flatpickr-custom input-group"
-                    data-hs-flatpickr-options='{
-                                    "appendTo": "#projectDeadlineNewProjectFlatpickr",
-                                    "dateFormat": "Y-m-d",
-                                    "wrap": true
-                                    }'>
-                    <div class="input-group-prepend input-group-text" data-bs-toggle>
-                      <i class="bi-calendar-week"></i>
-                    </div>
-
-                    <input type="text"
-                      class="flatpickr-custom-form-control form-control @error('vehicle_registration_date') is-invalid @enderror"
-                      id="vehicleRegistrationDate" placeholder="Select dates" data-input
-                      name="vehicle_registration_date" value="{{ $motorcycle->vehicle_registration_date }}">
-                    @error('vehicle_registration_date')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                    @enderror
-                  </div>
-
-                </div>
-                <!-- End Form -->
-
-                <!-- Form -->
-                <div class="mb-4">
-
-                  <label for="roadTaxExpiryDate" class="input-label">Road Tax Expiry Date</label>
-
-                  <div id="projectDeadlineNewProjectFlatpickr" class="js-flatpickr mt-2 flatpickr-custom input-group"
-                    data-hs-flatpickr-options='{
-                                    "appendTo": "#projectDeadlineNewProjectFlatpickr",
-                                    "dateFormat": "Y-m-d",
-                                    "wrap": true
-                                    }'>
-                    <div class="input-group-prepend input-group-text" data-bs-toggle>
-                      <i class="bi-calendar-week"></i>
-                    </div>
-
-                    <input type="text"
-                      class="flatpickr-custom-form-control form-control @error('road_tax_expiry_date') is-invalid @enderror"
-                      id="roadTaxExpiryDate" placeholder="Select dates" data-input name="road_tax_expiry_date"
-                      value="{{ $motorcycle->road_tax_expiry_date }}">
-                    @error('road_tax_expiry_date')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                    @enderror
-                  </div>
-
-                </div>
-                <!-- End Form -->
 
 
               </div>
               <!-- Body -->
             </div>
             <!-- End Card -->
-
-
           </div>
           <!-- End Col -->
         </div>
+        <!-- End Row -->
+
         <div class="position-fixed start-50 bottom-0 translate-middle-x w-100 zi-99 mb-3" style="max-width: 40rem;">
           <!-- Card -->
           <div class="card card-sm bg-dark border-dark mx-2">
@@ -1015,7 +560,7 @@
                 <div class="col-auto">
                   <div class="d-flex gap-3">
                     <button type="button" class="btn btn-ghost-light">Discard</button>
-                    <button type="submit" class="btn btn-primary" id="editMotorcycleFormSubmitBtn">Save</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                   </div>
                 </div>
                 <!-- End Col -->
@@ -1026,8 +571,6 @@
           <!-- End Card -->
         </div>
       </form>
-      <!-- End Row -->
-
     </div>
     <!-- End Content -->
 
@@ -1779,7 +1322,7 @@
                 <img class="img-fluid" src="{{ asset('backend/svg/brands/flow-xo-gray.svg') }}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="{{ asset('backend/svg/brands/layar-gray.svg') }}" alt="Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/layar-gray.svg') }} alt=" Image Description">
               </div>
             </div>
           </div>
@@ -1955,8 +1498,7 @@
   <script src="{{asset('backend/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
 
   <!-- JS Implementing Plugins -->
-  <script src="{{asset('backend/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside.min.js')}}">
-  </script>
+  <script src="{{asset('backend/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside.min.js')}}"></script>
   <script src="{{asset('backend/vendor/hs-form-search/dist/hs-form-search.min.js')}}"></script>
 
   <script src="{{asset('backend/vendor/hs-quantity-counter/dist/hs-quantity-counter.min.js')}}"></script>
@@ -1967,16 +1509,14 @@
   <script src="{{asset('backend/vendor/datatables/media/js/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('backend/vendor/datatables.net.extensions/select/select.min.js')}}"></script>
   <script src="{{asset('backend/vendor/imask/dist/imask.min.js')}}"></script>
-  <script src="{{asset('backend/vendor/flatpickr/dist/flatpickr.min.js')}}"></script>
+  <script src="{{asset('backend/js/hs.imask.js')}}"></script>
+
   <!-- JS Front -->
   <script src="{{asset('backend/js/theme.min.js')}}"></script>
 
   <!-- JS Plugins Init. -->
   <script>
     $(document).on('ready', function () {
-
-
-
       // INITIALIZATION OF DATATABLES
       // =======================================================
       HSCore.components.HSDatatables.init($('#datatable'), {
@@ -1997,11 +1537,6 @@
   <script>
     (function() {
       window.onload = function () {
-
-
-            // INITIALIZATION OF FLATPICKR
-    // =======================================================
-    HSCore.components.HSFlatpickr.init('.js-flatpickr')
 
 
             // INITIALIZATION OF INPUT MASK
@@ -2046,93 +1581,16 @@
         // =======================================================
         HSCore.components.HSDropzone.init('.js-dropzone')
 
-        // Motor Cover Event Handling
-        // =======================================================
-        let motorCoverDropzone = Dropzone.forElement('#motorCoverDropzone');
-        let motorImagesDropzone = Dropzone.forElement('#motorImagesDropzone');
-        
-        document.getElementById('hiddenMotorCover').value = JSON.stringify({
-        "remove": [],
-        "new_upload":[]
-        }, null, 2);
-
-        document.getElementById('hiddenMotorImages').value = JSON.stringify({
-        "remove": [],
-        "new_upload":[]
-        }, null, 2);
-
-        motorCoverDropzone.on('removedfile', function(file){
-          let hiddenInputValue = JSON.parse(document.getElementById('hiddenMotorCover').value);
-          hiddenInputValue.remove.push({"name": file.name, "image_url": file.image_url});
-          document.getElementById('hiddenMotorCover').value = JSON.stringify(hiddenInputValue, null, 2);
-        });
-        
-        motorCoverDropzone.on('complete', function(file){
-          if(file.accepted){
-            let hiddenInputValue = JSON.parse(document.getElementById('hiddenMotorCover').value);
-            hiddenInputValue.new_upload.push({"name": file.upload.filename, "dataURL": file.dataURL});
-            document.getElementById('hiddenMotorCover').value = JSON.stringify(hiddenInputValue, null, 2);
-          }
-        });
-
-        motorImagesDropzone.on('removedfile', function(file){
-          let hiddenInputValue = JSON.parse(document.getElementById('hiddenMotorImages').value);
-          hiddenInputValue.remove.push({"name": file.name, "image_url": file.image_url});
-          document.getElementById('hiddenMotorImages').value = JSON.stringify(hiddenInputValue, null, 2);
-        });
-        
-        motorImagesDropzone.on('complete', function(file){
-          if(file.accepted){
-            let hiddenInputValue = JSON.parse(document.getElementById('hiddenMotorImages').value);
-            hiddenInputValue.new_upload.push({"name": file.upload.filename, "dataURL": file.dataURL});
-            document.getElementById('hiddenMotorImages').value = JSON.stringify(hiddenInputValue, null, 2);
-          }
-        });
-
-        @isset($motorcycle->motor_cover_url) // Display Motor Cover Image
-        let filename = "{{ $motorcycle->motor_cover_filename }}";
-        var mockFile = {name: filename, image_url: "{{ $motorcycle->motor_cover_url }}", accepted: true, status: 'success'};
-
-        motorCoverDropzone.files.push(mockFile);
-        
-        motorCoverDropzone.emit('addedfile', mockFile);
-        motorCoverDropzone.emit('thumbnail', mockFile, "{{ $motorcycle->motor_cover_url }}");
-
-        // Remove unwanted notification
-        document.querySelector("#motorCoverDropzone .dz-size").remove();
-        document.querySelector("#motorCoverDropzone .dz-progress.progress").remove();
-        document.querySelector("#motorCoverDropzone .dz-success-mark").remove();
-        document.querySelector("#motorCoverDropzone .dz-error-mark").remove();
-        document.querySelector("#motorCoverDropzone .dz-error-message").remove();
-        @endisset
-
-        @if(count($motorcycle->motorcycleImages) > 0) // Display Motor Images
-          let motorImages = @json($motorcycle->motorcycleImages);
-
-          motorImages.forEach(function(image){
-            var filename = image.name;
-            var mockFile = {name: filename, image_url: image.url, accepted: true,};
-            
-            motorImagesDropzone.files.push(mockFile);
-            
-            motorImagesDropzone.emit('addedfile', mockFile);
-            motorImagesDropzone.emit('thumbnail', mockFile, image.url);
-
-            document.querySelector("#motorImagesDropzone .dz-size").remove();
-            document.querySelector("#motorImagesDropzone .dz-progress.progress").remove();
-            document.querySelector("#motorImagesDropzone .dz-success-mark").remove();
-            document.querySelector("#motorImagesDropzone .dz-error-mark").remove();
-            document.querySelector("#motorImagesDropzone .dz-error-message").remove();
-          });
-        @endif
 
         // INITIALIZATION OF QUILLJS EDITOR
         // =======================================================
         HSCore.components.HSQuill.init('.js-quill')
         var quill_instance = Quill.find(document.getElementById('quill_description'));
         
-        quill_instance.clipboard.dangerouslyPasteHTML({!! json_encode($motorcycle->description) !!});
-
+        @if(isset($accessory->description))
+        quill_instance.clipboard.dangerouslyPasteHTML({!! json_encode($accessory->description) !!});
+        @endif
+        
         quill_instance.on('text-change', function(delta, oldDelta, source) {
         $('#description').val(quill_instance.root.innerHTML);
         });

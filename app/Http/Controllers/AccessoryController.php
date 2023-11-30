@@ -62,7 +62,11 @@ class AccessoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $accessory = Accessory::findOrFail($id);
+        $salesmen = User::where('role', 2)->get();
+        $subcategories = Subcategory::select('id', 'subcategory_name')->get();
+
+        return view('admin.accessories.edit', compact('accessory', 'salesmen', 'subcategories'));
     }
 
     /**
@@ -70,7 +74,18 @@ class AccessoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $this->validateRequest($request);
+
+        $data['availability'] =
+            $request->has('availability');
+
+        $accessory = Accessory::findOrFail($id);
+
+        if ($accessory->update($data)) {
+            return redirect()->route('accessories.index')->with('success', 'Accessory updated successful');
+        } else {
+            return back()->with('error', 'Something went wrong, please try again later');
+        }
     }
 
     /**

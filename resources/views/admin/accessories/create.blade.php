@@ -198,8 +198,13 @@
                     <div class="mb-4">
                       <label for="addAccessoriesName" class="form-label">Name</label>
 
-                      <input type="text" class="form-control" name="name" id="addAccessoriesName"
-                        placeholder="eg. Helmet" aria-label="eg. Helmet">
+                      <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                        id="addAccessoriesName" placeholder="eg. Helmet" aria-label="eg. Helmet">
+                      @error('name')
+                      <div class="invalid-feedback">
+                        {{ $message }}
+                      </div>
+                      @enderror
                     </div>
                     <!-- End Form -->
                   </div>

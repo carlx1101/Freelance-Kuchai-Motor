@@ -1777,7 +1777,7 @@
                 <img class="img-fluid" src="{{ asset('backend/svg/brands/flow-xo-gray.svg') }}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="{{ asset('backend/svg/brands/layar-gray.svg') }} alt=" Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/layar-gray.svg') }}" alt=" Image Description">
               </div>
             </div>
           </div>
@@ -2092,6 +2092,10 @@
         // =======================================================
         HSCore.components.HSQuill.init('.js-quill')
         var quill_instance = Quill.find(document.getElementById('quill_description'));
+
+        @if(old('description'))
+        quill_instance.clipboard.dangerouslyPasteHTML({!! json_encode(old('description')) !!});
+        @endif
 
         quill_instance.on('text-change', function(delta, oldDelta, source) {
         $('#description').val(quill_instance.root.innerHTML);

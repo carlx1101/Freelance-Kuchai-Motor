@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Add Accessory | Kuchai Motor</title>
+  <title>Edit Accessory | Kuchai Motor</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="./favicon.ico">
@@ -153,11 +153,11 @@
               <ol class="breadcrumb breadcrumb-no-gutter">
                 <li class="breadcrumb-item"><a class="breadcrumb-link" href="./ecommerce-products.html">Accessories</a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Add Accessory</li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Accessory</li>
               </ol>
             </nav>
 
-            <h1 class="page-header-title">Add Accessory</h1>
+            <h1 class="page-header-title">Edit Accessory</h1>
 
             {{-- <div class="mt-2">
               <a class="text-body me-3" href="javascript:;">
@@ -174,9 +174,9 @@
       </div>
       <!-- End Page Header -->
 
-      <form action="{{ route('accessories.store') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ route('accessories.update', $accessory->id) }}" method="post" enctype="multipart/form-data">
         @csrf
-        @method('POST')
+        @method('PUT')
 
         <div class="row">
           <div class="col-lg-8 mb-3 mb-lg-0">
@@ -198,13 +198,8 @@
                     <div class="mb-4">
                       <label for="addAccessoriesName" class="form-label">Name</label>
 
-                      <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                        id="addAccessoriesName" placeholder="eg. Helmet" aria-label="eg. Helmet">
-                      @error('name')
-                      <div class="invalid-feedback">
-                        {{ $message }}
-                      </div>
-                      @enderror
+                      <input type="text" class="form-control" name="name" id="addAccessoriesName"
+                        placeholder="eg. Helmet" aria-label="eg. Helmet" value="{{ $accessory->name }}">
                     </div>
                     <!-- End Form -->
                   </div>
@@ -223,7 +218,8 @@
                                   }' name="subcategory_id">
                           <option value="">Select a category...</option>
                           @foreach ($subcategories as $subcategory)
-                          <option value="{{ $subcategory->id }}" @if (old('subcategory_id')==$subcategory->id) selected
+                          <option value="{{ $subcategory->id }}" @if ($accessory->subcategory_id==$subcategory->id)
+                            selected
                             @endif>{{
                             $subcategory->subcategory_name }}</option>
                           @endforeach
@@ -259,7 +255,7 @@
                        }'>
                   </div>
                 </div>
-                <input type="hidden" id="description" name="description" value="{{ old('description') }}">
+                <input type="hidden" id="description" name="description" value="{{ $accessory->description }}">
                 <!-- End Quill -->
                 @error('description')
                 <div class="invalid-feedback @error('description') d-block @enderror">
@@ -465,7 +461,7 @@
                     <input type="text" class="js-input-mask form-control @error('salesman_id') is-invalid @enderror"
                       id="addAccessoriesPrice" placeholder="RM x,xx.xx" data-hs-mask-options='{
                         "mask": "RM 00,000.00"
-                      }' name="pricing" value="{{ old('pricing') }}">
+                      }' name="pricing" value="{{ $accessory->pricing }}">
                   </div>
 
                   @error('pricing')
@@ -489,7 +485,7 @@
                   </span>
                   <span class="col-4 col-sm-3 text-end">
                     <input type="checkbox" class="form-check-input @error('salesman_id') is-invalid @enderror"
-                      id="availabilitySwitch1" name="availability">
+                      id="availabilitySwitch1" name="availability" @if ($accessory->availability) checked @endif>
                   </span>
                   @error('availability')
                   <div class="invalid-feedback @error('availability') d-block @enderror">
@@ -524,7 +520,8 @@
                               }' name="salesman_id">
                       <option value="">Select a person...</option>
                       @foreach ($salesmen as $salesman)
-                      <option value="{{ $salesman->id }}" @if (old('salesman_id')==$salesman->id) selected @endif>{{
+                      <option value="{{ $salesman->id }}" @if ($accessory->salesman_id==$salesman->id) selected
+                        @endif>{{
                         $salesman->name }}</option>
                       @endforeach
                     </select>
@@ -556,7 +553,7 @@
             <div class="card-body">
               <div class="row justify-content-center justify-content-sm-between">
                 <div class="col">
-                  <button type="button" class="btn btn-ghost-primary">Save Accessory</button>
+                  <button type="button" class="btn btn-ghost-primary">Save Changes</button>
                 </div>
                 <!-- End Col -->
 
@@ -1078,7 +1075,7 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar" src="./assets/img/160x160/img9.jpg" alt="Image Description">
+              <img class="step-avatar" src="{{ asset('backend/img/160x160/img9.jpg') }}" alt="Image Description">
             </div>
 
             <div class="step-content">
@@ -1095,7 +1092,7 @@
                       <!-- Media -->
                       <div class="d-flex">
                         <div class="flex-shrink-0">
-                          <img class="avatar avatar-xs" src="./assets/svg/brands/excel-icon.svg"
+                          <img class="avatar avatar-xs" src="{{ asset('backend/svg/brands/excel-icon.svg') }}"
                             alt="Image Description">
                         </div>
                         <div class="flex-grow-1 text-truncate ms-2">
@@ -1112,7 +1109,8 @@
                       <!-- Media -->
                       <div class="d-flex">
                         <div class="flex-shrink-0">
-                          <img class="avatar avatar-xs" src="./assets/svg/brands/word-icon.svg" alt="Image Description">
+                          <img class="avatar avatar-xs" src="{{ asset('backend/svg/brands/word-icon.svg') }}"
+                            alt="Image Description">
                         </div>
                         <div class="flex-grow-1 text-truncate ms-2">
                           <span class="d-block fs-6 text-dark text-truncate"
@@ -1157,7 +1155,7 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar-img" src="./assets/img/160x160/img3.jpg" alt="Image Description">
+              <img class="step-avatar-img" src="{{ asset('backend/img/160x160/img3.jpg') }}" alt="Image Description">
             </div>
 
             <div class="step-content">
@@ -1169,13 +1167,16 @@
                 <li class="list-group-item list-group-item-light">
                   <div class="row gx-1">
                     <div class="col">
-                      <img class="img-fluid rounded" src="./assets/svg/components/card-1.svg" alt="Image Description">
+                      <img class="img-fluid rounded" src="{{ asset('backend/svg/components/card-1.svg') }}"
+                        alt="Image Description">
                     </div>
                     <div class="col">
-                      <img class="img-fluid rounded" src="./assets/svg/components/card-2.svg" alt="Image Description">
+                      <img class="img-fluid rounded" src="{{ asset('backend/svg/components/card-2.svg') }}"
+                        alt="Image Description">
                     </div>
                     <div class="col">
-                      <img class="img-fluid rounded" src="./assets/svg/components/card-3.svg" alt="Image Description">
+                      <img class="img-fluid rounded" src="{{ asset('backend/svg/components/card-3.svg') }}"
+                        alt="Image Description">
                     </div>
                     <div class="col-auto align-self-center">
                       <div class="text-center">
@@ -1212,7 +1213,7 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar-img" src="./assets/img/160x160/img7.jpg" alt="Image Description">
+              <img class="step-avatar-img" src="{{ asset('backend/img/160x160/img7.jpg') }}" alt="Image Description">
             </div>
 
             <div class="step-content">
@@ -1232,7 +1233,7 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar-img" src="./assets/img/160x160/img5.jpg" alt="Image Description">
+              <img class="step-avatar-img" src="{{ asset('backend/img/160x160/img5.jpg') }}" alt="Image Description">
             </div>
 
             <div class="step-content">
@@ -1292,10 +1293,10 @@
         <div class="modal-body p-sm-5">
           <div class="text-center">
             <div class="w-75 w-sm-50 mx-auto mb-4">
-              <img class="img-fluid" src="./assets/svg/illustrations/oc-collaboration.svg" alt="Image Description"
-                data-hs-theme-appearance="default">
-              <img class="img-fluid" src="./assets/svg/illustrations-light/oc-collaboration.svg" alt="Image Description"
-                data-hs-theme-appearance="dark">
+              <img class="img-fluid" src="{{ asset('backend/svg/illustrations/oc-collaboration.svg') }}"
+                alt="Image Description" data-hs-theme-appearance="default">
+              <img class="img-fluid" src="{{ asset('backend/svg/illustrations-light/oc-collaboration.svg') }}"
+                alt="Image Description" data-hs-theme-appearance="dark">
             </div>
 
             <h4 class="h1">Welcome to Front</h4>
@@ -1312,16 +1313,16 @@
           <div class="w-85 mx-auto">
             <div class="row justify-content-between">
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/gitlab-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/gitlab-gray.svg') }}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/fitbit-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/fitbit-gray.svg') }}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/flow-xo-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/flow-xo-gray.svg') }}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/layar-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/layar-gray.svg') }} alt=" Image Description">
               </div>
             </div>
           </div>
@@ -1421,10 +1422,12 @@
           <!-- Media -->
           <div class="d-flex">
             <div class="flex-shrink-0 mb-3 mb-sm-0">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations/oc-money-profits.svg"
-                alt="Image Description" data-hs-theme-appearance="default">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations-light/oc-money-profits.svg"
-                alt="Image Description" data-hs-theme-appearance="dark">
+              <img class="avatar avatar-lg avatar-4x3"
+                src="{{ asset('backend/svg/illustrations/oc-money-profits.svg') }}" alt="Image Description"
+                data-hs-theme-appearance="default">
+              <img class="avatar avatar-lg avatar-4x3"
+                src="{{ asset('backend/svg/illustrations-light/oc-money-profits.svg') }}" alt="Image Description"
+                data-hs-theme-appearance="dark">
             </div>
 
             <div class="flex-grow-1 ms-4">
@@ -1440,10 +1443,11 @@
           <!-- Media -->
           <div class="d-flex">
             <div class="flex-shrink-0 mb-3 mb-sm-0">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations/oc-discount.svg"
+              <img class="avatar avatar-lg avatar-4x3" src="{{ asset('backend/svg/illustrations/oc-discount.svg') }}"
                 alt="Image Description" data-hs-theme-appearance="default">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations-light/oc-discount.svg"
-                alt="Image Description" data-hs-theme-appearance="dark">
+              <img class="avatar avatar-lg avatar-4x3"
+                src="{{ asset('backend/svg/illustrations-light/oc-discount.svg') }}" alt="Image Description"
+                data-hs-theme-appearance="dark">
             </div>
 
             <div class="flex-grow-1 ms-4">
@@ -1458,10 +1462,11 @@
           <!-- Media -->
           <div class="d-flex">
             <div class="flex-shrink-0 mb-3 mb-sm-0">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations/oc-collection.svg"
+              <img class="avatar avatar-lg avatar-4x3" src="{{ asset('backend/svg/illustrations/oc-collection.svg') }}"
                 alt="Image Description" data-hs-theme-appearance="default">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations-light/oc-collection.svg"
-                alt="Image Description" data-hs-theme-appearance="dark">
+              <img class="avatar avatar-lg avatar-4x3"
+                src="{{ asset('backend/svg/illustrations-light/oc-collection.svg') }}" alt="Image Description"
+                data-hs-theme-appearance="dark">
             </div>
 
             <div class="flex-grow-1 ms-4">
@@ -1582,8 +1587,8 @@
         HSCore.components.HSQuill.init('.js-quill')
         var quill_instance = Quill.find(document.getElementById('quill_description'));
         
-        @if(old('description'))
-        quill_instance.clipboard.dangerouslyPasteHTML({!! json_encode(old('description')) !!});
+        @if(isset($accessory->description))
+        quill_instance.clipboard.dangerouslyPasteHTML({!! json_encode($accessory->description) !!});
         @endif
         
         quill_instance.on('text-change', function(delta, oldDelta, source) {

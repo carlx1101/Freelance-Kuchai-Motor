@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Title -->
-  <title>Manage Salesman</title>
+  <title>Salesman Dashboard | Kuchai Motor</title>
 
   <!-- Favicon -->
   <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
@@ -1804,10 +1804,9 @@
                     </div> --}}
                     <div class="ms-3">
                       <span class="d-block h5 text-inherit mb-0">{{ $salesman->name }}
-                        {{-- <i
-                          class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top"
-                          title="Top endorsed"></i> --}}
-                        </span>
+                        {{-- <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip"
+                          data-bs-placement="top" title="Top endorsed"></i> --}}
+                      </span>
                       <span class="d-block fs-5 text-body">{{ $salesman->email }}</span>
                     </div>
                   </a>

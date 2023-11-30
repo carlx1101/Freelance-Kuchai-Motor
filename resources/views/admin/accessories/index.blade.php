@@ -1878,6 +1878,11 @@
                     onclick="window.location.href='{{ route('accessories.edit', $accessory->id) }}'">
                     <i class="bi-pencil-fill me-1"></i> Edit
                   </button>
+                  <button type="button" class="btn btn-white btn-sm deleteAccessory" data-bs-toggle="modal"
+                    data-bs-target="#deleteAccessoryModal"
+                    data-accessory='{"id":"{{ $accessory->id }}", "name":"{{ $accessory->name }}"}'>
+                    <i class="bi-trash-fill me-1"></i> Delete
+                  </button>
                 </td>
               </tr>
               @endforeach
@@ -4694,6 +4699,29 @@
     </div>
   </div>
   <!-- End Edit user -->
+  {{-- Delete Accessory --}}
+  <div class="modal fade" id="deleteAccessoryModal" tabindex="-1" aria-labelledby="deleteAccessoryModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleteAccessoryModalLabel">Delete Accessory
+          </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{-- Modal Content Will be Added Here --}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-danger"
+            onclick="document.getElementById('accessory-destroy').submit();">Confirm
+            changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{-- END Delete Accessory --}}
   <!-- ========== END SECONDARY CONTENTS ========== -->
 
   <!-- JS Global Compulsory  -->
@@ -4900,6 +4928,31 @@
   </script>
 
   <!-- End Style Switcher JS -->
+  <script>
+    $(document).on('click', '.deleteAccessory', function() {
+              var accessory = $(this).data('accessory');
+              
+              var modalBody = $('#deleteAccessoryModal .modal-body');
+              
+              modalBody.empty();
+  
+              let deleteModal =
+              `
+                  <p class="fs-4">Are you sure you want to remove this accessory: <b>${accessory.name}</b> ?</p>
+                  <small>This action is <span class="text-danger">IRREVERSIBLE</span>.</small>
+                  <form id="accessory-destroy" action="/admin/accessories/${accessory.id}" class="d-none"
+                      method="POST">
+                      @csrf
+                      @method('DELETE')
+                  </form>
+              `;
+  
+              const div = document.createElement('div');
+              div.innerHTML = deleteModal;
+              
+              modalBody.append(div);
+          });
+  </script>
 </body>
 
 </html>

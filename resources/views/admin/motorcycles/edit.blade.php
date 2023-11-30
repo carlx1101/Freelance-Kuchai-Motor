@@ -2046,7 +2046,7 @@
         // =======================================================
         HSCore.components.HSDropzone.init('.js-dropzone')
 
-        // Motor Cover Event Handling
+        // Motor Cover && Motor Images Event Handling
         // =======================================================
         let motorCoverDropzone = Dropzone.forElement('#motorCoverDropzone');
         let motorImagesDropzone = Dropzone.forElement('#motorImagesDropzone');

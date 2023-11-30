@@ -14,7 +14,7 @@ class Accessory extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['name', 'description', 'pricing', 'availability', 'subcategory_id', 'salesman_id'];
+    protected $fillable = ['name', 'description', 'pricing', 'availability', 'accessory_cover_filename', 'accessory_cover_url', 'subcategory_id', 'salesman_id'];
 
     public function user()
     {
@@ -24,5 +24,10 @@ class Accessory extends Model
     public function subcategory()
     {
         return $this->belongsTo(Subcategory::class, 'subcategory_id', 'id');
+    }
+
+    public function accessoryImages()
+    {
+        return $this->hasMany(AccessoryImage::class, 'accessory_id', 'id');
     }
 }

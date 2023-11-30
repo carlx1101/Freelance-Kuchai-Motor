@@ -300,7 +300,7 @@
                 <label for="addAccessoriesCover" class="form-label">Accessory Cover</label>
 
                 <!-- Dropzone -->
-                <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
+                <div id="accessoryCoverDropzone" class="js-dropzone dz-dropzone dz-dropzone-card">
                   <div class="dz-message">
                     <img class="avatar avatar-xl avatar-4x3 mb-3"
                       src="{{asset('backend/svg/illustrations/oc-browse.svg')}}" alt="Image Description"
@@ -317,6 +317,7 @@
                   </div>
                 </div>
                 <!-- End Dropzone -->
+                <input type="hidden" name="accessory_cover" id="hiddenAccessoryCover">
                 @error('accessory_cover')
                 <div class="invalid-feedback @error('accessory_cover') d-block @enderror">
                   {{ $message }}
@@ -327,7 +328,7 @@
                 <label for="addAccessoriesImages" class="form-label mt-2">Accessory Images</label>
 
                 <!-- Dropzone -->
-                <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
+                <div id="accessoryImagesDropzone" class="js-dropzone dz-dropzone dz-dropzone-card">
                   <div class="dz-message">
                     <img class="avatar avatar-xl avatar-4x3 mb-3"
                       src="{{asset('backend/svg/illustrations/oc-browse.svg')}}" alt="Image Description"
@@ -344,6 +345,7 @@
                   </div>
                 </div>
                 <!-- End Dropzone -->
+                <input type="hidden" name="accessory_images" id="hiddenAccessoryImages">
                 @error('accessory_images')
                 <div class="invalid-feedback @error('accessory_images') d-block @enderror">
                   {{ $message }}
@@ -1322,7 +1324,7 @@
                 <img class="img-fluid" src="{{ asset('backend/svg/brands/flow-xo-gray.svg') }}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="{{ asset('backend/svg/brands/layar-gray.svg') }} alt=" Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/layar-gray.svg') }}" alt="Image Description">
               </div>
             </div>
           </div>
@@ -1580,6 +1582,86 @@
         // INITIALIZATION OF DROPZONE
         // =======================================================
         HSCore.components.HSDropzone.init('.js-dropzone')
+
+        // Accessory Cover && Accessory Images Event Handling
+        // =======================================================
+        let accessoryCoverDropzone = Dropzone.forElement('#accessoryCoverDropzone');
+        let accessoryImagesDropzone = Dropzone.forElement('#accessoryImagesDropzone');
+        
+        document.getElementById('hiddenAccessoryCover').value = JSON.stringify({
+        "remove": [],
+        "new_upload":[]
+        }, null, 2);
+        
+        document.getElementById('hiddenAccessoryImages').value = JSON.stringify({
+        "remove": [],
+        "new_upload":[]
+        }, null, 2);
+
+        accessoryCoverDropzone.on('removedfile', function(file){
+          let hiddenInputValue = JSON.parse(document.getElementById('hiddenAccessoryCover').value);
+          hiddenInputValue.remove.push({"name": file.name, "image_url": file.image_url});
+          document.getElementById('hiddenAccessoryCover').value = JSON.stringify(hiddenInputValue, null, 2);
+        });
+        
+        accessoryCoverDropzone.on('complete', function(file){
+          if(file.accepted){
+            let hiddenInputValue = JSON.parse(document.getElementById('hiddenAccessoryCover').value);
+            hiddenInputValue.new_upload.push({"name": file.upload.filename, "dataURL": file.dataURL});
+            document.getElementById('hiddenAccessoryCover').value = JSON.stringify(hiddenInputValue, null, 2);
+          }
+        });
+
+        accessoryImagesDropzone.on('removedfile', function(file){
+          let hiddenInputValue = JSON.parse(document.getElementById('hiddenAccessoryImages').value);
+          hiddenInputValue.remove.push({"name": file.name, "image_url": file.image_url});
+          document.getElementById('hiddenAccessoryImages').value = JSON.stringify(hiddenInputValue, null, 2);
+        });
+        
+        accessoryImagesDropzone.on('complete', function(file){
+          if(file.accepted){
+            let hiddenInputValue = JSON.parse(document.getElementById('hiddenAccessoryImages').value);
+            hiddenInputValue.new_upload.push({"name": file.upload.filename, "dataURL": file.dataURL});
+            document.getElementById('hiddenAccessoryImages').value = JSON.stringify(hiddenInputValue, null, 2);
+          }
+        });
+
+        @isset($accessory->accessory_cover_url) // Display Motor Cover Image
+        let filename = "{{ $accessory->accessory_cover_filename }}";
+        var mockFile = {name: filename, image_url: "{{ $accessory->accessory_cover_url }}", accepted: true, status: 'success'};
+        
+        accessoryCoverDropzone.files.push(mockFile);
+        
+        accessoryCoverDropzone.emit('addedfile', mockFile);
+        accessoryCoverDropzone.emit('thumbnail', mockFile, "{{ $accessory->accessory_cover_url }}");
+        
+        // Remove unwanted notification
+        document.querySelector("#accessoryCoverDropzone .dz-size").remove();
+        document.querySelector("#accessoryCoverDropzone .dz-progress.progress").remove();
+        document.querySelector("#accessoryCoverDropzone .dz-success-mark").remove();
+        document.querySelector("#accessoryCoverDropzone .dz-error-mark").remove();
+        document.querySelector("#accessoryCoverDropzone .dz-error-message").remove();
+        @endisset
+
+        @if(count($accessory->accessoryImages) > 0) // Display Motor Images
+        let accessoryImages = @json($accessory->accessoryImages);
+        
+        accessoryImages.forEach(function(image){
+        var filename = image.name;
+        var mockFile = {name: filename, image_url: image.url, accepted: true,};
+        
+        accessoryImagesDropzone.files.push(mockFile);
+        
+        accessoryImagesDropzone.emit('addedfile', mockFile);
+        accessoryImagesDropzone.emit('thumbnail', mockFile, image.url);
+        
+        document.querySelector("#accessoryImagesDropzone .dz-size").remove();
+        document.querySelector("#accessoryImagesDropzone .dz-progress.progress").remove();
+        document.querySelector("#accessoryImagesDropzone .dz-success-mark").remove();
+        document.querySelector("#accessoryImagesDropzone .dz-error-mark").remove();
+        document.querySelector("#accessoryImagesDropzone .dz-error-message").remove();
+        });
+        @endif
 
 
         // INITIALIZATION OF QUILLJS EDITOR

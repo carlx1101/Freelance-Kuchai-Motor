@@ -174,7 +174,7 @@
       </div>
       <!-- End Page Header -->
 
-      <form action="{{ route('accessories.store') }}" method="post" enctype="multipart/form-data">
+      <form action="{{ route('accessories.store') }}" method="post" enctype="multipart/form-data" id="addAccessoryForm">
         @csrf
         @method('POST')
 
@@ -304,7 +304,7 @@
                 <label for="addAccessoriesCover" class="form-label">Accessory Cover</label>
 
                 <!-- Dropzone -->
-                <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
+                <div id="accessoryCoverDropzone" class="js-dropzone dz-dropzone dz-dropzone-card">
                   <div class="dz-message">
                     <img class="avatar avatar-xl avatar-4x3 mb-3"
                       src="{{asset('backend/svg/illustrations/oc-browse.svg')}}" alt="Image Description"
@@ -321,6 +321,7 @@
                   </div>
                 </div>
                 <!-- End Dropzone -->
+                <input type="hidden" id="hiddenAccessoryCover" name="accessory_cover">
                 @error('accessory_cover')
                 <div class="invalid-feedback @error('accessory_cover') d-block @enderror">
                   {{ $message }}
@@ -331,7 +332,7 @@
                 <label for="addAccessoriesImages" class="form-label mt-2">Accessory Images</label>
 
                 <!-- Dropzone -->
-                <div id="attachFilesNewProjectLabel" class="js-dropzone dz-dropzone dz-dropzone-card">
+                <div id="accessoryImagesDropzone" class="js-dropzone dz-dropzone dz-dropzone-card">
                   <div class="dz-message">
                     <img class="avatar avatar-xl avatar-4x3 mb-3"
                       src="{{asset('backend/svg/illustrations/oc-browse.svg')}}" alt="Image Description"
@@ -563,7 +564,7 @@
                 <div class="col-auto">
                   <div class="d-flex gap-3">
                     <button type="button" class="btn btn-ghost-light">Discard</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary" id="addAccessorySubmitBtn">Save</button>
                   </div>
                 </div>
                 <!-- End Col -->
@@ -1078,7 +1079,7 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar" src="./assets/img/160x160/img9.jpg" alt="Image Description">
+              <img class="step-avatar" src="{{ asset('backend/img/160x160/img9.jpg') }}" alt="Image Description">
             </div>
 
             <div class="step-content">
@@ -1095,7 +1096,7 @@
                       <!-- Media -->
                       <div class="d-flex">
                         <div class="flex-shrink-0">
-                          <img class="avatar avatar-xs" src="./assets/svg/brands/excel-icon.svg"
+                          <img class="avatar avatar-xs" src="{{ asset('backend/svg/brands/excel-icon.svg') }}"
                             alt="Image Description">
                         </div>
                         <div class="flex-grow-1 text-truncate ms-2">
@@ -1112,7 +1113,8 @@
                       <!-- Media -->
                       <div class="d-flex">
                         <div class="flex-shrink-0">
-                          <img class="avatar avatar-xs" src="./assets/svg/brands/word-icon.svg" alt="Image Description">
+                          <img class="avatar avatar-xs" src="{{ asset('backend/svg/brands/word-icon.svg') }}"
+                            alt="Image Description">
                         </div>
                         <div class="flex-grow-1 text-truncate ms-2">
                           <span class="d-block fs-6 text-dark text-truncate"
@@ -1157,7 +1159,7 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar-img" src="./assets/img/160x160/img3.jpg" alt="Image Description">
+              <img class="step-avatar-img" src="{{ asset('backend/img/160x160/img3.jpg') }}" alt="Image Description">
             </div>
 
             <div class="step-content">
@@ -1169,13 +1171,16 @@
                 <li class="list-group-item list-group-item-light">
                   <div class="row gx-1">
                     <div class="col">
-                      <img class="img-fluid rounded" src="./assets/svg/components/card-1.svg" alt="Image Description">
+                      <img class="img-fluid rounded" src="{{ asset('backend/svg/components/card-1.svg') }}"
+                        alt="Image Description">
                     </div>
                     <div class="col">
-                      <img class="img-fluid rounded" src="./assets/svg/components/card-2.svg" alt="Image Description">
+                      <img class="img-fluid rounded" src="{{ asset('backend/svg/components/card-2.svg') }}"
+                        alt="Image Description">
                     </div>
                     <div class="col">
-                      <img class="img-fluid rounded" src="./assets/svg/components/card-3.svg" alt="Image Description">
+                      <img class="img-fluid rounded" src="{{ asset('backend/svg/components/card-3.svg') }}"
+                        alt="Image Description">
                     </div>
                     <div class="col-auto align-self-center">
                       <div class="text-center">
@@ -1212,7 +1217,7 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar-img" src="./assets/img/160x160/img7.jpg" alt="Image Description">
+              <img class="step-avatar-img" src="{{ asset('backend/img/160x160/img7.jpg') }}" alt="Image Description">
             </div>
 
             <div class="step-content">
@@ -1232,7 +1237,7 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar-img" src="./assets/img/160x160/img5.jpg" alt="Image Description">
+              <img class="step-avatar-img" src="{{ asset('backend/img/160x160/img5.jpg') }}" alt="Image Description">
             </div>
 
             <div class="step-content">
@@ -1292,10 +1297,10 @@
         <div class="modal-body p-sm-5">
           <div class="text-center">
             <div class="w-75 w-sm-50 mx-auto mb-4">
-              <img class="img-fluid" src="./assets/svg/illustrations/oc-collaboration.svg" alt="Image Description"
-                data-hs-theme-appearance="default">
-              <img class="img-fluid" src="./assets/svg/illustrations-light/oc-collaboration.svg" alt="Image Description"
-                data-hs-theme-appearance="dark">
+              <img class="img-fluid" src="{{ asset('backend/svg/illustrations/oc-collaboration.svg') }}"
+                alt="Image Description" data-hs-theme-appearance="default">
+              <img class="img-fluid" src="{{ asset('backend/svg/illustrations-light/oc-collaboration.svg') }}"
+                alt="Image Description" data-hs-theme-appearance="dark">
             </div>
 
             <h4 class="h1">Welcome to Front</h4>
@@ -1312,16 +1317,16 @@
           <div class="w-85 mx-auto">
             <div class="row justify-content-between">
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/gitlab-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/gitlab-gray.svg') }}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/fitbit-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/fitbit-gray.svg') }}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/flow-xo-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/flow-xo-gray.svg') }}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/layar-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{ asset('backend/svg/brands/layar-gray.svg') }}" alt="Image Description">
               </div>
             </div>
           </div>
@@ -1421,10 +1426,12 @@
           <!-- Media -->
           <div class="d-flex">
             <div class="flex-shrink-0 mb-3 mb-sm-0">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations/oc-money-profits.svg"
-                alt="Image Description" data-hs-theme-appearance="default">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations-light/oc-money-profits.svg"
-                alt="Image Description" data-hs-theme-appearance="dark">
+              <img class="avatar avatar-lg avatar-4x3"
+                src="{{ asset('backend/svg/illustrations/oc-money-profits.svg') }}" alt="Image Description"
+                data-hs-theme-appearance="default">
+              <img class="avatar avatar-lg avatar-4x3"
+                src="{{ asset('backend/svg/illustrations-light/oc-money-profits.svg') }}" alt="Image Description"
+                data-hs-theme-appearance="dark">
             </div>
 
             <div class="flex-grow-1 ms-4">
@@ -1440,10 +1447,11 @@
           <!-- Media -->
           <div class="d-flex">
             <div class="flex-shrink-0 mb-3 mb-sm-0">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations/oc-discount.svg"
+              <img class="avatar avatar-lg avatar-4x3" src="{{ asset('backend/svg/illustrations/oc-discount.svg') }}"
                 alt="Image Description" data-hs-theme-appearance="default">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations-light/oc-discount.svg"
-                alt="Image Description" data-hs-theme-appearance="dark">
+              <img class="avatar avatar-lg avatar-4x3"
+                src="{{ asset('backend/svg/illustrations-light/oc-discount.svg') }}" alt="Image Description"
+                data-hs-theme-appearance="dark">
             </div>
 
             <div class="flex-grow-1 ms-4">
@@ -1458,10 +1466,11 @@
           <!-- Media -->
           <div class="d-flex">
             <div class="flex-shrink-0 mb-3 mb-sm-0">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations/oc-collection.svg"
+              <img class="avatar avatar-lg avatar-4x3" src="{{ asset('backend/svg/illustrations/oc-collection.svg') }}"
                 alt="Image Description" data-hs-theme-appearance="default">
-              <img class="avatar avatar-lg avatar-4x3" src="./assets/svg/illustrations-light/oc-collection.svg"
-                alt="Image Description" data-hs-theme-appearance="dark">
+              <img class="avatar avatar-lg avatar-4x3"
+                src="{{ asset('backend/svg/illustrations-light/oc-collection.svg') }}" alt="Image Description"
+                data-hs-theme-appearance="dark">
             </div>
 
             <div class="flex-grow-1 ms-4">
@@ -1504,7 +1513,6 @@
   <script src="{{asset('backend/vendor/datatables/media/js/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('backend/vendor/datatables.net.extensions/select/select.min.js')}}"></script>
   <script src="{{asset('backend/vendor/imask/dist/imask.min.js')}}"></script>
-  <script src="{{asset('backend/js/hs.imask.js')}}"></script>
 
   <!-- JS Front -->
   <script src="{{asset('backend/js/theme.min.js')}}"></script>
@@ -1575,6 +1583,48 @@
         // INITIALIZATION OF DROPZONE
         // =======================================================
         HSCore.components.HSDropzone.init('.js-dropzone')
+        let accessoryCoverDropzone = Dropzone.forElement('#accessoryCoverDropzone', {
+          paramName: "accessory_cover",
+          maxFiles: 1,
+          acceptedFiles: "image/*",
+        });
+        
+        accessoryCoverDropzone.on('addedfile', function(file){
+          document.getElementById('addAccessorySubmitBtn').setAttribute("disabled", "disabled");
+        });
+        
+        accessoryCoverDropzone.on('complete', function(file){
+        if(file.accepted){
+          document.getElementById('hiddenAccessoryCover').value = JSON.stringify(file);
+          document.getElementById('addAccessorySubmitBtn').removeAttribute("disabled");
+        }
+        });
+        
+        accessoryCoverDropzone.on('removedfile', function(file){
+        document.getElementById('hiddenAccessoryCover').value = null;
+        });
+
+        // Accessory Images
+        let accessoryImagesDropzone = Dropzone.forElement('#accessoryImagesDropzone', {
+        paramName: "accessory_images",
+        acceptedFiles: "image/*",
+        });
+        
+        accessoryImagesDropzone.on('addedfile', function(file){
+        document.getElementById('addAccessorySubmitBtn').setAttribute("disabled", "disabled");
+        });
+        
+        accessoryImagesDropzone.on('complete', function(file){
+          if(file.accepted){
+            document.getElementById('addAccessorySubmitBtn').removeAttribute("disabled");
+          }
+        });
+        
+        document.getElementById('addAccessoryForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        $('<input>').attr({type:'hidden', name:'accessory_images', value:JSON.stringify(accessoryImagesDropzone.files)}).appendTo(this);
+        this.submit();
+        });
 
 
         // INITIALIZATION OF QUILLJS EDITOR

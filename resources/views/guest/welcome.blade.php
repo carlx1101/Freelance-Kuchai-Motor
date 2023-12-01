@@ -168,7 +168,7 @@
           </div>
         </div>
       </div>
-      <div class="section-category" id="section-category">
+      {{-- <div class="section-category" id="section-category">
         <div class="uk-container uk-container-large">
           <div class="uk-position-relative" tabindex="-1" data-uk-slider>
             <ul class="uk-slider-items uk-grid uk-child-width-1-2@s uk-child-width-1-3@m uk-child-width-1-4@l uk-child-width-1-5@xl">
@@ -206,7 +206,7 @@
             <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin-top"></ul>
           </div>
         </div>
-      </div>
+      </div> --}}
       <div class="section-products">
         <div class="uk-section-large uk-container">
           <div class="section-title uk-text-center"><img src="assets/img/logo-dark.svg" alt=""><span>Taking rides to a newer level</span>
@@ -1353,26 +1353,6 @@
         </div>
       </div>
     </main>
-    <div class="section-subscribe">
-      <div class="uk-container">
-        <div class="subscribe-box">
-          <div class="uk-grid uk-flex-middle uk-child-width-1-2@m" data-uk-grid>
-            <div>
-              <div class="section-title"><span>Latest news and deals directly to your inbox</span>
-                <div class="uk-h2">Subscribe for updated</div>
-              </div>
-            </div>
-            <div>
-              <div class="subscribe-box__form">
-                <form action="#!">
-                  <div class="uk-flex uk-flex-middle"><input class="uk-input" type="email" name="email" placeholder="Email Address ...."><button class="uk-button uk-button-danger" type="submit">Subscribe</button></div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     @include('guest.layouts.footer')
 

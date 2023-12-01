@@ -23,10 +23,11 @@ use App\Http\Controllers\SubCategoryController;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/contact-us', [PageController::class, 'contact'])->name('contact');
-Route::get('/about-us', [PageController::class, 'contact'])->name('about.us');
 Route::get('/new-motors', [PageController::class, 'newMotors'])->name('new.motors');
 Route::get('/used-motors', [PageController::class, 'usedMotors'])->name('used.motors');
-
+Route::get('/motor/{id}',  [PageController::class, 'motor'])->name('motor.show');
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+Route::post('/motorcycle/search', [PageController::class, 'search'])->name('motorcycle.search');
 
 Route::middleware([
     'auth:sanctum',
@@ -58,6 +59,8 @@ Route::middleware([
 
     // Manage Booking
     Route::resource('/bookings', BookingController::class);
+    Route::patch('/update-booking-status/{id}', [BookingController::class, 'markAsResolved'])->name('markAsResolved');
+
 
     // Categories
     Route::resource('/categories', CategoryController::class);

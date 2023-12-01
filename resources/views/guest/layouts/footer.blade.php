@@ -33,15 +33,13 @@
           </div>
           <div>
             <div class="page-footer__column page-footer__menu">
-              <div class="uk-h4">About KeyMoto</div>
+              <div class="uk-h4">About Kuchai Motor</div>
               <ul class="list-decor">
-                <li> <a href="typography.html">Our Company</a></li>
-                <li> <a href="typography.html">Renting Facility</a></li>
-                <li> <a href="typography.html">KeyMoto Inventory</a></li>
-                <li> <a href="typography.html">Our Services</a></li>
-                <li> <a href="typography.html">Clients Testimonials</a></li>
-                <li> <a href="typography.html">Mission & Vision</a></li>
-                <li> <a href="page-contacts.html">Contact Us</a></li>
+                <li> <a href="{{route('home')}}">Home</a></li>
+                <li> <a href="{{route('new.motors')}}">New Motorcycles</a></li>
+                <li> <a href="{{route('used.motors')}}">Used Motorcycles</a></li>
+                <li> <a href="">Accessories</a></li>
+                <li> <a href="{{route('contact')}}">Contact Us</a></li>
               </ul>
             </div>
           </div>
@@ -146,19 +144,28 @@
 
           <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
 
-            <li><a href="typography.html">About Us</a></li>
+            <li><a href="{{route('home')}}">Home</a></li>
 
             <li class="uk-parent"><a href="#">Motocycles</a>
               <ul class="uk-nav-sub">
-                <li><a href="page-shop-grid.html">New Motorcycles</a></li>
-                <li><a href="page-shop-grid.html">Used Motorcycles</a></li>
+                <li><a href="{{route('new.motors')}}">New Motorcycles</a></li>
+                <li><a href="{{route('used.motors')}}">Used Motorcycles</a></li>
 
               </ul>
             </li>
 
-            <li><a href="typography.html">Accessories</a></li>
+            <li><a href="">Accessories</a></li>
 
-            <li><a href="page-contacts.html">Contact Us</a></li>
+            <li><a href="{{route('used.motors')}}">Contact Us</a></li>
+
+
+            <li class="uk-parent"><a href="#">Languages</a>
+                <ul class="uk-nav-sub">
+                  <li><a href="#">English </a></li>
+                  <li><a href="#">Bahasa Melayu</a></li>
+
+                </ul>
+              </li>
           </ul>
         </div>
         <div class="uk-margin-auto-top">

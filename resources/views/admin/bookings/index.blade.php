@@ -179,7 +179,7 @@
 
               <div class="row align-items-center gx-2">
                 <div class="col">
-                  <span class="js-counter display-4 text-dark">24</span>
+                  <span class="js-counter display-4 text-dark">{{$bookings->count()}}</span>
                   {{-- <span class="text-body fs-5 ms-1">from 22</span> --}}
                 </div>
                 <!-- End Col -->
@@ -205,7 +205,7 @@
 
               <div class="row align-items-center gx-2">
                 <div class="col">
-                  <span class="js-counter display-4 text-dark"></span>
+                  {{-- <span class="js-counter display-4 text-dark"></span> --}}
                 </div>
 {{--
                 <div class="col-auto">
@@ -303,7 +303,7 @@
             <!-- End Datatable Info -->
 
             <!-- Dropdown -->
-            <div class="dropdown">
+            {{-- <div class="dropdown">
               <button type="button" class="btn btn-white btn-sm dropdown-toggle w-100" id="usersExportDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="bi-download me-2"></i> Export
               </button>
@@ -333,11 +333,11 @@
                   PDF
                 </a>
               </div>
-            </div>
+            </div> --}}
             <!-- End Dropdown -->
 
             <!-- Dropdown -->
-            <div class="dropdown">
+            {{-- <div class="dropdown">
               <button type="button" class="btn btn-white btn-sm w-100" id="usersFilterDropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                 <i class="bi-filter me-1"></i> Filter <span class="badge bg-soft-dark text-dark rounded-circle ms-1">2</span>
               </button>
@@ -705,7 +705,7 @@
                 </div>
                 <!-- End Card -->
               </div>
-            </div>
+            </div> --}}
             <!-- End Dropdown -->
           </div>
         </div>
@@ -738,1023 +738,71 @@
                   </div>
                 </th>
                 <th class="table-column-ps-0">Name</th>
-                <th>Position</th>
-                <th>Country</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Message</th>
+                <th>Viewing Date</th>
                 <th>Status</th>
-                <th>Portfolio</th>
-                <th>Role</th>
                 <th></th>
               </tr>
             </thead>
 
             <tbody>
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="datatableCheckAll1">
-                    <label class="form-check-label" for="datatableCheckAll1"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="./assets/img/160x160/img10.jpg" alt="Image Description">
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Amanda Harvey <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></span>
-                      <span class="d-block fs-5 text-body">amanda@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Director</span>
-                  <span class="d-block fs-5">Human resources</span>
-                </td>
-                <td>United Kingdom</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">72%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck2">
-                    <label class="form-check-label" for="usersDataCheck2"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-primary avatar-circle">
-                      <span class="avatar-initials">A</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Anne Richard</span>
-                      <span class="d-block fs-5 text-body">anne@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Seller</span>
-                  <span class="d-block fs-5">Branding products</span>
-                </td>
-                <td>United States</td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">24%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 24%" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
+                @foreach ($bookings  as $booking)
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck3">
-                    <label class="form-check-label" for="usersDataCheck3"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="./assets/img/160x160/img3.jpg" alt="Image Description">
+                <tr>
+                    <td class="table-column-pe-0">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="datatableCheckAll1">
+                        <label class="form-check-label" for="datatableCheckAll1"></label>
                     </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">David Harrison</span>
-                      <span class="d-block fs-5 text-body">david@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Unknown</span>
-                  <span class="d-block fs-5">Unknown</span>
-                </td>
-                <td>United States</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">100%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
+                    </td>
+                    <td class="table-column-ps-0">
+                    <a class="d-flex align-items-center" href="./user-profile.html">
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck4">
-                    <label class="form-check-label" for="usersDataCheck4"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="./assets/img/160x160/img5.jpg" alt="Image Description">
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Finch Hoot</span>
-                      <span class="d-block fs-5 text-body">finch@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Designer</span>
-                  <span class="d-block fs-5">IT department</span>
-                </td>
-                <td>Argentina</td>
-                <td>
-                  <span class="legend-indicator bg-danger"></span>Suspended
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">50%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
+                        <div class="ms-3">
+                        <span class="d-block h5 text-inherit mb-0">{{$booking->name}}
+                        </span>
+                        </div>
+                    </a>
+                    </td>
+                    <td>
+                    <span class="d-block h5 mb-0">{{$booking->email}}</span>
+                    </td>
+                    <td>{{$booking->phone_number}}</td>
+                    <td>
+                        {{$booking->message}}
+                    </td>
+                    <td>
+                        <span class="fs-5 me-2">{{$booking->datetime}}</span>
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck5">
-                    <label class="form-check-label" for="usersDataCheck5"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-dark avatar-circle">
-                      <span class="avatar-initials">B</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Bob Dean</span>
-                      <span class="d-block fs-5 text-body">bob@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Executive director</span>
-                  <span class="d-block fs-5">Marketing</span>
-                </td>
-                <td>Austria</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">5%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
+                    </td>
+                    <td>
+                        <span class="legend-indicator {{ $booking->status === 'Active' ? 'bg-warning' : 'bg-success' }}"></span>
+                        {{ $booking->status }}
+                    </td>
+                    <td>
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck6">
-                    <label class="form-check-label" for="usersDataCheck6"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="./assets/img/160x160/img9.jpg" alt="Image Description">
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Ella Lauda <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></span>
-                      <span class="d-block fs-5 text-body">ella@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Co-founder</span>
-                  <span class="d-block fs-5">All departments</span>
-                </td>
-                <td>United Kingdom</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">100%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Owner</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
+                        <form method="POST" action="{{ route('markAsResolved', ['id' => $booking->id]) }}">
+                            @csrf
+                            <input type="hidden" name="_method" value="PATCH">
+                            <button type="submit" class="btn btn-white btn-sm">
+                                <i class="bi-pencil-fill me-1"></i>
+                                 @if($booking->status === 'Active')
+                                    Mark as Resolved
+                                @else
+                                    Mark as Active
+                                @endif
+                            </button>
+                        </form>
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck7">
-                    <label class="form-check-label" for="usersDataCheck7"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-info avatar-circle">
-                      <span class="avatar-initials">L</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Lori Hunter</span>
-                      <span class="d-block fs-5 text-body">hunter@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Developer</span>
-                  <span class="d-block fs-5">Mobile app</span>
-                </td>
-                <td>Estonia</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">100%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck16">
-                    <label class="form-check-label" for="usersDataCheck16"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-primary avatar-circle">
-                      <span class="avatar-initials">M</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Mark Colbert</span>
-                      <span class="d-block fs-5 text-body">mark@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Executive director</span>
-                  <span class="d-block fs-5">Human resources</span>
-                </td>
-                <td>Canada</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">90%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
+                    </td>
+                </tr>
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck9">
-                    <label class="form-check-label" for="usersDataCheck9"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="./assets/img/160x160/img6.jpg" alt="Image Description">
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Costa Quinn</span>
-                      <span class="d-block fs-5 text-body">costa@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Co-founder</span>
-                  <span class="d-block fs-5">All departments</span>
-                </td>
-                <td>France</td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">83%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 83%" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Owner</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
+               @endforeach
 
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck10">
-                    <label class="form-check-label" for="usersDataCheck10"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-danger avatar-circle">
-                      <span class="avatar-initials">R</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Rachel Doe <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></span>
-                      <span class="d-block fs-5 text-body">rachel@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Accountant</span>
-                  <span class="d-block fs-5">Finance</span>
-                </td>
-                <td>United States</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">30%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck11">
-                    <label class="form-check-label" for="usersDataCheck11"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="./assets/img/160x160/img8.jpg" alt="Image Description">
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Linda Bates</span>
-                      <span class="d-block fs-5 text-body">linda@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Unknown</span>
-                  <span class="d-block fs-5">Unknown</span>
-                </td>
-                <td>United Kingdom</td>
-                <td>
-                  <span class="legend-indicator bg-danger"></span>Suspended
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">0%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck12">
-                    <label class="form-check-label" for="usersDataCheck12"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-info avatar-circle">
-                      <span class="avatar-initials">B</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Brian Halligan</span>
-                      <span class="d-block fs-5 text-body">brian@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Director</span>
-                  <span class="d-block fs-5">Accounting</span>
-                </td>
-                <td>France</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">71%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 71%" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck13">
-                    <label class="form-check-label" for="usersDataCheck13"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-dark avatar-circle">
-                      <span class="avatar-initials">C</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Chris Mathew</span>
-                      <span class="d-block fs-5 text-body">chris@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Developer</span>
-                  <span class="d-block fs-5">Mobile app</span>
-                </td>
-                <td>Switzerland</td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">0%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck14">
-                    <label class="form-check-label" for="usersDataCheck14"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="./assets/img/160x160/img7.jpg" alt="Image Description">
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Clarice Boone <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></span>
-                      <span class="d-block fs-5 text-body">clarice@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Seller</span>
-                  <span class="d-block fs-5">Branding products</span>
-                </td>
-                <td>United Kingdom</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">37%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 37%" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck15">
-                    <label class="form-check-label" for="usersDataCheck15"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-dark avatar-circle">
-                      <span class="avatar-initials">L</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Lewis Clarke</span>
-                      <span class="d-block fs-5 text-body">lewis@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Co-founder</span>
-                  <span class="d-block fs-5">IT department</span>
-                </td>
-                <td>Switzerland</td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">100%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Owner</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck8">
-                    <label class="form-check-label" for="usersDataCheck8"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="./assets/img/160x160/img4.jpg" alt="Image Description">
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Sam Kart</span>
-                      <span class="d-block fs-5 text-body">sam@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Designer</span>
-                  <span class="d-block fs-5">Branding</span>
-                </td>
-                <td>Canada</td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">7%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 7%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck17">
-                    <label class="form-check-label" for="usersDataCheck17"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-danger avatar-circle">
-                      <span class="avatar-initials">J</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Johnny Appleseed</span>
-                      <span class="d-block fs-5 text-body">johnny@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Accountant</span>
-                  <span class="d-block fs-5">Human resources</span>
-                </td>
-                <td>United States</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">80%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck18">
-                    <label class="form-check-label" for="usersDataCheck18"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-danger avatar-circle">
-                      <span class="avatar-initials">P</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Phileas Fogg</span>
-                      <span class="d-block fs-5 text-body">phileas@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Designer</span>
-                  <span class="d-block fs-5">Branding</span>
-                </td>
-                <td>Spain</td>
-                <td>
-                  <span class="legend-indicator bg-danger"></span>Suspended
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">46%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 46%" aria-valuenow="46" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck19">
-                    <label class="form-check-label" for="usersDataCheck19"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="./assets/img/160x160/img6.jpg" alt="Image Description">
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Mark Williams <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></span>
-                      <span class="d-block fs-5 text-body">mark@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Co-founder</span>
-                  <span class="d-block fs-5">Branding</span>
-                </td>
-                <td>United Kingdom</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">100%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Owner</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck20">
-                    <label class="form-check-label" for="usersDataCheck20"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-dark avatar-circle">
-                      <span class="avatar-initials">T</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Timothy Silva</span>
-                      <span class="d-block fs-5 text-body">timothy@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Developer</span>
-                  <span class="d-block fs-5">Mobile app</span>
-                </td>
-                <td>Italy</td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">12%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 12%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck21">
-                    <label class="form-check-label" for="usersDataCheck21"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-dark avatar-circle">
-                      <span class="avatar-initials">G</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Gary Bishop <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></span>
-                      <span class="d-block fs-5 text-body">gary@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Developer</span>
-                  <span class="d-block fs-5">Mobile app</span>
-                </td>
-                <td>Latvia</td>
-                <td>
-                  <span class="legend-indicator bg-success"></span>Active
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">50%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck22">
-                    <label class="form-check-label" for="usersDataCheck22"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-dark avatar-circle">
-                      <span class="avatar-initials">Y</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Yorker Scogings</span>
-                      <span class="d-block fs-5 text-body">yorker@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Seller</span>
-                  <span class="d-block fs-5">Branding products</span>
-                </td>
-                <td>Norway</td>
-                <td>
-                  <span class="legend-indicator bg-danger"></span>Suspended
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">49%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 49%" aria-valuenow="49" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck23">
-                    <label class="form-check-label" for="usersDataCheck23"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-info avatar-circle">
-                      <span class="avatar-initials">F</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Frank Phillips</span>
-                      <span class="d-block fs-5 text-body">frank@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Unknown</span>
-                  <span class="d-block fs-5">Unknown</span>
-                </td>
-                <td>Norway</td>
-                <td>
-                  <span class="legend-indicator bg-danger"></span>Suspended
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">3%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 3%" aria-valuenow="3" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
-
-              <tr>
-                <td class="table-column-pe-0">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="usersDataCheck24">
-                    <label class="form-check-label" for="usersDataCheck24"></label>
-                  </div>
-                </td>
-                <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
-                    <div class="avatar avatar-soft-primary avatar-circle">
-                      <span class="avatar-initials">E</span>
-                    </div>
-                    <div class="ms-3">
-                      <span class="d-block h5 text-inherit mb-0">Elizabeth Carter</span>
-                      <span class="d-block fs-5 text-body">eliz@site.com</span>
-                    </div>
-                  </a>
-                </td>
-                <td>
-                  <span class="d-block h5 mb-0">Unknown</span>
-                  <span class="d-block fs-5">Unknown</span>
-                </td>
-                <td>United States</td>
-                <td>
-                  <span class="legend-indicator bg-warning"></span>Pending
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">95%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </td>
-                <td>Employee</td>
-                <td>
-                  <button type="button" class="btn btn-white btn-sm" data-bs-toggle="modal" data-bs-target="#editUserModal">
-                    <i class="bi-pencil-fill me-1"></i> Edit
-                  </button>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>

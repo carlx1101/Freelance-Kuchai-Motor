@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Required Meta Tags Always Come First -->
   <meta charset="utf-8">
@@ -26,19 +27,17 @@
   <link rel="preload" href="{{asset('backend/css/theme-dark.min.css')}}" data-hs-appearance="dark" as="style">
 
   <style data-hs-appearance-onload-styles>
-    *
-    {
+    * {
       transition: unset !important;
     }
 
-    body
-    {
+    body {
       opacity: 0;
     }
   </style>
 
-    <script>
-            window.hs_config = {"autopath":"@@autopath","deleteLine":"hs-builder:delete","deleteLine:build":"hs-builder:build-delete","deleteLine:dist":"hs-builder:dist-delete","previewMode":false,"startPath":"/index.html","vars":{"themeFont":"https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap","version":"?v=1.0"},"layoutBuilder":{"extend":{"switcherSupport":true},"header":{"layoutMode":"default","containerMode":"container-fluid"},"sidebarLayout":"default"},"themeAppearance":{"layoutSkin":"default","sidebarSkin":"default","styles":{"colors":{"primary":"#377dff","transparent":"transparent","white":"#fff","dark":"132144","gray":{"100":"#f9fafc","900":"#1e2022"}},"font":"Inter"}},"languageDirection":{"lang":"en"},"skipFilesFromBundle":{"dist":["assets/js/hs.theme-appearance.js","assets/js/hs.theme-appearance-charts.js","assets/js/demo.js"],"build":["assets/css/theme.css","assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js","assets/js/demo.js","assets/css/theme-dark.css","assets/css/docs.css","assets/vendor/icon-set/style.css","assets/js/hs.theme-appearance.js","assets/js/hs.theme-appearance-charts.js","node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js","assets/js/demo.js"]},"minifyCSSFiles":["assets/css/theme.css","assets/css/theme-dark.css"],"copyDependencies":{"dist":{"*assets/js/theme-custom.js":""},"build":{"*assets/js/theme-custom.js":"","node_modules/bootstrap-icons/font/*fonts/**":"assets/css"}},"buildFolder":"","replacePathsToCDN":{},"directoryNames":{"src":"./src","dist":"./dist","build":"./build"},"fileNames":{"dist":{"js":"theme.min.js","css":"theme.min.css"},"build":{"css":"theme.min.css","js":"theme.min.js","vendorCSS":"vendor.min.css","vendorJS":"vendor.min.js"}},"fileTypes":"jpg|png|svg|mp4|webm|ogv|json"}
+  <script>
+    window.hs_config = {"autopath":"@@autopath","deleteLine":"hs-builder:delete","deleteLine:build":"hs-builder:build-delete","deleteLine:dist":"hs-builder:dist-delete","previewMode":false,"startPath":"/index.html","vars":{"themeFont":"https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap","version":"?v=1.0"},"layoutBuilder":{"extend":{"switcherSupport":true},"header":{"layoutMode":"default","containerMode":"container-fluid"},"sidebarLayout":"default"},"themeAppearance":{"layoutSkin":"default","sidebarSkin":"default","styles":{"colors":{"primary":"#377dff","transparent":"transparent","white":"#fff","dark":"132144","gray":{"100":"#f9fafc","900":"#1e2022"}},"font":"Inter"}},"languageDirection":{"lang":"en"},"skipFilesFromBundle":{"dist":["assets/js/hs.theme-appearance.js","assets/js/hs.theme-appearance-charts.js","assets/js/demo.js"],"build":["assets/css/theme.css","assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js","assets/js/demo.js","assets/css/theme-dark.css","assets/css/docs.css","assets/vendor/icon-set/style.css","assets/js/hs.theme-appearance.js","assets/js/hs.theme-appearance-charts.js","node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js","assets/js/demo.js"]},"minifyCSSFiles":["assets/css/theme.css","assets/css/theme-dark.css"],"copyDependencies":{"dist":{"*assets/js/theme-custom.js":""},"build":{"*assets/js/theme-custom.js":"","node_modules/bootstrap-icons/font/*fonts/**":"assets/css"}},"buildFolder":"","replacePathsToCDN":{},"directoryNames":{"src":"./src","dist":"./dist","build":"./build"},"fileNames":{"dist":{"js":"theme.min.js","css":"theme.min.css"},"build":{"css":"theme.min.css","js":"theme.min.js","vendorCSS":"vendor.min.css","vendorJS":"vendor.min.js"}},"fileTypes":"jpg|png|svg|mp4|webm|ogv|json"}
             window.hs_config.gulpRGBA = (p1) => {
             const options = p1.split(',')
             const hex = options[0].toString()
@@ -119,14 +118,15 @@
             }
             return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16)
             }
-    </script>
+  </script>
 </head>
 
 <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
 
   <script src="{{asset('backend/js/hs.theme-appearance.js')}}"></script>
 
-  <script src="{{asset('backend/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js')}}"></script>
+  <script src="{{asset('backend/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js')}}">
+  </script>
 
   <!-- ========== HEADER ========== -->
 
@@ -444,7 +444,8 @@
 
               <!-- Dropdown -->
               <div class="dropdown">
-                <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm rounded-circle" id="reportsOverviewDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm rounded-circle"
+                  id="reportsOverviewDropdown2" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="bi-three-dots-vertical"></i>
                 </button>
 
@@ -476,7 +477,8 @@
 
             <!-- Body -->
             <div class="card-body">
-              <p>See and talk to your users and leads immediately by importing your data into the Front Dashboard platform.</p>
+              <p>See and talk to your users and leads immediately by importing your data into the Front Dashboard
+                platform.</p>
 
               <ul class="list-group list-group-flush list-group-no-gutters">
                 <li class="list-group-item">
@@ -487,7 +489,8 @@
                 <li class="list-group-item">
                   <div class="d-flex">
                     <div class="flex-shrink-0">
-                      <img class="avatar avatar-xs avatar-4x3" src="./assets/svg/brands/capsule-icon.svg" alt="Image Description">
+                      <img class="avatar avatar-xs avatar-4x3" src="{{asset('backend/svg/brands/capsule-icon.svg') }}"
+                        alt="Image Description">
                     </div>
                     <div class="flex-grow-1 ms-3">
                       <div class="row align-items-center">
@@ -515,7 +518,8 @@
                 <li class="list-group-item">
                   <div class="d-flex">
                     <div class="flex-shrink-0">
-                      <img class="avatar avatar-xs avatar-4x3" src="./assets/svg/brands/mailchimp-icon.svg" alt="Image Description">
+                      <img class="avatar avatar-xs avatar-4x3" src="{{asset('backend/svg/brands/mailchimp-icon.svg')}}"
+                        alt="Image Description">
                     </div>
                     <div class="flex-grow-1 ms-3">
                       <div class="row align-items-center">
@@ -543,7 +547,8 @@
                 <li class="list-group-item">
                   <div class="d-flex">
                     <div class="flex-shrink-0">
-                      <img class="avatar avatar-xs avatar-4x3" src="./assets/svg/brands/google-webdev-icon.svg" alt="Image Description">
+                      <img class="avatar avatar-xs avatar-4x3"
+                        src="{{asset('backend/svg/brands/google-webdev-icon.svg')}}" alt="Image Description">
                     </div>
                     <div class="flex-grow-1 ms-3">
                       <div class="row align-items-center">
@@ -567,7 +572,8 @@
                 </li>
                 <!-- End List Group Item -->
 
-                <li class="list-group-item"><span class="small text-muted">Or you can <a class="link" href="#">sync data to Front Dashboard</a> to ensure your data is always up-to-date.</span></li>
+                <li class="list-group-item"><span class="small text-muted">Or you can <a class="link" href="#">sync data
+                      to Front Dashboard</a> to ensure your data is always up-to-date.</span></li>
               </ul>
             </div>
             <!-- End Body -->
@@ -585,10 +591,12 @@
 
               <!-- Nav -->
               <ul class="nav nav-segment nav-fill" id="expensesTab" role="tablist">
-                <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="thisWeek" data-trigger="click" data-action="toggle">
+                <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="thisWeek" data-trigger="click"
+                  data-action="toggle">
                   <a class="nav-link active" href="javascript:;" data-bs-toggle="tab">This week</a>
                 </li>
-                <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="lastWeek" data-trigger="click" data-action="toggle">
+                <li class="nav-item" data-bs-toggle="chart-bar" data-datasets="lastWeek" data-trigger="click"
+                  data-action="toggle">
                   <a class="nav-link" href="javascript:;" data-bs-toggle="tab">Last week</a>
                 </li>
               </ul>
@@ -745,7 +753,9 @@
                     <div class="col-auto">
                       <!-- Select -->
                       <div class="tom-select-custom tom-select-custom-end">
-                        <select class="js-select js-datatable-filter form-select form-select-sm form-select-borderless" data-target-column-index="2" data-target-table="datatable" autocomplete="off" data-hs-tom-select-options='{
+                        <select class="js-select js-datatable-filter form-select form-select-sm form-select-borderless"
+                          data-target-column-index="2" data-target-table="datatable" autocomplete="off"
+                          data-hs-tom-select-options='{
                                   "searchInDropdown": false,
                                   "hideSearch": true,
                                   "dropdownWidth": "10rem"
@@ -774,7 +784,9 @@
                     <div class="col-auto">
                       <!-- Select -->
                       <div class="tom-select-custom tom-select-custom-end">
-                        <select class="js-select js-datatable-filter form-select form-select-sm form-select-borderless" data-target-column-index="5" data-target-table="datatable" autocomplete="off" data-hs-tom-select-options='{
+                        <select class="js-select js-datatable-filter form-select form-select-sm form-select-borderless"
+                          data-target-column-index="5" data-target-table="datatable" autocomplete="off"
+                          data-hs-tom-select-options='{
                                   "searchInDropdown": false,
                                   "hideSearch": true,
                                   "dropdownWidth": "10rem"
@@ -799,7 +811,8 @@
                       <div class="input-group-prepend input-group-text">
                         <i class="bi-search"></i>
                       </div>
-                      <input id="datatableSearch" type="search" class="form-control" placeholder="Search users" aria-label="Search users">
+                      <input id="datatableSearch" type="search" class="form-control" placeholder="Search users"
+                        aria-label="Search users">
                     </div>
                     <!-- End Search -->
                   </form>
@@ -816,7 +829,9 @@
 
         <!-- Table -->
         <div class="table-responsive datatable-custom">
-          <table id="datatable" class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table" data-hs-datatables-options='{
+          <table id="datatable"
+            class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
+            data-hs-datatables-options='{
                    "columnDefs": [{
                       "targets": [0, 1, 4],
                       "orderable": false
@@ -861,11 +876,13 @@
                   <a class="d-flex align-items-center" href="./user-profile.html">
                     <div class="flex-shrink-0">
                       <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="./assets/img/160x160/img10.jpg" alt="Image Description">
+                        <img class="avatar-img" src="{{asset('backend/img/160x160/img10.jpg')}}"
+                          alt="Image Description">
                       </div>
                     </div>
                     <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Amanda Harvey <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
+                      <h5 class="text-inherit mb-0">Amanda Harvey <i class="bi-patch-check-fill text-primary"
+                          data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
                     </div>
                   </a>
                 </td>
@@ -917,7 +934,7 @@
                   <a class="d-flex align-items-center" href="./user-profile.html">
                     <div class="flex-shrink-0">
                       <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="./assets/img/160x160/img3.jpg" alt="Image Description">
+                        <img class="avatar-img" src="{{asset('backend/img/160x160/img3.jpg')}}" alt="Image Description">
                       </div>
                     </div>
                     <div class="flex-grow-1 ms-3">
@@ -945,7 +962,7 @@
                   <a class="d-flex align-items-center" href="./user-profile.html">
                     <div class="flex-shrink-0">
                       <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="./assets/img/160x160/img5.jpg" alt="Image Description">
+                        <img class="avatar-img" src="{{asset('backend/img/160x160/img5.jpg')}}" alt="Image Description">
                       </div>
                     </div>
                     <div class="flex-grow-1 ms-3">
@@ -1001,11 +1018,12 @@
                   <a class="d-flex align-items-center" href="./user-profile.html">
                     <div class="flex-shrink-0">
                       <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="./assets/img/160x160/img9.jpg" alt="Image Description">
+                        <img class="avatar-img" src="{{asset('backend/img/160x160/img9.jpg')}}" alt="Image Description">
                       </div>
                     </div>
                     <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Ella Lauda <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
+                      <h5 class="text-inherit mb-0">Ella Lauda <i class="bi-patch-check-fill text-primary"
+                          data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
                     </div>
                   </a>
                 </td>
@@ -1029,7 +1047,7 @@
                   <a class="d-flex align-items-center" href="./user-profile.html">
                     <div class="flex-shrink-0">
                       <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="./assets/img/160x160/img4.jpg" alt="Image Description">
+                        <img class="avatar-img" src="{{asset('backend/img/160x160/img4.jpg')}}" alt="Image Description">
                       </div>
                     </div>
                     <div class="flex-grow-1 ms-3">
@@ -1057,7 +1075,7 @@
                   <a class="d-flex align-items-center" href="./user-profile.html">
                     <div class="flex-shrink-0">
                       <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="./assets/img/160x160/img6.jpg" alt="Image Description">
+                        <img class="avatar-img" src="{{asset('backend/img/160x160/img6.jpg')}}" alt="Image Description">
                       </div>
                     </div>
                     <div class="flex-grow-1 ms-3">
@@ -1141,7 +1159,7 @@
                   <a class="d-flex align-items-center" href="./user-profile.html">
                     <div class="flex-shrink-0">
                       <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="./assets/img/160x160/img8.jpg" alt="Image Description">
+                        <img class="avatar-img" src="{{asset('backend/img/160x160/img8.jpg')}}" alt="Image Description">
                       </div>
                     </div>
                     <div class="flex-grow-1 ms-3">
@@ -1173,7 +1191,8 @@
                       </div>
                     </div>
                     <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Chris Mathew <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
+                      <h5 class="text-inherit mb-0">Chris Mathew <i class="bi-patch-check-fill text-primary"
+                          data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
                     </div>
                   </a>
                 </td>
@@ -1225,11 +1244,12 @@
                   <a class="d-flex align-items-center" href="./user-profile.html">
                     <div class="flex-shrink-0">
                       <div class="avatar avatar-sm avatar-circle">
-                        <img class="avatar-img" src="./assets/img/160x160/img7.jpg" alt="Image Description">
+                        <img class="avatar-img" src="{{asset('backend/img/160x160/img7.jpg')}}" alt="Image Description">
                       </div>
                     </div>
                     <div class="flex-grow-1 ms-3">
-                      <h5 class="text-inherit mb-0">Clarice Boone <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
+                      <h5 class="text-inherit mb-0">Clarice Boone <i class="bi-patch-check-fill text-primary"
+                          data-bs-toggle="tooltip" data-bs-placement="top" title="Top endorsed"></i></h5>
                     </div>
                   </a>
                 </td>
@@ -1340,7 +1360,8 @@
 
                 <!-- Select -->
                 <div class="tom-select-custom">
-                  <select id="datatableEntries" class="js-select form-select form-select-borderless w-auto" autocomplete="off" data-hs-tom-select-options='{
+                  <select id="datatableEntries" class="js-select form-select form-select-borderless w-auto"
+                    autocomplete="off" data-hs-tom-select-options='{
                             "searchInDropdown": false,
                             "hideSearch": true
                           }'>
@@ -1502,7 +1523,8 @@
 
               <!-- Dropdown -->
               <div class="dropdown">
-                <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm rounded-circle" id="reportsOverviewDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
+                <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm rounded-circle"
+                  id="reportsOverviewDropdown1" data-bs-toggle="dropdown" aria-expanded="false">
                   <i class="bi-three-dots-vertical"></i>
                 </button>
 
@@ -1538,9 +1560,14 @@
 
               <!-- Progress -->
               <div class="progress rounded-pill mb-2">
-                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="Gross value"></div>
-                <div class="progress-bar opacity-50" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="Net volume from sales"></div>
-                <div class="progress-bar opacity-25" role="progressbar" style="width: 9%" aria-valuenow="9" aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="New volume from sales"></div>
+                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                  aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top" title="Gross value"></div>
+                <div class="progress-bar opacity-50" role="progressbar" style="width: 33%" aria-valuenow="33"
+                  aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top"
+                  title="Net volume from sales"></div>
+                <div class="progress-bar opacity-25" role="progressbar" style="width: 9%" aria-valuenow="9"
+                  aria-valuemin="0" aria-valuemax="100" data-bs-toggle="tooltip" data-bs-placement="top"
+                  title="New volume from sales"></div>
               </div>
 
               <div class="d-flex justify-content-between mb-4">
@@ -1626,7 +1653,9 @@
 
               <li class="list-inline-item">
                 <!-- Keyboard Shortcuts Toggle -->
-                <button class="btn btn-ghost-secondary btn btn-icon btn-ghost-secondary rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasKeyboardShortcuts" aria-controls="offcanvasKeyboardShortcuts">
+                <button class="btn btn-ghost-secondary btn btn-icon btn-ghost-secondary rounded-circle" type="button"
+                  data-bs-toggle="offcanvas" data-bs-target="#offcanvasKeyboardShortcuts"
+                  aria-controls="offcanvasKeyboardShortcuts">
                   <i class="bi-command"></i>
                 </button>
                 <!-- End Keyboard Shortcuts Toggle -->
@@ -1640,7 +1669,7 @@
       <!-- End Row -->
     </div>
 
-  @include('admin.layouts.footer')
+    @include('admin.layouts.footer')
 
     <!-- End Footer -->
   </main>
@@ -1649,7 +1678,8 @@
   <!-- ========== SECONDARY CONTENTS ========== -->
 
   <!-- Keyboard Shortcuts -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasKeyboardShortcuts" aria-labelledby="offcanvasKeyboardShortcutsLabel">
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasKeyboardShortcuts"
+    aria-labelledby="offcanvasKeyboardShortcutsLabel">
     <div class="offcanvas-header">
       <h4 id="offcanvasKeyboardShortcutsLabel" class="mb-0">Keyboard shortcuts</h4>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -1667,7 +1697,8 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">b</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">b</kbd>
             </div>
           </div>
           <!-- End Row -->
@@ -1681,7 +1712,8 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">i</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">i</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -1696,7 +1728,8 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">u</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">u</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -1711,7 +1744,9 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">s</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">s</kbd>
               <!-- End Col -->
             </div>
           </div>
@@ -1726,7 +1761,8 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">s</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">s</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -1741,7 +1777,8 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">e</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">e</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -1867,7 +1904,8 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">r</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">r</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -1882,7 +1920,8 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">n</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">n</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -1897,7 +1936,8 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">p</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">p</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -1927,7 +1967,8 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Tab</kbd>
+              <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">Tab</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -1942,7 +1983,9 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1"><i class="bi-arrow-up-short"></i></kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1"><i class="bi-arrow-up-short"></i></kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -1957,7 +2000,9 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1"><i class="bi-arrow-down-short fs-5"></i></kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1"><i class="bi-arrow-down-short fs-5"></i></kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -1972,7 +2017,9 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">m</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">m</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -1987,7 +2034,8 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">z</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">z</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -2002,7 +2050,8 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">y</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">y</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -2023,7 +2072,9 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">n</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">Alt</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">n</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -2038,7 +2089,9 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">p</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">p</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -2053,7 +2106,9 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">s</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">s</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -2068,7 +2123,9 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">o</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">o</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -2083,7 +2140,9 @@
             <!-- End Col -->
 
             <div class="col-7 text-end">
-              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd class="d-inline-block mb-1">/</kbd>
+              <kbd class="d-inline-block mb-1">Ctrl</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">Shift</kbd> <span class="text-muted small">+</span> <kbd
+                class="d-inline-block mb-1">/</kbd>
             </div>
             <!-- End Col -->
           </div>
@@ -2096,7 +2155,8 @@
   <!-- End Keyboard Shortcuts -->
 
   <!-- Activity -->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasActivityStream" aria-labelledby="offcanvasActivityStreamLabel">
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasActivityStream"
+    aria-labelledby="offcanvasActivityStreamLabel">
     <div class="offcanvas-header">
       <h4 id="offcanvasActivityStreamLabel" class="mb-0">Activity stream</h4>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -2108,13 +2168,14 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar" src="./assets/img/160x160/img9.jpg" alt="Image Description">
+              <img class="step-avatar" src="{{asset('backend/img/160x160/img9.jpg')}}" alt="Image Description">
             </div>
 
             <div class="step-content">
               <h5 class="mb-1">Iana Robinson</h5>
 
-              <p class="fs-5 mb-1">Added 2 files to task <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i> Fd-7</a></p>
+              <p class="fs-5 mb-1">Added 2 files to task <a class="text-uppercase" href="#"><i
+                    class="bi-journal-bookmark-fill"></i> Fd-7</a></p>
 
               <ul class="list-group list-group-sm">
                 <!-- List Item -->
@@ -2124,10 +2185,12 @@
                       <!-- Media -->
                       <div class="d-flex">
                         <div class="flex-shrink-0">
-                          <img class="avatar avatar-xs" src="./assets/svg/brands/excel-icon.svg" alt="Image Description">
+                          <img class="avatar avatar-xs" src="{{asset('backend/svg/brands/excel-icon.svg')}}"
+                            alt="Image Description">
                         </div>
                         <div class="flex-grow-1 text-truncate ms-2">
-                          <span class="d-block fs-6 text-dark text-truncate" title="weekly-reports.xls">weekly-reports.xls</span>
+                          <span class="d-block fs-6 text-dark text-truncate"
+                            title="weekly-reports.xls">weekly-reports.xls</span>
                           <span class="d-block small text-muted">12kb</span>
                         </div>
                       </div>
@@ -2139,10 +2202,12 @@
                       <!-- Media -->
                       <div class="d-flex">
                         <div class="flex-shrink-0">
-                          <img class="avatar avatar-xs" src="./assets/svg/brands/word-icon.svg" alt="Image Description">
+                          <img class="avatar avatar-xs" src="{{asset('backend/svg/brands/word-icon.svg')}}"
+                            alt="Image Description">
                         </div>
                         <div class="flex-grow-1 text-truncate ms-2">
-                          <span class="d-block fs-6 text-dark text-truncate" title="weekly-reports.xls">weekly-reports.xls</span>
+                          <span class="d-block fs-6 text-dark text-truncate"
+                            title="weekly-reports.xls">weekly-reports.xls</span>
                           <span class="d-block small text-muted">4kb</span>
                         </div>
                       </div>
@@ -2169,7 +2234,9 @@
             <div class="step-content">
               <h5 class="mb-1">Bob Dean</h5>
 
-              <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i> Fr-6</a> as <span class="badge bg-soft-success text-success rounded-pill"><span class="legend-indicator bg-success"></span>"Completed"</span></p>
+              <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i>
+                  Fr-6</a> as <span class="badge bg-soft-success text-success rounded-pill"><span
+                    class="legend-indicator bg-success"></span>"Completed"</span></p>
 
               <span class="small text-muted text-uppercase">Today</span>
             </div>
@@ -2181,7 +2248,7 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar-img" src="./assets/img/160x160/img3.jpg" alt="Image Description">
+              <img class="step-avatar-img" src="{{asset('backend/img/160x160/img3.jpg')}}" alt="Image Description">
             </div>
 
             <div class="step-content">
@@ -2193,13 +2260,16 @@
                 <li class="list-group-item list-group-item-light">
                   <div class="row gx-1">
                     <div class="col">
-                      <img class="img-fluid rounded" src="./assets/svg/components/card-1.svg" alt="Image Description">
+                      <img class="img-fluid rounded" src="{{asset('backend/svg/components/card-1.svg')}}"
+                        alt="Image Description">
                     </div>
                     <div class="col">
-                      <img class="img-fluid rounded" src="./assets/svg/components/card-2.svg" alt="Image Description">
+                      <img class="img-fluid rounded" src="{{asset('backend/svg/components/card-2.svg')}}"
+                        alt="Image Description">
                     </div>
                     <div class="col">
-                      <img class="img-fluid rounded" src="./assets/svg/components/card-3.svg" alt="Image Description">
+                      <img class="img-fluid rounded" src="{{asset('backend/svg/components/card-3.svg')}}"
+                        alt="Image Description">
                     </div>
                     <div class="col-auto align-self-center">
                       <div class="text-center">
@@ -2236,13 +2306,15 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar-img" src="./assets/img/160x160/img7.jpg" alt="Image Description">
+              <img class="step-avatar-img" src="{{asset('backend/img/160x160/img7.jpg')}}" alt="Image Description">
             </div>
 
             <div class="step-content">
               <h5 class="mb-1">Rachel King</h5>
 
-              <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i> Fr-3</a> as <span class="badge bg-soft-success text-success rounded-pill"><span class="legend-indicator bg-success"></span>"Completed"</span></p>
+              <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i>
+                  Fr-3</a> as <span class="badge bg-soft-success text-success rounded-pill"><span
+                    class="legend-indicator bg-success"></span>"Completed"</span></p>
 
               <span class="small text-muted text-uppercase">Apr 29</span>
             </div>
@@ -2254,7 +2326,7 @@
         <li class="step-item">
           <div class="step-content-wrapper">
             <div class="step-avatar">
-              <img class="step-avatar-img" src="./assets/img/160x160/img5.jpg" alt="Image Description">
+              <img class="step-avatar-img" src="{{asset('backend/img/160x160/img5.jpg')}}" alt="Image Description">
             </div>
 
             <div class="step-content">
@@ -2278,7 +2350,9 @@
             <div class="step-content">
               <h5 class="mb-1">Project status updated</h5>
 
-              <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i> Fr-3</a> as <span class="badge bg-soft-primary text-primary rounded-pill"><span class="legend-indicator bg-primary"></span>"In progress"</span></p>
+              <p class="fs-5 mb-1">Marked <a class="text-uppercase" href="#"><i class="bi-journal-bookmark-fill"></i>
+                  Fr-3</a> as <span class="badge bg-soft-primary text-primary rounded-pill"><span
+                    class="legend-indicator bg-primary"></span>"In progress"</span></p>
 
               <span class="small text-muted text-uppercase">Feb 10</span>
             </div>
@@ -2301,7 +2375,8 @@
       <div class="modal-content">
         <!-- Header -->
         <div class="modal-close">
-          <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm" data-bs-dismiss="modal" aria-label="Close">
+          <button type="button" class="btn btn-ghost-secondary btn-icon btn-sm" data-bs-dismiss="modal"
+            aria-label="Close">
             <i class="bi-x-lg"></i>
           </button>
         </div>
@@ -2311,8 +2386,10 @@
         <div class="modal-body p-sm-5">
           <div class="text-center">
             <div class="w-75 w-sm-50 mx-auto mb-4">
-              <img class="img-fluid" src="./assets/svg/illustrations/oc-collaboration.svg" alt="Image Description" data-hs-theme-appearance="default">
-              <img class="img-fluid" src="./assets/svg/illustrations-light/oc-collaboration.svg" alt="Image Description" data-hs-theme-appearance="dark">
+              <img class="img-fluid" src="{{asset('backend/svg/illustrations/oc-collaboration.svg')}}"
+                alt="Image Description" data-hs-theme-appearance="default">
+              <img class="img-fluid" src="{{asset('backend/svg/illustrations-light/oc-collaboration.svg')}}"
+                alt="Image Description" data-hs-theme-appearance="dark">
             </div>
 
             <h4 class="h1">Welcome to Front</h4>
@@ -2329,16 +2406,16 @@
           <div class="w-85 mx-auto">
             <div class="row justify-content-between">
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/gitlab-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{asset('backend/svg/brands/gitlab-gray.svg')}}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/fitbit-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{asset('backend/svg/brands/fitbit-gray.svg')}}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/flow-xo-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{asset('backend/svg/brands/flow-xo-gray.svg')}}" alt="Image Description">
               </div>
               <div class="col">
-                <img class="img-fluid" src="./assets/svg/brands/layar-gray.svg" alt="Image Description">
+                <img class="img-fluid" src="{{asset('backend/svg/brands/layar-gray.svg')}}" alt="Image Description">
               </div>
             </div>
           </div>
@@ -2364,7 +2441,8 @@
           <!-- Form -->
           <div class="mb-4">
             <div class="input-group mb-2 mb-sm-0">
-              <input type="text" class="form-control" name="fullName" placeholder="Search name or emails" aria-label="Search name or emails">
+              <input type="text" class="form-control" name="fullName" placeholder="Search name or emails"
+                aria-label="Search name or emails">
 
               <div class="input-group-append input-group-append-last-sm-down-none">
                 <!-- Select -->
@@ -2395,7 +2473,8 @@
 
             <div class="col-auto">
               <a class="d-flex align-items-center small text-body" href="#">
-                <img class="avatar avatar-xss avatar-4x3 me-2" src="./assets/svg/brands/gmail-icon.svg" alt="Image Description">
+                <img class="avatar avatar-xss avatar-4x3 me-2" src="{{asset('backend/svg/brands/gmail-icon.svg')}}"
+                  alt="Image Description">
                 Import contacts
               </a>
             </div>
@@ -2409,21 +2488,24 @@
               <div class="d-flex">
                 <div class="flex-shrink-0">
                   <div class="avatar avatar-sm avatar-circle">
-                    <img class="avatar-img" src="./assets/img/160x160/img10.jpg" alt="Image Description">
+                    <img class="avatar-img" src="{{asset('backend/img/160x160/img10.jpg')}}" alt="Image Description">
                   </div>
                 </div>
 
                 <div class="flex-grow-1 ms-3">
                   <div class="row align-items-center">
                     <div class="col-sm">
-                      <h5 class="mb-0">Amanda Harvey <i class="bi-patch-check-fill text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></h5>
+                      <h5 class="mb-0">Amanda Harvey <i class="bi-patch-check-fill text-primary" data-toggle="tooltip"
+                          data-placement="top" title="Top endorsed"></i></h5>
                       <span class="d-block small">amanda@site.com</span>
                     </div>
 
                     <div class="col-sm-auto">
                       <!-- Select -->
                       <div class="tom-select-custom tom-select-custom-sm-end">
-                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
+                        <select
+                          class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0"
+                          autocomplete="off" data-hs-tom-select-options='{
                                   "searchInDropdown": false,
                                   "hideSearch": true,
                                   "dropdownWidth": "11rem"
@@ -2432,7 +2514,8 @@
                           <option value="can edit">Can edit</option>
                           <option value="can comment">Can comment</option>
                           <option value="full access">Full access</option>
-                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
+                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove
+                          </option>
                         </select>
                       </div>
                       <!-- End Select -->
@@ -2449,7 +2532,7 @@
               <div class="d-flex">
                 <div class="flex-shrink-0">
                   <div class="avatar avatar-sm avatar-circle">
-                    <img class="avatar-img" src="./assets/img/160x160/img3.jpg" alt="Image Description">
+                    <img class="avatar-img" src="{{asset('backend/img/160x160/img3.jpg')}}" alt="Image Description">
                   </div>
                 </div>
 
@@ -2463,7 +2546,9 @@
                     <div class="col-sm-auto">
                       <!-- Select -->
                       <div class="tom-select-custom tom-select-custom-sm-end">
-                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
+                        <select
+                          class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0"
+                          autocomplete="off" data-hs-tom-select-options='{
                                   "searchInDropdown": false,
                                   "hideSearch": true,
                                   "dropdownWidth": "11rem"
@@ -2472,7 +2557,8 @@
                           <option value="can edit">Can edit</option>
                           <option value="can comment">Can comment</option>
                           <option value="full access">Full access</option>
-                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
+                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove
+                          </option>
                         </select>
                       </div>
                       <!-- End Select -->
@@ -2489,21 +2575,24 @@
               <div class="d-flex">
                 <div class="flex-shrink-0">
                   <div class="avatar avatar-sm avatar-circle">
-                    <img class="avatar-img" src="./assets/img/160x160/img9.jpg" alt="Image Description">
+                    <img class="avatar-img" src="{{asset('backend/img/160x160/img9.jpg')}}" alt="Image Description">
                   </div>
                 </div>
 
                 <div class="flex-grow-1 ms-3">
                   <div class="row align-items-center">
                     <div class="col-sm">
-                      <h5 class="mb-0">Ella Lauda <i class="bi-patch-check-fill text-primary" data-toggle="tooltip" data-placement="top" title="Top endorsed"></i></h5>
+                      <h5 class="mb-0">Ella Lauda <i class="bi-patch-check-fill text-primary" data-toggle="tooltip"
+                          data-placement="top" title="Top endorsed"></i></h5>
                       <span class="d-block small">Markvt@site.com</span>
                     </div>
 
                     <div class="col-sm-auto">
                       <!-- Select -->
                       <div class="tom-select-custom tom-select-custom-sm-end">
-                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
+                        <select
+                          class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0"
+                          autocomplete="off" data-hs-tom-select-options='{
                                   "searchInDropdown": false,
                                   "hideSearch": true,
                                   "dropdownWidth": "11rem"
@@ -2512,7 +2601,8 @@
                           <option value="can edit">Can edit</option>
                           <option value="can comment">Can comment</option>
                           <option value="full access">Full access</option>
-                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
+                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove
+                          </option>
                         </select>
                       </div>
                       <!-- End Select -->
@@ -2543,7 +2633,9 @@
                     <div class="col-sm-auto">
                       <!-- Select -->
                       <div class="tom-select-custom tom-select-custom-sm-end">
-                        <select class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0" autocomplete="off" data-hs-tom-select-options='{
+                        <select
+                          class="js-select form-select form-select-borderless tom-select-custom-form-select-invite-user tom-select-form-select-ps-0"
+                          autocomplete="off" data-hs-tom-select-options='{
                                   "searchInDropdown": false,
                                   "hideSearch": true,
                                   "dropdownWidth": "11rem"
@@ -2552,7 +2644,8 @@
                           <option value="can edit">Can edit</option>
                           <option value="can comment">Can comment</option>
                           <option value="full access">Full access</option>
-                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove</option>
+                          <option value="remove" data-option-template='<div class="text-danger">Remove</div>'>Remove
+                          </option>
                         </select>
                       </div>
                       <!-- End Select -->
@@ -2571,15 +2664,18 @@
         <div class="modal-footer">
           <div class="row align-items-center flex-grow-1 mx-n2">
             <div class="col-sm-9 mb-2 mb-sm-0">
-              <input type="hidden" id="inviteUserPublicClipboard" value="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/">
+              <input type="hidden" id="inviteUserPublicClipboard"
+                value="https://themes.getbootstrap.com/product/front-multipurpose-responsive-template/">
 
               <p class="modal-footer-text">The public share <a href="#">link settings</a>
-                <i class="bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="The public share link allows people to view the project without giving access to full collaboration features."></i>
+                <i class="bi-question-circle" data-bs-toggle="tooltip" data-bs-placement="top"
+                  title="The public share link allows people to view the project without giving access to full collaboration features."></i>
               </p>
             </div>
 
             <div class="col-sm-3 text-sm-end">
-              <a class="js-clipboard btn btn-white btn-sm text-nowrap" href="javascript:;" data-bs-toggle="tooltip" data-bs-placement="top" title="Copy to clipboard!" data-hs-clipboard-options='{
+              <a class="js-clipboard btn btn-white btn-sm text-nowrap" href="javascript:;" data-bs-toggle="tooltip"
+                data-bs-placement="top" title="Copy to clipboard!" data-hs-clipboard-options='{
                   "type": "tooltip",
                   "successText": "Copied!",
                   "contentTarget": "#inviteUserPublicClipboard",
@@ -2673,8 +2769,8 @@
       },
       language: {
         zeroRecords: `<div class="text-center p-4">
-              <img class="mb-3" src="./assets/svg/illustrations/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
-              <img class="mb-3" src="./assets/svg/illustrations-light/oc-error.svg" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
+              <img class="mb-3" src="{{asset('backend/svg/illustrations/oc-error.svg')}}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="default">
+              <img class="mb-3" src="{{asset('backend/svg/illustrations-light/oc-error.svg')}}" alt="Image Description" style="width: 10rem;" data-hs-theme-appearance="dark">
             <p class="mb-0">No data to show</p>
             </div>`
       }
@@ -2849,7 +2945,7 @@
   <!-- Style Switcher JS -->
 
   <script>
-      (function () {
+    (function () {
         // STYLE SWITCHER
         // =======================================================
         const $dropdownBtn = document.getElementById('selectThemeDropdown') // Dropdowon trigger
@@ -2882,8 +2978,9 @@
           setActiveStyle()
         })
       })()
-    </script>
+  </script>
 
   <!-- End Style Switcher JS -->
 </body>
+
 </html>

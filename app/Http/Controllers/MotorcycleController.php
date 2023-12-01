@@ -189,7 +189,33 @@ class MotorcycleController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $motorcycle = Motorcycle::findOrFail($id);
+
+        if (isset($motorcycle->motor_cover_filename) && isset($motorcycle->motor_cover_filename)) {
+            if (file_exists(public_path('storage/motor_covers/' . $motorcycle->motor_cover_filename))) {
+                Storage::delete('storage/motor_covers/' . $motorcycle->motor_cover_filename);
+                unlink(public_path('storage/motor_covers/' . $motorcycle->motor_cover_filename));
+            }
+        }
+
+        if (count($motorcycle->motorcycleImages) > 0) {
+            $parentDirectoryName = preg_match('/\/([^\/]+)\/[^\/]+$/', $motorcycle->motorcycleImages->first()->url, $matches) ? $matches[1] : abort(401);
+            foreach ($motorcycle->motorcycleImages as $motor_image) {
+                if (file_exists(public_path('storage/motor_images/' . $parentDirectoryName . '/' . $motor_image->name))) {
+                    Storage::delete('storage/motor_images/' . $parentDirectoryName . '/' . $motor_image->name);
+                    unlink(public_path('storage/motor_images/' . $parentDirectoryName . '/' . $motor_image->name));
+
+                    // $motor_image->delete(); Truncate from database
+                }
+            }
+            count(File::files(public_path('storage/motor_images/' . $parentDirectoryName))) == 0 ? File::deleteDirectory(public_path('storage/motor_images/' . $parentDirectoryName)) : '';
+        }
+
+        if ($motorcycle->delete()) {
+            return redirect()->route('motorcycles.index')->with('success', 'Motorcycle successful deleted');
+        } else {
+            return back()->with('error', 'Something went wrong, please try again later');
+        }
     }
 
     /**

@@ -153,11 +153,11 @@
           </div>
           <!-- End Col -->
 
-          <div class="col-auto">
+          {{-- <div class="col-auto">
             <a class="btn btn-primary" href="javascript:;" data-bs-toggle="modal" data-bs-target="#inviteUserModal">
               <i class="bi-person-plus-fill me-1"></i> Invite users
             </a>
-          </div>
+          </div> --}}
           <!-- End Col -->
         </div>
         <!-- End Row -->
@@ -170,14 +170,14 @@
           <!-- Card -->
           <a class="card card-hover-shadow h-100" href="#">
             <div class="card-body">
-              <h6 class="card-subtitle">Total Users</h6>
+              <h6 class="card-subtitle">Total Bookings</h6>
 
               <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
-                  <h2 class="card-title text-inherit">72,540</h2>
+                  <h2 class="card-title text-inherit">{{$bookings->count()}}</h2>
                 </div>
                 <!-- End Col -->
-
+{{--
                 <div class="col-6">
                   <!-- Chart -->
                   <div class="chartjs-custom" style="height: 3rem;">
@@ -219,15 +219,15 @@
                     </canvas>
                   </div>
                   <!-- End Chart -->
-                </div>
+                </div> --}}
                 <!-- End Col -->
               </div>
               <!-- End Row -->
-
+{{--
               <span class="badge bg-soft-success text-success">
                 <i class="bi-graph-up"></i> 12.5%
               </span>
-              <span class="text-body fs-6 ms-1">from 70,104</span>
+              <span class="text-body fs-6 ms-1">from 70,104</span> --}}
             </div>
           </a>
           <!-- End Card -->
@@ -237,15 +237,15 @@
           <!-- Card -->
           <a class="card card-hover-shadow h-100" href="#">
             <div class="card-body">
-              <h6 class="card-subtitle">Sessions</h6>
+              <h6 class="card-subtitle">Total Salesmans</h6>
 
               <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
-                  <h2 class="card-title text-inherit">29.4%</h2>
+                  <h2 class="card-title text-inherit">{{$users->count()}}</h2>
                 </div>
                 <!-- End Col -->
 
-                <div class="col-6">
+                {{-- <div class="col-6">
                   <!-- Chart -->
                   <div class="chartjs-custom" style="height: 3rem;">
                     <canvas class="js-chart" data-hs-chartjs-options='{
@@ -286,15 +286,15 @@
                     </canvas>
                   </div>
                   <!-- End Chart -->
-                </div>
+                </div> --}}
                 <!-- End Col -->
               </div>
               <!-- End Row -->
 
-              <span class="badge bg-soft-success text-success">
+              {{-- <span class="badge bg-soft-success text-success">
                 <i class="bi-graph-up"></i> 1.7%
-              </span>
-              <span class="text-body fs-6 ms-1">from 29.1%</span>
+              </span> --}}
+              {{-- <span class="text-body fs-6 ms-1">from 29.1%</span> --}}
             </div>
           </a>
           <!-- End Card -->
@@ -304,15 +304,15 @@
           <!-- Card -->
           <a class="card card-hover-shadow h-100" href="#">
             <div class="card-body">
-              <h6 class="card-subtitle">Avg. Click Rate</h6>
+              <h6 class="card-subtitle">Total Motorcycles</h6>
 
               <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
-                  <h2 class="card-title text-inherit">56.8%</h2>
+                  <h2 class="card-title text-inherit">{{$motorcycles->count()}}</h2>
                 </div>
                 <!-- End Col -->
 
-                <div class="col-6">
+                {{-- <div class="col-6">
                   <!-- Chart -->
                   <div class="chartjs-custom" style="height: 3rem;">
                     <canvas class="js-chart" data-hs-chartjs-options='{
@@ -353,15 +353,12 @@
                     </canvas>
                   </div>
                   <!-- End Chart -->
-                </div>
+                </div> --}}
                 <!-- End Col -->
               </div>
               <!-- End Row -->
 
-              <span class="badge bg-soft-danger text-danger">
-                <i class="bi-graph-down"></i> 4.4%
-              </span>
-              <span class="text-body fs-6 ms-1">from 61.2%</span>
+
             </div>
           </a>
           <!-- End Card -->
@@ -371,62 +368,18 @@
           <!-- Card -->
           <a class="card card-hover-shadow h-100" href="#">
             <div class="card-body">
-              <h6 class="card-subtitle">Pageviews</h6>
+              <h6 class="card-subtitle">Total Accessories</h6>
 
               <div class="row align-items-center gx-2 mb-1">
                 <div class="col-6">
-                  <h2 class="card-title text-inherit">92,913</h2>
-                </div>
+                    <h2 class="card-title text-inherit">{{$accessories->count()}}</h2>
+                  </div>
                 <!-- End Col -->
 
-                <div class="col-6">
-                  <!-- Chart -->
-                  <div class="chartjs-custom" style="height: 3rem;">
-                    <canvas class="js-chart" data-hs-chartjs-options='{
-                              "type": "line",
-                              "data": {
-                                 "labels": ["1 May","2 May","3 May","4 May","5 May","6 May","7 May","8 May","9 May","10 May","11 May","12 May","13 May","14 May","15 May","16 May","17 May","18 May","19 May","20 May","21 May","22 May","23 May","24 May","25 May","26 May","27 May","28 May","29 May","30 May","31 May"],
-                                 "datasets": [{
-                                  "data": [21,20,24,15,17,30,30,35,35,35,40,60,12,90,90,85,70,75,43,75,90,22,120,120,90,85,100,92,92,92,92],
-                                  "backgroundColor": ["rgba(55, 125, 255, 0)", "rgba(255, 255, 255, 0)"],
-                                  "borderColor": "#377dff",
-                                  "borderWidth": 2,
-                                  "pointRadius": 0,
-                                  "pointHoverRadius": 0
-                                }]
-                              },
-                              "options": {
-                                 "scales": {
-                                   "y": {
-                                     "display": false
-                                   },
-                                   "x": {
-                                     "display": false
-                                   }
-                                 },
-                                "hover": {
-                                  "mode": "nearest",
-                                  "intersect": false
-                                },
-                                "plugins": {
-                                  "tooltip": {
-                                    "postfix": "k",
-                                    "hasIndicator": true,
-                                    "intersect": false
-                                  }
-                                }
-                              }
-                            }'>
-                    </canvas>
-                  </div>
-                  <!-- End Chart -->
-                </div>
                 <!-- End Col -->
               </div>
               <!-- End Row -->
 
-              <span class="badge bg-soft-secondary text-body">0.0%</span>
-              <span class="text-body fs-6 ms-1">from 2,913</span>
             </div>
           </a>
           <!-- End Card -->
@@ -434,7 +387,7 @@
       </div>
       <!-- End Stats -->
 
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-lg-5 mb-3 mb-lg-5">
           <!-- Card -->
           <div class="card h-100">
@@ -711,11 +664,11 @@
           <!-- End Card -->
         </div>
         <!-- End Col -->
-      </div>
+      </div> --}}
       <!-- End Row -->
 
       <!-- Card -->
-      <div class="card mb-3 mb-lg-5">
+      {{-- <div class="card mb-3 mb-lg-5">
         <!-- Header -->
         <div class="card-header">
           <div class="row justify-content-between align-items-center flex-grow-1">
@@ -1392,10 +1345,10 @@
           <!-- End Pagination -->
         </div>
         <!-- End Footer -->
-      </div>
+      </div> --}}
       <!-- End Card -->
 
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-lg-6 mb-3 mb-lg-0">
           <!-- Card -->
           <div class="card h-100">
@@ -1626,13 +1579,13 @@
           </div>
           <!-- End Card -->
         </div>
-      </div>
+      </div> --}}
     </div>
     <!-- End Content -->
 
     <!-- Footer -->
 
-    <div class="footer">
+    {{-- <div class="footer">
       <div class="row justify-content-between align-items-center">
         <div class="col">
           <p class="fs-6 mb-0">&copy; Front. <span class="d-none d-sm-inline-block">2022 Htmlstream.</span></p>
@@ -1667,7 +1620,7 @@
         <!-- End Col -->
       </div>
       <!-- End Row -->
-    </div>
+    </div> --}}
 
     @include('admin.layouts.footer')
 
@@ -2431,10 +2384,10 @@
   <div class="modal fade" id="inviteUserModal" tabindex="-1" aria-labelledby="inviteUserModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-header">
+        {{-- <div class="modal-header">
           <h4 class="modal-title" id="inviteUserModalLabel">Invite users</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
+        </div> --}}
 
         <!-- Body -->
         <div class="modal-body">

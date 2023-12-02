@@ -5,7 +5,7 @@
           <div>
             <div class="uk-margin-medium">
               <div class="logo"><a class="logo__link" href="index.html">
-                  <div class="logo__icon"><img src="assets/img/logo.svg" alt="KeyMoto"></div>
+                  <div class="logo__icon"><img src="{{asset('frontend/img/logo.png')}}" width="35%" alt="Kuchai Motor Sdn Bhd"></div>
                   <div class="logo__text">Kuchai Motor Sdn Bhd</div>
                 </a></div>
             </div>
@@ -135,7 +135,9 @@
       <div class="uk-offcanvas-bar"><button class="uk-offcanvas-close" type="button" data-uk-close=""></button>
         <div class="uk-margin">
           <div class="logo"><a class="logo__link" href="index.html">
-              <div class="logo__icon"><img src="assets/img/logo.svg" alt="KeyMoto"></div>
+              <div class="logo__icon">
+                <img src="{{asset('frontend/img/logo.png')}}" width="25%" alt="Kuchai Motor Sdn Bhd">
+              </div>
               <div class="logo__text">Kuchai Motor</div>
             </a></div>
         </div>

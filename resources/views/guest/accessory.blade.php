@@ -39,13 +39,13 @@
           <div class="uk-container">
             <div class="section-hero__content">
               <div class="section-hero__title">
-                <div class="uk-h1">{{$motor->brand}}</div>
+                <div class="uk-h1">{{$accessory->name}}</div>
               </div>
               <div class="section-hero__breadcrumb">
                 <ul class="uk-breadcrumb">
                   <li><a href="#">Home</a></li>
                   <li><a href="page-shop-grid.html"></a></li>
-                  <li> <span>{{$motor->brand}}</span></li>
+                  <li> <span>{{$accessory->name}}</span></li>
                 </ul>
               </div>
             </div>
@@ -59,16 +59,20 @@
             <div class="uk-grid uk-flex-middle" data-uk-grid>
               <div class="uk-width-2-3@m">
                 <div class="page-product__title">
-                  <div class="uk-h1">{{$motor->model}}</div><span>Always Pushing To Full Limits For A Great Riding Experience!</span>
+                  <div class="uk-h1">{{$accessory->name}}</div><span>Always Pushing To Full Limits For A Great Riding Experience!</span>
                 </div>
               </div>
               <div class="uk-width-1-3@m">
                 <div class="page-product__price">
-                  <div><span class="current">{{$motor->pricing}}</span></div>
+                  <div><span class="current">{{$accessory->pricing}}</span></div>
                   <div class="uk-margin-small-top"><span>Included Taxes & Checkup*</span></div>
                 </div>
               </div>
             </div>
+
+
+
+            {{-- {{$accessory->accessory_cover_url}} --}}
             <div class="uk-grid" data-uk-grid>
               <div class="uk-width-2-3@m">
                 <div class="page-product__btns">
@@ -82,26 +86,29 @@
                   <div data-uk-slideshow="min-height: 300; max-height: 430">
                     <ul class="uk-slideshow-items uk-child-width-1-1">
 
-                      <li><img class="uk-width-1-1" src="{{$motor->motor_cover_url}}" alt="img-gallery" data-uk-cover></li>
+                      <li><img class="uk-width-1-1" src="{{$accessory->accessory_cover_url}}" alt="img-gallery" data-uk-cover></li>
 
-                      @foreach ($motorImages as $motorImage)
-                        <li><img class="uk-width-1-1" src="{{$motorImage->url}}" alt="{{$motor->name}}" data-uk-cover></li>
+
+
+                      @foreach ($accessoryImages as $accessoryImage)
+
+                      <li><img class="uk-width-1-1" src="{{$accessoryImage->url}}" data-uk-cover></li>
                       @endforeach
 
                     </ul>
                     <div class="uk-margin-top" data-uk-slider>
                       <ul class="uk-thumbnav uk-slider-items uk-grid uk-grid-small uk-child-width-1-3 uk-child-width-1-4@m uk-child-width-1-5@l">
-                        <li data-uk-slideshow-item="0"><a href="#"><img src="{{$motor->motor_cover_url}}" alt="img-gallery"></a></li>
+                        <li data-uk-slideshow-item="0"><a href="#"><img src="{{$accessory->accessory_cover_url}}" alt="img-gallery"></a></li>
 
-                        @foreach ($motorImages as $motorImage)
-                            <li data-uk-slideshow-item="{{ $loop->iteration }}"><a href="#"><img src="{{$motorImage->url}}" alt="img-gallery"></a></li>
+                         @foreach ($accessoryImages as $accessoryImage)
+                            <li data-uk-slideshow-item="{{ $loop->iteration }}"><a href="#"><img src="{{$accessoryImage->url}}" alt="img-gallery"></a></li>
                         @endforeach
 
                       </ul>
                     </div>
                   </div>
                 </div>
-                <div class="page-product__list-info">
+                {{-- <div class="page-product__list-info">
                   <div class="product-list-info">
                     <div>
                       <div class="product-list-info-item">
@@ -137,12 +144,12 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> --}}
                 <hr class="uk-margin-medium">
-                <h2>Motorcycle Overview</h2>
-                <p>{!! $motor->description !!}</p>
+                <h2>Accessory Overview</h2>
+                <p>{!! $accessory->description !!}</p>
                 <hr class="uk-margin-medium">
-                <h2>Technical Specifications</h2>
+                {{-- <h2>Technical Specifications</h2>
                 <div class="page-product__specifications">
                   <ul class="product-specifications">
                     <li class="product-specifications-item">
@@ -151,7 +158,7 @@
                     </div>
                       <div class="product-specifications-item__desc">
                         <div class="product-specifications-item__title">Color</div>
-                        <div class="product-specifications-item__value">{{$motor->colour}} </div>
+                        <div class="product-specifications-item__value">a</div>
                       </div>
                     </li>
                     <li class="product-specifications-item">
@@ -159,7 +166,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 17v4h1a2 2 0 1 0 0-4h-1zm0-6h1.5a1.5 1.5 0 0 0 0-3H17v5M3 5a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M5 7v3a1 1 0 0 0 1 1h3v7a1 1 0 0 0 1 1h3m-4-8h4"/></g></svg>                    </div>
                       <div class="product-specifications-item__desc">
                         <div class="product-specifications-item__title">Transmission</div>
-                        <div class="product-specifications-item__value">{{$motor->transmission}}</div>
+                        <div class="product-specifications-item__value"></div>
                       </div>
                     </li>
                     <li class="product-specifications-item">
@@ -253,7 +260,7 @@
                       </div>
                     </li>
                   </ul>
-                </div>
+                </div> --}}
                 {{-- <hr class="uk-margin-medium">
                 <h2>Additional Options & Features</h2>
                 <p>Ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididuntu labore dolor magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation. Allamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderits voluptaty velit esse cillum.</p>
@@ -282,7 +289,7 @@
                     </div>
 
                     <div style="padding-left:15px;" class="user__desc">
-                      <div class="user__name">{{$motor->user->name}}</div>
+                      <div class="user__name">{{$accessory->user->name}}</div>
                       <div class="user__date">Sales Executive at Kuchai Motor Sdn Bhd</div>
                       {{-- <div class="user__social">
                         <ul class="social-list">
@@ -296,11 +303,11 @@
                   </div>
                   <div class="product-block-info__email block-icon">
                     <div class="block-icon__icon">
--                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path fill="gray" d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"><path fill="gray" d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
                     </div>
                     <div class="block-icon__desc">
                       <div class="block-icon__title">Contact Via Email</div>
-                      <div class="block-icon__value"><a href="mailto:joseph.hill@domain.com">{{$motor->user->email}}</a></div>
+                      <div class="block-icon__value"><a href="mailto:joseph.hill@domain.com">{{$accessory->user->email}}</a></div>
                     </div>
                   </div>
                   <div class="product-block-info__phone block-icon">
@@ -310,11 +317,11 @@
                     </div>
                     <div class="block-icon__desc">
                       <div class="block-icon__title">Contact Via WA</div>
-                      <div class="block-icon__value"><a href="tel:12584037960"></a>{{$motor->user->phone_number}}</div>
+                      <div class="block-icon__value"><a href="tel:12584037960"></a><a href="">{{$accessory->user->phone_number}}</a></div>
                     </div>
                   </div>
                 </div>
-                <aside class="sidebar"  id="sticky-sidebar">
+                {{-- <aside class="sidebar"  id="sticky-sidebar">
                   <div class="widjet widjet--form">
                     <div class="widjet__title">
 
@@ -322,7 +329,7 @@
                         <div class="alert alert-success">
                             {{ session('success') }}
                         </div>
-                    @endif
+                        @endif
 
 
                       <div class="uk-h4">Make an viewing appointment</div><span>we will get back in short</span>
@@ -361,10 +368,10 @@
                             </div>
 
 
-                        </form>
+                    </form>
                     </div>
                   </div>
-                </aside>
+                </aside> --}}
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@
   class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered bg-white">
   <div class="navbar-nav-wrap">
     <!-- Logo -->
-    <a class="navbar-brand" href="./index.html" aria-label="Front">
+    {{-- <a class="navbar-brand" href="./index.html" aria-label="Front">
       <img class="navbar-brand-logo" src="{{ asset('backend/svg/logos/logo.svg') }}" alt="Logo"
         data-hs-theme-appearance="default">
       <img class="navbar-brand-logo" src="{{ asset('backend/svg/logos-light/logo.svg') }}" alt="Logo"
@@ -11,7 +11,7 @@
         data-hs-theme-appearance="default">
       <img class="navbar-brand-logo-mini" src="{{ asset('backend/svg/logos-light/logo-short.svg') }}" alt="Logo"
         data-hs-theme-appearance="dark">
-    </a>
+    </a> --}}
     <!-- End Logo -->
 
     <div class="navbar-nav-wrap-content-start">
@@ -50,7 +50,7 @@
           </div>
         </div>
 
-        <button
+        {{-- <button
           class="js-form-search js-form-search-mobile-toggle btn btn-ghost-secondary btn-icon rounded-circle d-lg-none"
           type="button" data-hs-form-search-options='{
                        "clearIcon": "#clearSearchResultsIcon",
@@ -60,7 +60,7 @@
                        "activeClass": "focus"
                      }'>
           <i class="bi-search"></i>
-        </button>
+        </button> --}}
         <!-- End Input Group -->
 
         <!-- Card Search Content -->

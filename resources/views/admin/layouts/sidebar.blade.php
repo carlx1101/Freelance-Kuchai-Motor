@@ -4,7 +4,7 @@
     <div class="navbar-vertical-footer-offset">
       <!-- Logo -->
 
-      <a class="navbar-brand" href="./index.html" aria-label="Front">
+      {{-- <a class="navbar-brand" href="./index.html" aria-label="Front">
         <img class="navbar-brand-logo" src="{{ asset('backend/svg/logos/logo.svg') }}" alt="Logo"
           data-hs-theme-appearance="default">
         <img class="navbar-brand-logo" src="{{ asset('backend/svg/logos-light/logo.svg') }}" alt="Logo"
@@ -13,7 +13,7 @@
           data-hs-theme-appearance="default">
         <img class="navbar-brand-logo-mini" src="{{ asset('backend/svg/logos-light/logo-short.svg') }}" alt="Logo"
           data-hs-theme-appearance="dark">
-      </a>
+      </a> --}}
 
       <!-- End Logo -->
 
@@ -34,8 +34,8 @@
         <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
           <!-- Collapse -->
           <div class="nav-item">
-            <a class="nav-link active " href="#navbarVerticalMenuDashboards" role="button"
-              data-bs-target="#navbarVerticalMenuDashboards" aria-expanded="true"
+            <a class="nav-link " href="{{route('admin.dashboard')}}" role="button"
+              data-bs-target="#navbarVerticalMenuDashboards" aria-expaDashbnded="true"
               aria-controls="navbarVerticalMenuDashboards">
               <i class="bi-house-door nav-icon"></i>
               <span class="nav-link-title">Dashboards</span>

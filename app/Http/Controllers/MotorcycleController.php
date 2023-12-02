@@ -49,7 +49,10 @@ class MotorcycleController extends Controller
 
             $fileStoreName = Str::uuid() . '_' . Carbon::now()->timestamp . '.' . $fileExtension; // Create unique name for cover picture
 
-            Storage::put('public/motor_covers/' . $fileStoreName, base64_decode($file)); // Store image in motor_covers directory
+            Storage::put('public/motor_covers/' . $fileStoreName, base64_decode($file),            [
+                'visibility' => 'public',
+                'directory_visibility' => 'public'
+            ]); // Store image in motor_covers directory
 
             $data['motor_cover_filename'] = $fileStoreName; // Assign to array for Database Storage
             $data['motor_cover_url'] =
@@ -70,7 +73,12 @@ class MotorcycleController extends Controller
 
                     $fileStoreName = Str::uuid() . '_' . Carbon::now()->timestamp . '.' . $fileExtension;
 
-                    if (Storage::put('public/motor_images/' . $motorcycle->id . '_' . $parentDirectoryName . '/' . $fileStoreName, base64_decode($base64))) {
+                    if (Storage::put('public/motor_images/' . $motorcycle->id . '_' . $parentDirectoryName . '/' . $fileStoreName, base64_decode($base64),
+                    [
+                        'visibility' => 'public',
+                        'directory_visibility' => 'public'
+                    ]
+                    )) {
                         MotorImage::create([
                             'name' => $fileStoreName,
                             'url' => url('storage/motor_images/' . $motorcycle->id . '_' . $parentDirectoryName . '/' . $fileStoreName),
@@ -131,7 +139,12 @@ class MotorcycleController extends Controller
             $file = substr($motor_cover_json->new_upload[0]->dataURL, strpos($motor_cover_json->new_upload[0]->dataURL, ',') + 1);
             $fileStoreName = Str::uuid() . '_' . Carbon::now()->timestamp . '.' . pathinfo($motor_cover_json->new_upload[0]->name, PATHINFO_EXTENSION); // Create unique name for cover picture
 
-            Storage::put('public/motor_covers/' . $fileStoreName, base64_decode($file)); // Store image in motor_covers directory
+            Storage::put('public/motor_covers/' . $fileStoreName, base64_decode($file),
+            [
+                'visibility' => 'public',
+                'directory_visibility' => 'public'
+            ]
+        ); // Store image in motor_covers directory
 
             $data['motor_cover_filename'] = $fileStoreName; // Assign to array for Database Storage
             $data['motor_cover_url'] =
@@ -164,7 +177,12 @@ class MotorcycleController extends Controller
                 $file = substr($motor_image->dataURL, strpos($motor_image->dataURL, ',') + 1);
                 $fileStoreName = Str::uuid() . '_' . Carbon::now()->timestamp . '.' . pathinfo($motor_image->name, PATHINFO_EXTENSION); // Create unique name for cover picture
 
-                if (Storage::put('public/motor_images/' . $parentDirectoryName . '/' . $fileStoreName, base64_decode($file))) {
+                if (Storage::put('public/motor_images/' . $parentDirectoryName . '/' . $fileStoreName, base64_decode($file),
+                [
+                    'visibility' => 'public',
+                    'directory_visibility' => 'public'
+                ]
+                )) {
                     MotorImage::create([
                         'name' => $fileStoreName,
                         'url' => url('storage/motor_images/' . $parentDirectoryName . '/' . $fileStoreName),

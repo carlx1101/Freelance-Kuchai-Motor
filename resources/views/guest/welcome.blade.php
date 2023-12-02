@@ -28,8 +28,9 @@
       <div class="section-hero">
         <div data-uk-slideshow="autoplay: true; min-height: 560; max-height: 950; animation: fade">
           <div class="uk-position-relative" tabindex="-1">
-            <ul class="uk-slideshow-items">
-              <li class="slideshow-item"><img src="assets/img/img-home-slideshow.jpg" alt data-uk-cover>
+            <ul class="uk-slideshow-items" style="background-color: black" >
+              <li class="slideshow-item">
+                {{-- <img src="{{asset('frontend/img/img-home-slideshow.jpg')}}" alt data-uk-cover> --}}
                 <div class="uk-position-center uk-position-small">
                   <div class="uk-container">
                     <div class="uk-grid" data-uk-grid>
@@ -105,7 +106,7 @@
           </div>
         </div>
       </div>
-      <div class="section-about" id="section-about">
+      {{-- <div class="section-about" id="section-about">
         <div class="uk-section-large uk-container">
           <div class="uk-grid uk-grid-collapse" data-uk-grid>
             <div class="uk-width-1-3@m"><img class="section-about__img" src="assets/img/img-about.jpg" alt="img-about"></div>
@@ -167,7 +168,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       {{-- <div class="section-category" id="section-category">
         <div class="uk-container uk-container-large">
           <div class="uk-position-relative" tabindex="-1" data-uk-slider>
@@ -214,399 +215,93 @@
           </div>
           <div class="section-content">
             <div class="uk-text-center uk-margin-medium-bottom">
-              <p>Dolore magna aliqua quis nostrud exercitation ullamco laboris nisi ut aliquip exa comds<br> consequat duis aute irure dolor repreh enderit in voluptate velit esse cilum.</p>
+
+                <p>Dive into our selection and find the perfect match for your lifestyle, embodying excellence in engineering and design.</p>
             </div>
             <div class="uk-grid uk-grid-medium uk-child-width-1-3@l uk-child-width-1-2@s" data-uk-grid>
+
+
+              @foreach ($motors as $motor)
+              <!-- Display motorcycle details as before -->
               <div>
-                <div class="product-item uk-transition-toggle">
-                  <div class="product-item__head">
-                    <div>
-                      <div class="product-item__name"> <a href="page-shop-product-1.html">BMW S1000 RX</a></div>
-                      <div class="product-item__manufacturer">Powered by BMW</div>
+                  <div class="product-item uk-transition-toggle">
+                    <div class="product-item__head">
+                      <div>
+                        <div class="product-item__name"> <a href="{{ route('motor.show', $motor->id) }}">{{$motor->model}} </a></div>
+                        <div class="product-item__manufacturer">Powered by {{$motor->brand}}</div>
+                        <div class="product-item__category">category: <a href="#!">Adventure</a></div>
+                      </div>
+                      <div>
+                        <div class="product-item__price">{{$motor->pricing}}</div>
+                      </div>
                     </div>
-                    <div>
-                      <div class="product-item__price">$4,500</div>
+                    <div class="product-item__media uk-inline-clip uk-inline"><img src="{{asset('storage/motor_covers/'. $motor->motor_cover_filename)}}" alt="HONDA CB500X ABS" /><a class="uk-transition-fade" href="{{ route('motor.show', $motor->id) }}">
+                        <div class="uk-overlay-cover uk-overlay-primary"></div>
+                        <div class="uk-position-center"><span class="icon-cross"></span></div>
+                      </a>
+                      <div class="product-item__label">Featured</div><button class="product-item__whish btn-whish"><i class="far fa-heart"></i></button>
+                    </div>
+                    <div class="product-item__info">
+                      <ul class="list-info">
+                        <li class="list-info-item">
+                          <div class="list-info-item__title">Year</div>
+                          <div class="list-info-item__value">{{$motor->manufacture_year}}</div>
+                        </li>
+                        <li class="list-info-item">
+                          <div class="list-info-item__title">Colour</div>
+                          <div class="list-info-item__value">{{$motor->colour}}</div>
+                        </li>
+                        <li class="list-info-item">
+                          <div class="list-info-item__title">Make</div>
+                          <div class="list-info-item__value">{{$motor->brand}}</div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="product-item__specifications">
+                      <ul class="specifications-list">
+                        <li class="specifications-list-item">
+                          <div class="specifications-list-item__icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="gray" d="M7 4v2h3v2H7l-2 2v3H3v-3H1v8h2v-3h2v3h3l2 2h8v-4h2v3h3V9h-3v3h-2V8h-6V6h3V4H7Z"/></svg>
+                          </div>
+                          <div class="specifications-list-item__desc">
+                            <div class="specifications-list-item__title">Engine type</div>
+                            <div class="specifications-list-item__value">{{$motor->engine_type}}</div>
+                          </div>
+                        </li>
+                        <li class="specifications-list-item">
+                          <div class="specifications-list-item__icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z"/><path fill="gray" d="M12 3a1 1 0 1 1 0 2h-1v1h2.764a2 2 0 0 1 .894.211l3.236 1.618A2 2 0 0 1 19 9.618V12h1v-1a1 1 0 1 1 2 0v4a1 1 0 1 1-2 0v-1h-1v1.5a2 2 0 0 1-.8 1.6l-3.333 2.5a2 2 0 0 1-1.2.4H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4V5H8a1 1 0 0 1 0-2h4Zm-.985 6.643a1 1 0 0 0-1.307.246l-.065.097l-1.491 2.484a1.01 1.01 0 0 0 .75 1.524l.116.006h1.216l-.591.986a1 1 0 0 0 1.649 1.125l.066-.096l1.49-2.485a1.01 1.01 0 0 0-.75-1.524L11.982 12h-1.216l.591-.985a1 1 0 0 0-.342-1.372Z"/></g></svg>
+
+                          </div>
+                          <div class="specifications-list-item__desc">
+                            <div class="specifications-list-item__title">Engine Power</div>
+                            <div class="specifications-list-item__value">{{$motor->max_power}}</div>
+                          </div>
+                        </li>
+                        <li class="specifications-list-item">
+                          <div class="specifications-list-item__icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="gray" d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97c0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1c0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66Z"/></svg>
+                          </div>
+                          <div class="specifications-list-item__desc">
+                            <div class="specifications-list-item__title">Displacement</div>
+                            <div class="specifications-list-item__value">{{$motor->displacement}} cc</div>
+                          </div>
+                        </li>
+                        <li class="specifications-list-item">
+                          <div class="specifications-list-item__icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 17v4h1a2 2 0 1 0 0-4h-1zm0-6h1.5a1.5 1.5 0 0 0 0-3H17v5M3 5a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M5 7v3a1 1 0 0 0 1 1h3v7a1 1 0 0 0 1 1h3m-4-8h4"/></g></svg>
+                          </div>
+                          <div class="specifications-list-item__desc">
+                            <div class="specifications-list-item__title">Transmission</div>
+                            <div class="specifications-list-item__value">{{$motor->transmission}}</div>
+                          </div>
+                        </li>
+                      </ul>
                     </div>
                   </div>
-                  <div class="product-item__media uk-inline-clip uk-inline"><img src="assets/img/product-1.jpg" alt="BMW S1000 RX" /><a class="uk-transition-fade" href="page-shop-product-1.html">
-                      <div class="uk-overlay-cover uk-overlay-primary"></div>
-                      <div class="uk-position-center"><span class="icon-cross"></span></div>
-                    </a><button class="product-item__whish btn-whish"><i class="far fa-heart"></i></button></div>
-                  <div class="product-item__info">
-                    <ul class="list-info">
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Year</div>
-                        <div class="list-info-item__value">2021</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Type</div>
-                        <div class="list-info-item__value">Sports</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Make</div>
-                        <div class="list-info-item__value">BMW</div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="product-item__specifications">
-                    <ul class="specifications-list">
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-1.png" alt="Engine type" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine type</div>
-                          <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-2.png" alt="Engine Power" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine Power</div>
-                          <div class="specifications-list-item__value">205hp (151 kW)</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-3.png" alt="Displacement" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Displacement</div>
-                          <div class="specifications-list-item__value">999 cc</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-4.png" alt="Bore/Stroke" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Bore/Stroke</div>
-                          <div class="specifications-list-item__value">80mm / 49.7mm</div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
               </div>
-              <div>
-                <div class="product-item uk-transition-toggle">
-                  <div class="product-item__head">
-                    <div>
-                      <div class="product-item__name"> <a href="page-shop-product-1.html">YAMAHA MT09</a></div>
-                      <div class="product-item__manufacturer">Powered by Yamaha</div>
-                    </div>
-                    <div>
-                      <div class="product-item__price">$4,500</div>
-                    </div>
-                  </div>
-                  <div class="product-item__media uk-inline-clip uk-inline"><img src="assets/img/product-2.jpg" alt="YAMAHA MT09 BASE" /><a class="uk-transition-fade" href="page-shop-product-1.html">
-                      <div class="uk-overlay-cover uk-overlay-primary"></div>
-                      <div class="uk-position-center"><span class="icon-cross"></span></div>
-                    </a><button class="product-item__whish btn-whish"><i class="far fa-heart"></i></button></div>
-                  <div class="product-item__info">
-                    <ul class="list-info">
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Year</div>
-                        <div class="list-info-item__value">2021</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Type</div>
-                        <div class="list-info-item__value">Sports</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Make</div>
-                        <div class="list-info-item__value">Yamaha</div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="product-item__specifications">
-                    <ul class="specifications-list">
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-1.png" alt="Engine type" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine type</div>
-                          <div class="specifications-list-item__value">Desmosedici 90 V4</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-2.png" alt="Engine Power" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine Power</div>
-                          <div class="specifications-list-item__value">208hp (153 kW)</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-3.png" alt="Displacement" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Displacement</div>
-                          <div class="specifications-list-item__value">1,103 cc</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-4.png" alt="Bore/Stroke" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Bore/Stroke</div>
-                          <div class="specifications-list-item__value">80mm / 49.7mm</div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item uk-transition-toggle">
-                  <div class="product-item__head">
-                    <div>
-                      <div class="product-item__name"> <a href="page-shop-product-1.html">KTM RC 390 BASE</a></div>
-                      <div class="product-item__manufacturer">Powered by KTM</div>
-                    </div>
-                    <div>
-                      <div class="product-item__price">$6,200</div>
-                    </div>
-                  </div>
-                  <div class="product-item__media uk-inline-clip uk-inline"><img src="assets/img/product-3.jpg" alt="KTM RC 390 BASE" /><a class="uk-transition-fade" href="page-shop-product-1.html">
-                      <div class="uk-overlay-cover uk-overlay-primary"></div>
-                      <div class="uk-position-center"><span class="icon-cross"></span></div>
-                    </a><button class="product-item__whish btn-whish"><i class="far fa-heart"></i></button></div>
-                  <div class="product-item__info">
-                    <ul class="list-info">
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Year</div>
-                        <div class="list-info-item__value">2021</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Type</div>
-                        <div class="list-info-item__value">Adventure</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Make</div>
-                        <div class="list-info-item__value">KTM</div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="product-item__specifications">
-                    <ul class="specifications-list">
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-1.png" alt="Engine type" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine type</div>
-                          <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-2.png" alt="Engine Power" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine Power</div>
-                          <div class="specifications-list-item__value">190hp (137 kW)</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-3.png" alt="Displacement" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Displacement</div>
-                          <div class="specifications-list-item__value">537 cc</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-4.png" alt="Bore/Stroke" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Bore/Stroke</div>
-                          <div class="specifications-list-item__value">80mm / 49.7mm</div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item uk-transition-toggle">
-                  <div class="product-item__head">
-                    <div>
-                      <div class="product-item__name"> <a href="page-shop-product-1.html">DUCATI HYPER 950</a></div>
-                      <div class="product-item__manufacturer">Powered by Ducati</div>
-                    </div>
-                    <div>
-                      <div class="product-item__price">$4,500</div>
-                    </div>
-                  </div>
-                  <div class="product-item__media uk-inline-clip uk-inline"><img src="assets/img/product-4.jpg" alt="DUCATI HYPER 950" /><a class="uk-transition-fade" href="page-shop-product-1.html">
-                      <div class="uk-overlay-cover uk-overlay-primary"></div>
-                      <div class="uk-position-center"><span class="icon-cross"></span></div>
-                    </a><button class="product-item__whish btn-whish"><i class="far fa-heart"></i></button></div>
-                  <div class="product-item__info">
-                    <ul class="list-info">
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Year</div>
-                        <div class="list-info-item__value">2021</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Type</div>
-                        <div class="list-info-item__value">Sports</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Make</div>
-                        <div class="list-info-item__value">Ducati</div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="product-item__specifications">
-                    <ul class="specifications-list">
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-1.png" alt="Engine type" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine type</div>
-                          <div class="specifications-list-item__value">Desmosedici 90 V4</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-2.png" alt="Engine Power" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine Power</div>
-                          <div class="specifications-list-item__value">208hp (153 kW)</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-3.png" alt="Displacement" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Displacement</div>
-                          <div class="specifications-list-item__value">1,103 cc</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-4.png" alt="Bore/Stroke" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Bore/Stroke</div>
-                          <div class="specifications-list-item__value">80mm / 49.7mm</div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item uk-transition-toggle">
-                  <div class="product-item__head">
-                    <div>
-                      <div class="product-item__name"> <a href="page-shop-product-1.html">KAWASAKI VULCAN</a></div>
-                      <div class="product-item__manufacturer">Powered by Kawasaki</div>
-                    </div>
-                    <div>
-                      <div class="product-item__price">$6,200</div>
-                    </div>
-                  </div>
-                  <div class="product-item__media uk-inline-clip uk-inline"><img src="assets/img/product-5.jpg" alt="KAWASAKI VULCAN" /><a class="uk-transition-fade" href="page-shop-product-1.html">
-                      <div class="uk-overlay-cover uk-overlay-primary"></div>
-                      <div class="uk-position-center"><span class="icon-cross"></span></div>
-                    </a><button class="product-item__whish btn-whish"><i class="far fa-heart"></i></button></div>
-                  <div class="product-item__info">
-                    <ul class="list-info">
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Year</div>
-                        <div class="list-info-item__value">2021</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Type</div>
-                        <div class="list-info-item__value">Sports</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Make</div>
-                        <div class="list-info-item__value">Kawasaki</div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="product-item__specifications">
-                    <ul class="specifications-list">
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-1.png" alt="Engine type" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine type</div>
-                          <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-2.png" alt="Engine Power" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine Power</div>
-                          <div class="specifications-list-item__value">190hp (137 kW)</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-3.png" alt="Displacement" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Displacement</div>
-                          <div class="specifications-list-item__value">537 cc</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-4.png" alt="Bore/Stroke" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Bore/Stroke</div>
-                          <div class="specifications-list-item__value">80mm / 49.7mm</div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div class="product-item uk-transition-toggle">
-                  <div class="product-item__head">
-                    <div>
-                      <div class="product-item__name"> <a href="page-shop-product-1.html">HONDA CB500X ABS</a></div>
-                      <div class="product-item__manufacturer">Powered by Honda</div>
-                    </div>
-                    <div>
-                      <div class="product-item__price">$4,500</div>
-                    </div>
-                  </div>
-                  <div class="product-item__media uk-inline-clip uk-inline"><img src="assets/img/product-6.jpg" alt="HONDA CB500X ABS" /><a class="uk-transition-fade" href="page-shop-product-1.html">
-                      <div class="uk-overlay-cover uk-overlay-primary"></div>
-                      <div class="uk-position-center"><span class="icon-cross"></span></div>
-                    </a><button class="product-item__whish btn-whish"><i class="far fa-heart"></i></button></div>
-                  <div class="product-item__info">
-                    <ul class="list-info">
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Year</div>
-                        <div class="list-info-item__value">2021</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Type</div>
-                        <div class="list-info-item__value">Adventure</div>
-                      </li>
-                      <li class="list-info-item">
-                        <div class="list-info-item__title">Make</div>
-                        <div class="list-info-item__value">Honda</div>
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="product-item__specifications">
-                    <ul class="specifications-list">
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-1.png" alt="Engine type" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine type</div>
-                          <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-2.png" alt="Engine Power" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Engine Power</div>
-                          <div class="specifications-list-item__value">205hp (151 kW)</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-3.png" alt="Displacement" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Displacement</div>
-                          <div class="specifications-list-item__value">999 cc</div>
-                        </div>
-                      </li>
-                      <li class="specifications-list-item">
-                        <div class="specifications-list-item__icon"><img src="assets/img/icons/specifications-4.png" alt="Bore/Stroke" /></div>
-                        <div class="specifications-list-item__desc">
-                          <div class="specifications-list-item__title">Bore/Stroke</div>
-                          <div class="specifications-list-item__value">80mm / 49.7mm</div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+             @endforeach
+
             </div>
             <div class="uk-text-center uk-margin-medium-top"><a class="uk-button uk-button-danger" href="page-shop-grid.html">View all models</a></div>
           </div>
@@ -622,7 +317,7 @@
                   <h3 class="uk-h2">A step above with<br> rider-friendly nature</h3>
                 </div>
                 <div class="section-content">
-                  <p>Dolore magna aliqua quis nostrud exercitation ullamco laboris nisi ut aliquip ex consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cilum dol sed ipsum nulla pariatur nostrul done elit magna.</p>
+                  <p>Explore our diverse range of motorcycles, each crafted to elevate your riding experience. Our collection offers advanced, rider-friendly features, ensuring both comfort and performance. Whether you're seeking an adrenaline-fueled adventure or a smooth, efficient commute, we have a motorcycle tailored to your needs. Dive into our selection and find the perfect match for your lifestyle, embodying excellence in engineering and design.</p>
                   <div class="uk-margin-medium-top">
                     <div class="uk-grid uk-grid-small uk-child-width-1-3@l uk-child-width-1-2@m uk-child-width-1-3@s" data-uk-grid>
                       <div>

@@ -52,7 +52,12 @@ class AccessoryController extends Controller
 
             $fileStoreName = Str::uuid() . '_' . Carbon::now()->timestamp . '.' . $fileExtension; // Create unique name for cover picture
 
-            Storage::put('public/accessory_covers/' . $fileStoreName, base64_decode($file)); // Store image in motor_covers directory
+            Storage::put('public/accessory_covers/' . $fileStoreName, base64_decode($file),
+            [
+                'visibility' => 'public',
+                'directory_visibility' => 'public'
+            ]
+        ); // Store image in motor_covers directory
 
             $data['accessory_cover_filename'] = $fileStoreName; // Assign to array for Database Storage
             $data['accessory_cover_url'] =
@@ -74,7 +79,12 @@ class AccessoryController extends Controller
 
                 $fileStoreName = Str::uuid() . '_' . Carbon::now()->timestamp . '.' . $fileExtension;
 
-                if (Storage::put('public/accessory_images/' . $accessory->id . '_' . $parentDirectoryName . '/' . $fileStoreName, base64_decode($base64))) {
+                if (Storage::put('public/accessory_images/' . $accessory->id . '_' . $parentDirectoryName . '/' . $fileStoreName, base64_decode($base64),
+                [
+                    'visibility' => 'public',
+                    'directory_visibility' => 'public'
+                ]
+                )) {
                     AccessoryImage::create([
                         'name' => $fileStoreName,
                         'url' => url('storage/accessory_images/' . $accessory->id . '_' . $parentDirectoryName . '/' . $fileStoreName),
@@ -140,7 +150,12 @@ class AccessoryController extends Controller
             $file = substr($accessory_cover_json->new_upload[0]->dataURL, strpos($accessory_cover_json->new_upload[0]->dataURL, ',') + 1);
             $fileStoreName = Str::uuid() . '_' . Carbon::now()->timestamp . '.' . pathinfo($accessory_cover_json->new_upload[0]->name, PATHINFO_EXTENSION); // Create unique name for cover picture
 
-            Storage::put('public/accessory_covers/' . $fileStoreName, base64_decode($file)); // Store image in accessory_covers directory
+            Storage::put('public/accessory_covers/' . $fileStoreName, base64_decode($file),
+            [
+                'visibility' => 'public',
+                'directory_visibility' => 'public'
+            ]
+        ); // Store image in accessory_covers directory
 
             $data['accessory_cover_filename'] = $fileStoreName; // Assign to array for Database Storage
             $data['accessory_cover_url'] =
@@ -173,7 +188,11 @@ class AccessoryController extends Controller
                 $file = substr($accessory_image->dataURL, strpos($accessory_image->dataURL, ',') + 1);
                 $fileStoreName = Str::uuid() . '_' . Carbon::now()->timestamp . '.' . pathinfo($accessory_image->name, PATHINFO_EXTENSION); // Create unique name for cover picture
 
-                if (Storage::put('public/accessory_images/' . $parentDirectoryName . '/' . $fileStoreName, base64_decode($file))) {
+                if (Storage::put('public/accessory_images/' . $parentDirectoryName . '/' . $fileStoreName, base64_decode($file),   [
+                    'visibility' => 'public',
+                    'directory_visibility' => 'public'
+                ]
+                )) {
                     AccessoryImage::create([
                         'name' => $fileStoreName,
                         'url' => url('storage/accessory_images/' . $parentDirectoryName . '/' . $fileStoreName),

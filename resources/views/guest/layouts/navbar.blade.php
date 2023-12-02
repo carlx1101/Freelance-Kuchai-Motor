@@ -1,9 +1,9 @@
 <header class="page-header page-header-transparent">
     <div class="page-header__inner">
       <div class="page-header__left">
-        <div class="logo"><a class="logo__link" href="index.html">
-            <div class="logo__icon"><img src="assets/img/logo.svg" alt="KeyMoto"></div>
-            <div class="logo__text">Kuchai Motor</div>
+        <div class="logo"><a class="logo__link" href="/">
+            <div class="logo__icon"><img src="{{asset('frontend/img/logo.png')}}" width="25%" alt="Kuchai Motor Sdn Bhd"></div>
+            {{-- <div class="logo__text">Kuchai Motor</div> --}}
           </a></div>
       </div>
       <div class="page-header__center">
@@ -21,7 +21,7 @@
               </div>
             </li>
 
-            <li><a href="#">Accessories</a>
+            <li><a href="{{route('accessories')}}">Accessories</a>
               {{-- <div class="uk-navbar-dropdown">
                 <ul class="uk-nav uk-navbar-dropdown-nav">
                   <li><a href="page-blog-grid.html">Page Blog grid</a></li>

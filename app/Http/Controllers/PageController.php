@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Accessory;
+use App\Models\AccessoryImage;
 use App\Models\Motorcycle;
 use App\Models\MotorImage;
 use Illuminate\Http\Request;
@@ -9,7 +11,9 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     public function home(){
-        return view('guest.welcome');
+        $motors = Motorcycle::all();
+
+        return view('guest.welcome', compact('motors'));
     }
 
     public function contact(){
@@ -82,6 +86,27 @@ class PageController extends Controller
         $brands = Motorcycle::select('brand')->distinct()->pluck('brand');
 
         return view('guest.new-motors', compact('results', 'brands'));
+    }
+
+    public function accessories()
+    {
+
+        $accessories = Accessory::all();
+
+        return view('guest.accessories', compact('accessories'));
+    }
+
+
+    public function accessory($accessoryId)
+    {
+        $accessory = Accessory::find($accessoryId);
+        if (!$accessory) {
+            abort(404);
+        }
+
+        $accessoryImages = AccessoryImage::where('accessory_id', $accessoryId)->get();
+
+        return view('guest.accessory', compact('accessory','accessoryImages'));
     }
 
 }

@@ -1790,7 +1790,7 @@
             class="table table-lg table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
             data-hs-datatables-options='{
                    "columnDefs": [{
-                      "targets": [0, 7],
+                      "targets": [0, 25],
                       "orderable": false
                     }],
                    "order": [],
@@ -1812,12 +1812,30 @@
                     <label class="form-check-label" for="datatableCheckAll"></label>
                   </div>
                 </th>
-                <th class="table-column-ps-0">Name</th>
-                <th>Position</th>
-                <th>Country</th>
-                <th>Status</th>
-                <th>Portfolio</th>
-                <th>Role</th>
+                <th class="table-column-ps-0">Model</th>
+                <th>Manufacture Year</th>
+                <th>Capacity</th>
+                <th>Colour</th>
+                <th>Brand</th>
+                <th>Description</th>
+                <th>Engine Type</th>
+                <th>Displacement</th>
+                <th>Max Power</th>
+                <th>Max Torque</th>
+                <th>Transmission</th>
+                <th>Fuel System</th>
+                <th>Ignition System</th>
+                <th>Frame Type</th>
+                <th>Front Suspension</th>
+                <th>Rear Suspension</th>
+                <th>Fuel Capacity</th>
+                <th>Battery</th>
+                <th>Pricing</th>
+                <th>Availability</th>
+                <th>Salesman</th>
+                <th>Mileage</th>
+                <th>Vehicle Registration Date</th>
+                <th>Road Tax Expiration Date</th>
                 <th></th>
               </tr>
             </thead>
@@ -1832,37 +1850,74 @@
                   </div>
                 </td>
                 <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
+                  <a class="d-flex align-items-center" href="">
+                    @if(isset($motorcycle->motor_cover_url))
                     <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="{{ asset('backend/img/160x160/img10.jpg') }}"
-                        alt="Image Description">
+                      <img class="avatar-img" src=" {{ $motorcycle->motor_cover_url }}" alt="Image Description">
                     </div>
+                    @else
+                    <div class="flex-shrink-0">
+                      <div class="avatar avatar-soft-info avatar-circle">
+                        <span class="avatar-initials">{{ $motorcycle->id }}</span>
+                      </div>
+                    </div>
+                    @endif
                     <div class="ms-3">
                       <span class="d-block h5 text-inherit mb-0">{{ isset($motorcycle->model) ? $motorcycle->model :
-                        '--' }}<i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip"
-                          data-bs-placement="top" title="Top endorsed"></i></span>
-                      <span class="d-block fs-5 text-body">amanda@site.com</span>
+                        '--' }}
+                        {{-- <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip"
+                          data-bs-placement="top" title="Top endorsed"></i> --}}
+                      </span>
+                      {{-- <span class="d-block fs-5 text-body">amanda@site.com</span> --}}
                     </div>
                   </a>
                 </td>
+                <td>{{ isset($motorcycle->manufacture_year) ? $motorcycle->manufacture_year :'--' }}</td>
+                <td>{{ isset($motorcycle->capacity) ? $motorcycle->capacity :'--' }}</td>
+                <td>{{ isset($motorcycle->colour) ? $motorcycle->colour :'--' }}</td>
+                <td>{{ isset($motorcycle->brand) ? $motorcycle->brand :'--' }}</td>
                 <td>
-                  <span class="d-block h5 mb-0">Director</span>
-                  <span class="d-block fs-5">Human resources</span>
+                  @if(isset($motorcycle->description) && strip_tags($motorcycle->description) != null)
+                  <span class="badge bg-soft-success text-success">
+                    <span class="legend-indicator bg-success"></span>Description Posted
+                  </span>
+                  @else
+                  <span class="badge bg-soft-danger text-danger">
+                    <span class="legend-indicator bg-danger"></span>No Description
+                  </span>
+                  @endif
                 </td>
-                <td>United Kingdom</td>
+                <td>{{ isset($motorcycle->engine_type) ? $motorcycle->engine_type :'--' }}</td>
+                <td>{{ isset($motorcycle->displacement) ? $motorcycle->displacement :'--' }}</td>
+                <td>{{ isset($motorcycle->max_power) ? $motorcycle->max_power :'--' }}</td>
+                <td>{{ isset($motorcycle->max_torque) ? $motorcycle->max_torque :'--' }}</td>
+                <td>{{ isset($motorcycle->transmission) ? $motorcycle->transmission :'--' }}</td>
+                <td>{{ isset($motorcycle->fuel_system) ? $motorcycle->fuel_system :'--' }}</td>
+                <td>{{ isset($motorcycle->ignition_system) ? $motorcycle->ignition_system :'--' }}</td>
+                <td>{{ isset($motorcycle->frame_type) ? $motorcycle->frame_type :'--' }}</td>
+                <td>{{ isset($motorcycle->front_suspension) ? $motorcycle->front_suspension :'--' }}</td>
+                <td>{{ isset($motorcycle->rear_suspension) ? $motorcycle->rear_suspension :'--' }}</td>
+                <td>{{ isset($motorcycle->fuel_capacity) ? $motorcycle->fuel_capacity :'--' }}</td>
+                <td>{{ isset($motorcycle->battery) ? $motorcycle->battery :'--' }}</td>
+                <td>{{ isset($motorcycle->pricing) ? $motorcycle->pricing :'--' }}</td>
                 <td>
-                  <span class="legend-indicator bg-success"></span>Active
+                  @if(isset($motorcycle->availability) && $motorcycle->availability)
+                  <span class="badge bg-soft-success text-success">
+                    <span class="legend-indicator bg-success"></span>Available
+                  </span>
+                  @else
+                  <span class="badge bg-soft-danger text-danger">
+                    <span class="legend-indicator bg-danger"></span>Not Available
+                  </span>
+                  @endif
                 </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">72%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
+                <td>{{ isset($motorcycle->salesman_id) ? $motorcycle->user->name :'--' }}</td>
+                <td>{{ isset($motorcycle->mileage) ? $motorcycle->mileage :'--' }}</td>
+                <td>{{ isset($motorcycle->vehicle_registration_date) ? $motorcycle->vehicle_registration_date :'--' }}
                 </td>
-                <td>Employee</td>
+                <td>{{ isset($motorcycle->road_tax_expiry_date) ? $motorcycle->road_tax_expiry_date :'--' }}
+                </td>
+
                 <td>
                   <button type="button" class="btn btn-white btn-sm"
                     onclick="window.location.href='{{ route('motorcycles.edit', $motorcycle->id) }}'">

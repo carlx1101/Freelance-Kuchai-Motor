@@ -1823,11 +1823,11 @@
                   </div>
                 </th>
                 <th class="table-column-ps-0">Name</th>
-                <th>Position</th>
-                <th>Country</th>
-                <th>Status</th>
-                <th>Portfolio</th>
-                <th>Role</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Availability</th>
+                <th>Category</th>
+                <th>Salesman</th>
                 <th></th>
               </tr>
             </thead>
@@ -1842,37 +1842,60 @@
                   </div>
                 </td>
                 <td class="table-column-ps-0">
-                  <a class="d-flex align-items-center" href="./user-profile.html">
+                  <a class="d-flex align-items-center" href="">
+                    @if(isset($accessory->accessory_cover_url))
                     <div class="avatar avatar-circle">
-                      <img class="avatar-img" src="{{ asset('backend/img/160x160/img10.jpg') }}"
-                        alt="Image Description">
+                      <img class="avatar-img" src=" {{ $accessory->accessory_cover_url }}" alt="Image Description">
                     </div>
+                    @else
+                    <div class="flex-shrink-0">
+                      <div class="avatar avatar-soft-info avatar-circle">
+                        <span class="avatar-initials">{{ $accessory->id }}</span>
+                      </div>
+                    </div>
+                    @endif
                     <div class="ms-3">
                       <span class="d-block h5 text-inherit mb-0">{{ isset($accessory->name) ? $accessory->name :
-                        '--' }}<i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip"
-                          data-bs-placement="top" title="Top endorsed"></i></span>
-                      <span class="d-block fs-5 text-body">amanda@site.com</span>
+                        '--' }}
+                        {{-- <i class="bi-patch-check-fill text-primary" data-bs-toggle="tooltip"
+                          data-bs-placement="top" title="Top endorsed"></i> --}}
+                      </span>
+                      {{-- <span class="d-block fs-5 text-body">amanda@site.com</span> --}}
                     </div>
                   </a>
                 </td>
                 <td>
-                  <span class="d-block h5 mb-0">Director</span>
-                  <span class="d-block fs-5">Human resources</span>
+                  @if(isset($accessory->description) && strip_tags($accessory->description) != null)
+                  <span class="badge bg-soft-success text-success">
+                    <span class="legend-indicator bg-success"></span>Description Posted
+                  </span>
+                  @else
+                  <span class="badge bg-soft-danger text-danger">
+                    <span class="legend-indicator bg-danger"></span>No Description
+                  </span>
+                  @endif
                 </td>
-                <td>United Kingdom</td>
                 <td>
-                  <span class="legend-indicator bg-success"></span>Active
+                  {{ isset($accessory->pricing) ? $accessory->pricing :
+                  '--' }}
                 </td>
                 <td>
-                  <div class="d-flex align-items-center">
-                    <span class="fs-5 me-2">72%</span>
-                    <div class="progress table-progress">
-                      <div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
+                  @if(isset($accessory->availability) && $accessory->availability)
+                  <span class="badge bg-soft-success text-success">
+                    <span class="legend-indicator bg-success"></span>Available
+                  </span>
+                  @else
+                  <span class="badge bg-soft-danger text-danger">
+                    <span class="legend-indicator bg-danger"></span>Not Available
+                  </span>
+                  @endif
                 </td>
-                <td>Employee</td>
+                <td>
+                  {{ isset($accessory->subcategory_id ) ? $accessory->subcategory->subcategory_name :
+                  '--' }}
+                </td>
+                <td>{{ isset($accessory->salesman_id ) ? $accessory->user->name :
+                  '--' }}</td>
                 <td>
                   <button type="button" class="btn btn-white btn-sm"
                     onclick="window.location.href='{{ route('accessories.edit', $accessory->id) }}'">

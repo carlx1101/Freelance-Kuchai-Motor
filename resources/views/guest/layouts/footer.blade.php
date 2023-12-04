@@ -156,9 +156,9 @@
               </ul>
             </li>
 
-            <li><a href="">Accessories</a></li>
+            <li><a href="{{route('accessories')}}">Accessories</a></li>
 
-            <li><a href="{{route('used.motors')}}">Contact Us</a></li>
+            <li><a href="{{route('contact')}}">Contact Us</a></li>
 
 
             <li class="uk-parent"><a href="#">Languages</a>

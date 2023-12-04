@@ -127,6 +127,12 @@
   <script src="{{asset('backend/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js')}}">
   </script>
 
+  <!-- ========== ALERT ========== -->
+
+  @include('components.alert')
+
+  <!-- ========== END ALERT ========== -->
+
   <!-- ========== HEADER ========== -->
 
   @include('admin.layouts.header')
@@ -4864,6 +4870,11 @@
     (function() {
       window.onload = function () {
 
+        if(document.getElementById('success-alert')){
+        setTimeout(function () {
+        new bootstrap.Alert(document.getElementById('success-alert')).close();
+        }, 5000)
+        }
 
         // INITIALIZATION OF NAVBAR VERTICAL ASIDE
         // =======================================================

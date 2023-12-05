@@ -44,7 +44,7 @@
           <div class="uk-position-relative" tabindex="-1">
             <ul class="uk-slideshow-items" style="background-color: black">
               <li class="slideshow-item">
-                {{-- <img src="{{asset('frontend/img/img-home-slideshow.jpg')}}" alt data-uk-cover> --}}
+                <img src="{{asset('frontend/img/img-home-slideshow.jpg')}}" alt data-uk-cover>
                 <div class="uk-position-center uk-position-small">
                   <div class="uk-container">
                     <div class="uk-grid" data-uk-grid>
@@ -69,7 +69,7 @@
                   </div>
                 </div>
               </li>
-              <li class="slideshow-item"><img src="assets/img/img-home-slideshow-2.jpg" alt data-uk-cover>
+              <li class="slideshow-item"><img src="{{asset('frontend/img/img-home-slideshow-2.jpg')}}" alt data-uk-cover>
                 <div class="uk-position-center uk-position-small">
                   <div class="uk-container">
                     <div class="uk-grid" data-uk-grid>
@@ -94,7 +94,7 @@
                   </div>
                 </div>
               </li>
-              <li class="slideshow-item"><img src="assets/img/img-home-slideshow-3.jpg" alt data-uk-cover>
+              <li class="slideshow-item"><img src="{{asset('frontend/img/img-home-slideshow-3.jpg')}}" alt data-uk-cover>
                 <div class="uk-position-center uk-position-small">
                   <div class="uk-container">
                     <div class="uk-grid" data-uk-grid>
@@ -380,7 +380,7 @@
       <div class="section-info">
         <div class="uk-container uk-container-expand">
           <div class="uk-grid uk-flex-middle uk-child-width-1-2@m" data-uk-grid>
-            <div><img class="section-info__img" src="assets/img/img-info.png" alt="img-info"></div>
+            <div><img class="section-info__img" src="{{asset('frontend/img/img-info.png')}}" alt="img-info"></div>
             <div>
               <div class="section-info__content">
                 <div class="section-title"> <span>Taking rides to a newer level </span>
@@ -397,7 +397,7 @@
                       data-uk-grid>
                       <div>
                         <div class="block-icon">
-                          <div class="block-icon__icon"><img class="block-icon__img" src="assets/img/icons/info-1.svg"
+                          <div class="block-icon__icon"><img class="block-icon__img" src="{{asset('frontend/img/icons/info-1.svg')}}"
                               alt="icon-info"></div>
                           <div class="block-icon__desc">
                             <div class="block-icon__title">Easy To Book for rentals</div>
@@ -406,7 +406,7 @@
                       </div>
                       <div>
                         <div class="block-icon">
-                          <div class="block-icon__icon"><img class="block-icon__img" src="assets/img/icons/info-2.svg"
+                          <div class="block-icon__icon"><img class="block-icon__img" src="{{asset('frontend/img/icons/info-2.svg')}}"
                               alt="icon-info"></div>
                           <div class="block-icon__desc">
                             <div class="block-icon__title">Longer rides for All day</div>
@@ -415,7 +415,7 @@
                       </div>
                       <div>
                         <div class="block-icon">
-                          <div class="block-icon__icon"><img class="block-icon__img" src="assets/img/icons/info-3.svg"
+                          <div class="block-icon__icon"><img class="block-icon__img" src="{{asset('frontend/img/icons/info-3.svg')}}"
                               alt="icon-info"></div>
                           <div class="block-icon__desc">
                             <div class="block-icon__title">Get mileage Unlimited</div>
@@ -1204,11 +1204,12 @@
             <div class="uk-position-relative" tabindex="-1">
               <ul
                 class="uk-slider-items uk-grid uk-flex-middle uk-text-center uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-5@m">
-                <li><img src="assets/img/brand-1.png" alt="brand-logo"></li>
-                <li><img src="assets/img/brand-2.png" alt="brand-logo"></li>
-                <li><img src="assets/img/brand-3.png" alt="brand-logo"></li>
-                <li><img src="assets/img/brand-4.png" alt="brand-logo"></li>
-                <li><img src="assets/img/brand-5.png" alt="brand-logo"></li>
+
+                <li><img src="{{asset('frontend/img/partnering/suzuki.png')}}" width="60%" alt="brand-logo"></li>
+                <li><img src="{{asset('frontend/img/partnering/yamaha.png')}}" width="80%" alt="brand-logo"></li>
+                <li><img src="{{asset('frontend/img/partnering/keeway.png')}}"  width="80%" alt="brand-logo"></li>
+                <li><img src="{{asset('frontend/img/partnering/smsport.png')}}"  width="100%" alt="brand-logo"></li>
+                <li><img src="{{asset('frontend/img/partnering/benelli.png')}}"  width="100%" alt="brand-logo"></li>
               </ul>
             </div>
             <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>

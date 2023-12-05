@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+c:\Users\carly\Downloads\keymoto\keymoto\assets<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -2061,7 +2061,7 @@
         // =======================================================
         let motorCoverDropzone = Dropzone.forElement('#motorCoverDropzone');
         let motorImagesDropzone = Dropzone.forElement('#motorImagesDropzone');
-        
+
         document.getElementById('hiddenMotorCover').value = JSON.stringify({
         "remove": [],
         "new_upload":[]
@@ -2077,7 +2077,7 @@
           hiddenInputValue.remove.push({"name": file.name, "image_url": file.image_url});
           document.getElementById('hiddenMotorCover').value = JSON.stringify(hiddenInputValue, null, 2);
         });
-        
+
         motorCoverDropzone.on('complete', function(file){
           if(file.accepted){
             let hiddenInputValue = JSON.parse(document.getElementById('hiddenMotorCover').value);
@@ -2091,7 +2091,7 @@
           hiddenInputValue.remove.push({"name": file.name, "image_url": file.image_url});
           document.getElementById('hiddenMotorImages').value = JSON.stringify(hiddenInputValue, null, 2);
         });
-        
+
         motorImagesDropzone.on('complete', function(file){
           if(file.accepted){
             let hiddenInputValue = JSON.parse(document.getElementById('hiddenMotorImages').value);
@@ -2105,7 +2105,7 @@
         var mockFile = {name: filename, image_url: "{{ $motorcycle->motor_cover_url }}", accepted: true, status: 'success'};
 
         motorCoverDropzone.files.push(mockFile);
-        
+
         motorCoverDropzone.emit('addedfile', mockFile);
         motorCoverDropzone.emit('thumbnail', mockFile, "{{ $motorcycle->motor_cover_url }}");
 
@@ -2123,9 +2123,9 @@
           motorImages.forEach(function(image){
             var filename = image.name;
             var mockFile = {name: filename, image_url: image.url, accepted: true,};
-            
+
             motorImagesDropzone.files.push(mockFile);
-            
+
             motorImagesDropzone.emit('addedfile', mockFile);
             motorImagesDropzone.emit('thumbnail', mockFile, image.url);
 
@@ -2141,7 +2141,7 @@
         // =======================================================
         HSCore.components.HSQuill.init('.js-quill')
         var quill_instance = Quill.find(document.getElementById('quill_description'));
-        
+
         quill_instance.clipboard.dangerouslyPasteHTML({!! json_encode($motorcycle->description) !!});
 
         quill_instance.on('text-change', function(delta, oldDelta, source) {

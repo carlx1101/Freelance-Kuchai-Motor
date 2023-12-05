@@ -42,7 +42,7 @@
 
     <main class="page-main">
       <div class="section-hero">
-        <div class="section-hero__bg" style="background-image: url(assets/img/bg/shop.jpg)">
+        <div class="section-hero__bg" style="background-image: url({{asset('frontend/img/bg/shop.jpg)')}}">
           <div class="uk-container">
             <div class="section-hero__content">
               <div class="section-hero__title"> <span>Taking rides to a newer level</span>

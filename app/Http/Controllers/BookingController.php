@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\BookingInvoice;
 use App\Models\Booking;
 use App\Models\Motorcycle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class BookingController extends Controller
 {
     public function index()
     {
 
-     // Retrieve all booking records
-     $bookings = Booking::all();
+        // Retrieve all booking records
+        $bookings = Booking::all();
 
-     // Pass the bookings data to the view
-     return view('admin.bookings.index', ['bookings' => $bookings]);
+        // Pass the bookings data to the view
+        return view('admin.bookings.index', ['bookings' => $bookings]);
     }
 
     public function store(Request $request)
@@ -32,11 +34,17 @@ class BookingController extends Controller
 
         ]);
 
-        // Store the data in the database
-        Booking::create($validatedData);
+        $booking = Booking::create($validatedData);
 
-        // Redirect or respond as needed
-        return redirect()->back()->with('success', 'Booking made successfully!');
+        if ($booking) {
+            // Get motorcycle details
+            $data = $booking->with('motorcycle')->first();
+
+            // Send Email Notification
+            Mail::to($request->email)->send(new BookingInvoice($data));
+            // Redirect or respond as needed
+            return redirect()->back()->with('success', 'Booking made successfully!');
+        }
     }
 
     public function markAsResolved(Request $request, $id)
@@ -54,8 +62,4 @@ class BookingController extends Controller
 
         return back()->with('success', 'Booking status updated');
     }
-
-
-
-
 }

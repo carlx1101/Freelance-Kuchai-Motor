@@ -52,4 +52,9 @@ class Motorcycle extends Model
     {
         return $this->hasMany(MotorImage::class, 'motorcycle_id', 'id');
     }
+
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class, 'motorcycle_id', 'id');
+    }
 }

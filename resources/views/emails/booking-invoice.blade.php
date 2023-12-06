@@ -22,18 +22,18 @@
     <div
         style="max-width: 600px; margin: 20px auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
 
-        <h2 style="color: #333333;">Booking Invoice</h2>
+        <h2 style="color: #333333;">Viewing Booked!</h2>
 
         <p>Dear {{ $data->name }},</p>
 
         <p>Thank you for choosing Kuchai Motor. We are pleased to confirm your booking and provide you with the details
             of
-            your purchase:</p>
+            your scheduled viewing :</p>
 
         <ul>
             <li><strong>Product:</strong> {{ $data->motorcycle->model }}, {{ $data->motorcycle->brand }}</li>
-            <li><strong>Date of Purchase:</strong> {{ \Carbon\Carbon::parse($data->created_at)->format('d/m/Y') }}</li>
-            <li><strong>Amount:</strong> {{ $data->motorcycle->pricing }}</li>
+            <li><strong>Viewing Date:</strong> {{ \Carbon\Carbon::parse($data->created_at)->format('d/m/Y') }}</li>
+            {{-- <li><strong>Amount:</strong> {{ $data->motorcycle->pricing }}</li> --}}
         </ul>
 
         <p>If you have any questions or concerns regarding your booking, please feel free to contact us. We appreciate

@@ -34,6 +34,12 @@ class HomeController extends Controller
 
 
     public function salesmanHome(){
-        return view('salesman.dashboard');
+
+        // Retrieve all booking records
+        $bookings = Booking::all();
+        return view('salesman.dashboard',['bookings' => $bookings]);
     }
+
+    
+
 }

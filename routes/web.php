@@ -82,4 +82,5 @@ Route::middleware([
     'user-access:salesman'
 ])->prefix('salesman')->group(function () {
     Route::get('/dashboard', [HomeController::class, 'salesmanHome'])->name('salesman.dashboard');
+    Route::get('/bookings', [SalesmanController::class, 'salesmanBookings'])->name('salesman.bookings');
 });

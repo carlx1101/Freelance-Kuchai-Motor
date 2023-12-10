@@ -31,7 +31,7 @@
             your scheduled viewing :</p>
 
         <ul>
-            <li><strong>Product:</strong> {{ $data->motorcycle->model }}, {{ $data->motorcycle->brand }}</li>
+            <li><strong>Motor :</strong> {{ $data->motorcycle->model }}, {{ $data->motorcycle->brand }}</li>
             <li><strong>Viewing Date:</strong> {{ \Carbon\Carbon::parse($data->created_at)->format('d/m/Y') }}</li>
             {{-- <li><strong>Amount:</strong> {{ $data->motorcycle->pricing }}</li> --}}
         </ul>

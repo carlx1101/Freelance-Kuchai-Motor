@@ -1,3 +1,15 @@
+<style>
+    .user-info {
+    display: flex;
+    align-items: center;
+}
+
+    .user-info .uk-icon {
+        margin-right: 10px; /* Adjust spacing as needed */
+    }
+
+</style>
+
 <header class="page-header page-header-transparent">
   <div class="page-header__inner">
     <div class="page-header__left">
@@ -110,10 +122,32 @@
 
 
     <div class="page-header__right">
-      {{-- <a class="uk-navbar-toggle search-btn" href="#modal-search" data-uk-search-icon data-uk-toggle></a>
-      <a class="uk-navbar-toggle cart-btn" href="#!"> --}}
-        {{-- <div class="cart-btn__icon uk-icon" data-uk-icon="cart"><span class="cart-btn__count">2</span></div> --}}
-      </a><a class="uk-navbar-toggle menu-btn" href="#offcanvas" data-uk-toggle>
+      {{-- <a class="uk-navbar-toggle search-btn" href="#modal-search" data-uk-search-icon data-uk-toggle></a> --}}
+
+      @auth
+
+      <a class="uk-navbar-toggle cart-btn"  href="#!">
+        <div class="user-info">
+            <div class="uk-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664z"/>
+                </svg>
+            </div>
+            <span>{{ Auth::user()->name }}</span>
+        </div>
+      </a>
+      @endauth
+
+        @guest
+        <!-- User is not authenticated, show login button -->
+        <div style="padding-right:10px;">
+            <a href="{{ route('login') }}" class="uk-button uk-button-danger" >Login </a>
+
+        </div>
+
+        @endguest
+
+      <a class="uk-navbar-toggle menu-btn" href="#offcanvas" data-uk-toggle>
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-list"
           viewBox="0 0 16 16">
           <path fill-rule="evenodd"
@@ -128,11 +162,11 @@
   function googleTranslateElementInit() {
   new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
   }
-  
+
   function changeLanguage(selectedLanguage) {
   const googleTranslateElement = document.querySelector('#google_translate_element');
   const selectElement = document.querySelector('.goog-te-combo');
-  
+
   selectElement.value = selectedLanguage
 
   const event = new Event('change');

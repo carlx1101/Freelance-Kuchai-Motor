@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Hash;
@@ -37,7 +38,7 @@ class SalesmanController extends Controller
             'password' => 'required|string|min:8',
         ]);
 
-        
+
 
         $user = new User($request->all());
         $user->password = Hash::make($request->password);
@@ -97,5 +98,15 @@ class SalesmanController extends Controller
         } else {
             abort(500);
         }
+    }
+
+
+    public function salesmanBookings(){
+
+        $userId = auth()->id();
+
+        $bookings = Booking::where('salesman_id', $userId)->get();
+
+        return view('salesman.bookings.index',['bookings' => $bookings]);
     }
 }

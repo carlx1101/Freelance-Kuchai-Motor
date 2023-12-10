@@ -782,7 +782,7 @@
                         <span class="legend-indicator {{ $booking->status === 'Active' ? 'bg-warning' : 'bg-success' }}"></span>
                         {{ $booking->status }}
                     </td>
-                    {{-- <td>
+                    <td>
 
                         <form method="POST" action="{{ route('markAsResolved', ['id' => $booking->id]) }}">
                             @csrf
@@ -798,7 +798,7 @@
                         </form>
 
 
-                    </td> --}}
+                    </td>
                 </tr>
 
                @endforeach

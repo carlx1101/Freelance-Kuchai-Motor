@@ -30,7 +30,8 @@ class BookingController extends Controller
             'datetime' => 'required',
             'phone_number' => 'nullable',
             'message' => 'required',
-            'motorcycle_id' => 'required'
+            'motorcycle_id' => 'required',
+            'salesman_id' => 'required'
 
         ]);
 

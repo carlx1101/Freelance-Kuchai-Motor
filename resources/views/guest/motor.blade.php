@@ -341,13 +341,16 @@
                       <div class="uk-h4">Make an viewing appointment</div><span>we will get back in short</span>
                     </div>
                     <div class="widjet__content">
-                    <form action="{{ route('booking.store') }}"                 method="POST">
+                    <form action="{{ route('booking.store') }}" method="POST">
                             @csrf
 
                             <div class="uk-margin-small">
                                 <input class="uk-input uk-form-large" name="motorcycle_id" value="{{$motor->id}}" type="number" hidden>
                             </div>
 
+                            <div class="uk-margin-small">
+                                <input class="uk-input uk-form-large" name="salesman_id" value="{{$motor->user->id}}" type="number" hidden>
+                            </div>
 
                             <div class="uk-margin-small">
                                 <input class="uk-input uk-form-large" name="datetime" type="datetime-local" placeholder="Date Time">

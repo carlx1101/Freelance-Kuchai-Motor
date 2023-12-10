@@ -21,6 +21,13 @@ return new class extends Migration
             $table->string('status')->default("Active");
             $table->unsignedBigInteger('motorcycle_id')->nullable();
             $table->foreign('motorcycle_id')->references('id')->on('motorcycles')->onDelete('set null');
+
+         // Add the salesman_id column
+            $table->unsignedBigInteger('salesman_id')->nullable();
+
+            // Set up the foreign key relationship
+            $table->foreign('salesman_id')->references('id')->on('users')->onDelete('set null');
+
             $table->timestamps();
         });
     }

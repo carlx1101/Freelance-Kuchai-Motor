@@ -31,7 +31,7 @@ Route::get('/accessories/{accessory}',[PageController::class, 'accessory'])->nam
 Route::get('/motor/{id}',  [PageController::class, 'motor'])->name('motor.show');
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 Route::post('/motorcycle/search', [PageController::class, 'search'])->name('motorcycle.search');
-
+Route::patch('/update-booking-status/{id}', [BookingController::class, 'markAsResolved'])->name('markAsResolved');
 
 Route::middleware([
     'auth:sanctum',
@@ -63,7 +63,7 @@ Route::middleware([
 
     // Manage Booking
     Route::resource('/bookings', BookingController::class);
-    Route::patch('/update-booking-status/{id}', [BookingController::class, 'markAsResolved'])->name('markAsResolved');
+
 
 
     // Categories

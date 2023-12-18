@@ -45,7 +45,7 @@
           </div>
           <!-- End Collapse -->
 
-          <span class="dropdown-header mt-4">Customer Management</span>
+          {{-- <span class="dropdown-header mt-4">Customer Management</span>
           <small class="bi-three-dots nav-subtitle-replacer"></small>
 
           <div class="nav-item">
@@ -53,7 +53,7 @@
               <i class="bi-people nav-icon"></i>
               <span class="nav-link-title">Manage Booking</span>
             </a>
-          </div>
+          </div> --}}
 
 
 

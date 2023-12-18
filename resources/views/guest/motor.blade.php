@@ -18,7 +18,18 @@
   <link rel="stylesheet" href="{{asset('frontend/css/main.css')}}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+
+
+
   <style>
+
+    .image-full {
+        width: 100%; /* Adjust the width as needed */
+        height: 100%; /* Maintain aspect ratio */
+        display: block; /* Remove extra space below the image */
+    }
+
+
     .skiptranslate {
       display: none !important;
     }
@@ -89,13 +100,16 @@
                     <button class="secondary" type="button"><i class="fas fa-columns"></i><span>Add to compare</span></button> --}}
                     {{-- <button type="button"><i class="fas fa-motorcycle"></i><span>schedule test drive</span></button> --}}
                     {{-- <button type="button"><i class="fas fa-envelope"></i><span>email friend</span></button> --}}
-                    {{-- <button type="button"><i class="fas fa-share-alt"></i></button> --}}
+                    <button type="button"><i class="fas fa-share-alt"></i></button>
                 </div>
                 <div class="page-product__gallery">
                   <div data-uk-slideshow="min-height: 300; max-height: 430">
                     <ul class="uk-slideshow-items uk-child-width-1-1">
 
-                      <li><img class="uk-width-1-1" src="{{$motor->motor_cover_url}}" alt="img-gallery" data-uk-cover></li>
+
+                      <li>
+                        <img class="image-full" src="{{$motor->motor_cover_url}}" alt="Motor Image">
+                    </li>
 
                       @foreach ($motorImages as $motorImage)
                         <li><img class="uk-width-1-1" src="{{$motorImage->url}}" alt="{{$motor->name}}" data-uk-cover></li>

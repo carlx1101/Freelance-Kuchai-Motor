@@ -44,7 +44,7 @@
             </div> --}}
           </li>
 
-          <li><a href="{{route('contact')}}">Contact Us</a></li>
+          <li><a href="{{route('contact')}}">Contact</a></li>
 
           <li><a href="#">Languages </a>
             <div class="uk-navbar-dropdown">

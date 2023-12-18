@@ -7,7 +7,7 @@
             <div class="logo"><a class="logo__link" href="index.html">
                 <div class="logo__icon"><img src="{{asset('frontend/img/logo.png')}}" width="35%"
                     alt="Kuchai Motor Sdn Bhd"></div>
-                <div class="logo__text">Kuchai Motor Sdn Bhd</div>
+                <div class="logo__text">Kuchai Motor Sdn Bhd (1117745-D)</div>
               </a></div>
           </div>
           <div class="uk-margin-medium">
@@ -117,7 +117,7 @@
               <li>
                 <div class="info-list-item">
                   <div class="info-list-item__title">Showroom Address </div>
-                  <div class="info-list-item__value">kuchaimotor@hotmail.my</div>
+                  <div class="info-list-item__value">56-58, Jalan 2/116B, Kuchai Entrepreneurs Park, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</div>
                 </div>
               </li>
 
@@ -138,7 +138,7 @@
   </div>
   <div class="page-footer__bottom">
     <div class="uk-container">
-      <div class="uk-text-center">Kuchai Motor Sdn Bhd . All rights reserved.</div>
+      <div class="uk-text-center">Kuchai Motor Sdn Bhd (1117745-D) . All rights reserved.</div>
     </div>
   </div>
 

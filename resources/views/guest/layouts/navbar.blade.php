@@ -116,6 +116,8 @@
               </ul>
             </div>
           </li>
+
+          <li><a href="{{route('branch')}}">Branch</a></li>
         </ul>
       </nav>
     </div>

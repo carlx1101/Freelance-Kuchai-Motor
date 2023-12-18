@@ -109,4 +109,9 @@ class PageController extends Controller
         return view('guest.accessory', compact('accessory','accessoryImages'));
     }
 
+    public function branch(){
+
+        return view('guest.branch');
+    }
+
 }

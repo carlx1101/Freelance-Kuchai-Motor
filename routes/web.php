@@ -27,6 +27,7 @@ Route::get('/new-motors', [PageController::class, 'newMotors'])->name('new.motor
 Route::get('/used-motors', [PageController::class, 'usedMotors'])->name('used.motors');
 Route::get('/accessories', [PageController::class, 'accessories'])->name('accessories');
 Route::get('/accessories/{accessory}',[PageController::class, 'accessory'])->name('accessory');
+Route::get('/branch', [PageController::class, 'branch'])->name('branch');
 
 Route::get('/motor/{id}',  [PageController::class, 'motor'])->name('motor.show');
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');

@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking Invoice | Kuchai Motor</title>
-
     <style>
         /* Media query for smaller screens */
         @media (max-width: 600px) {
@@ -49,11 +48,12 @@
             <p><strong>Phone:</strong> 03-7981-0331</p>
             <p><strong>Address:</strong> 56-58, Jalan 2/116B, Kuchai Entrepreneurs Park, 58200 Kuala Lumpur, Wilayah
                 Persekutuan Kuala Lumpur</p>
+            <a href="https://www.waze.com/live-map/directions/my/wilayah-persekutuan-kuala-lumpur/kuala-lumpur/56,-jalan-2116b?to=place.Ems1NiwgSmFsYW4gMi8xMTZCLCBLdWNoYWkgRW50cmVwcmVuZXVycyBQYXJrLCA1ODIwMCBLdWFsYSBMdW1wdXIsIFdpbGF5YWggUGVyc2VrdXR1YW4gS3VhbGEgTHVtcHVyLCBNYWxheXNpYSIwEi4KFAoSCScG0S9sSswxEeUEXn6mI3jZEDgqFAoSCbHK8U1uSswxEdiZ9GVlP3IQ" target="_blank" style="text-decoration: none; color: #333333;">
+                <i class="fa-brands fa-waze"></i> Click here to open Waze
+            </a>
         </div>
 
-
-        
     </div>
 </body>
-
+<script src="https://kit.fontawesome.com/6ad4c01a31.js" crossorigin="anonymous"></script>
 </html>

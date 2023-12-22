@@ -20,7 +20,6 @@
 
 
 
-
   <style>
 
     .image-full {
@@ -80,7 +79,7 @@
               <div class="section-hero__breadcrumb">
                 <ul class="uk-breadcrumb">
                   <li><a href="#">Home</a></li>
-                  <li><a href="page-shop-grid.html"></a></li>
+
                   <li> <span>{{$motor->brand}}</span></li>
                 </ul>
               </div>
@@ -93,6 +92,8 @@
         <div class="uk-section-large uk-container">
           <div class="page-product">
             <div class="uk-grid uk-flex-middle" data-uk-grid>
+
+
               <div class="uk-width-2-3@m">
                 <div class="page-product__title">
                   <div class="uk-h1">{{$motor->model}}</div><span>Always Pushing To Full Limits For A Great Riding Experience!</span>
@@ -100,40 +101,91 @@
               </div>
               <div class="uk-width-1-3@m">
                 <div class="page-product__price">
-                <button class="share-button" data-bs-toggle="modal" data-bs-target="#shareModal">
+                {{-- <button class="share-button" style="">
                     <i class="fas fa-share-alt"></i>
-                </button>
+                </button> --}}
 
-                  <div class="modal fade" id="shareModal">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title">Choose platform to share</h4>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                <div class="page-product__right">
+                    <div class="page-product__btns">
+                        <button class="danger" type="button" id="shareMotorBtn">Share Motor</button>
+                        <div id="shareMotorDropdown" class="dropdown-content" style="display:none;">
+
+                            <a href="" id="fb_share">Facebook</a>
+                            <a href="whatsapp://send?text={{url()->current()}}" >Whatsapp</a>
+                            {{-- <a href="#" id="fb_share">Tiktok</a> --}}
                         </div>
-
-                        <!-- Modal Body -->
-                        <div class="modal-body">
-                            <div class="modal-icons">
-                              <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg>
-                              <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>
-                              <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-
-                            </div>
-                        </div>
-
-                        <!-- Modal Footer -->
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        </div>
-
-                      </div>
                     </div>
-                  </div>
 
-                  <div><span class="current">{{$motor->pricing}}</span></div>
-                  <div class="uk-margin-small-top"><span>Included Taxes & Checkup*</span></div>
+
+                    <div class="price-info">
+                        <span class="current">{{$motor->pricing}}</span>
+                        <div class="uk-margin-small-top">
+                            <span>Included Taxes & Checkup*</span>
+                        </div>
+                    </div>
                 </div>
+
+                <style>
+
+                    .page-product__right {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-end;
+                        padding-right: 20px; /* Adjust as needed */
+                    }
+
+                    .page-product__btns {
+                        margin-bottom: 10px; /* Space between buttons and price info */
+                    }
+
+                    /* Button with Downward Arrow */
+                    #shareMotorBtn:after {
+                        content: ' ▼ ';
+                        font-size: 12px; /* Adjust size as needed */
+                    }
+
+
+                    /* Dropdown Content/Box */
+                    .dropdown-content {
+                        display: none;
+                        position: absolute;
+                        background-color: #f9f9f9;
+                        min-width: 160px; /* Adjust width as needed */
+                        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+                        z-index: 1;
+                        border-radius: 4px; /* Rounded corners */
+                        overflow: hidden; /* Ensures the rounded corners */
+                    }
+
+                    /* Dropdown Links */
+                    .dropdown-content a {
+                        color: black;
+                        padding: 12px 16px;
+                        text-decoration: none;
+                        display: block;
+                        text-align: center; /* Center align text */
+                        transition: background-color 0.2s; /* Smooth background transition */
+                    }
+
+                    /* Change color of dropdown links on hover */
+                    .dropdown-content a:hover {
+                        background-color: #f1f1f1;
+                    }
+
+                    /* Optional: Clear floats if needed */
+                    .clearfix::after {
+                        content: "";
+                        clear: both;
+                        display: table;
+                    }
+
+
+
+                </style>
+
+
+
               </div>
             </div>
             <div class="uk-grid" data-uk-grid>
@@ -180,15 +232,8 @@
                         <div class="product-list-info-item__value">{{$motor->manufacture_year}}</div>
                       </div>
                     </div>
-                    @if($motor->mileage)
-                    <div>
-                      <div class="product-list-info-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512"><path fill="grey" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm320 96c0-26.9-16.5-49.9-40-59.3V88c0-13.3-10.7-24-24-24s-24 10.7-24 24V292.7c-23.5 9.5-40 32.5-40 59.3c0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
-                        <div class="product-list-info-item__title">Mileage</div>
-                        <div class="product-list-info-item__value">{{$motor->mileage}} KM</div>
-                      </div>
-                    </div>
-                    @endif
+
+
                     <div>
                       <div class="product-list-info-item">
                         <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 256 256"><path fill="gray" d="M216 120a41 41 0 0 0-6.6.55l-5.82-15.14A55.64 55.64 0 0 1 216 104a8 8 0 0 0 0-16h-19.12l-13.41-34.87A8 8 0 0 0 176 48h-32a8 8 0 0 0 0 16h26.51l9.23 24H152c-18.5 0-33.5 4.31-43.37 12.46a16 16 0 0 1-16.76 2.07c-10.58-4.81-73.29-30.12-73.8-30.26a8 8 0 0 0-5 15.19s55.5 21.94 66.53 32.94A55.67 55.67 0 0 1 95.43 152H79.2a40 40 0 1 0 0 16h52.12a31.91 31.91 0 0 0 30.74-23.1a56 56 0 0 1 26.59-33.72l5.82 15.13A40 40 0 1 0 216 120ZM40 168h22.62a24 24 0 1 1 0-16H40a8 8 0 0 0 0 16Zm176 16a24 24 0 0 1-15.58-42.23l8.11 21.1a8 8 0 1 0 14.94-5.74L215.35 136h.65a24 24 0 0 1 0 48Z"/></svg>
@@ -209,6 +254,36 @@
                         <div class="product-list-info-item__value">{{$motor->max_power}}</div>
                       </div>
                     </div>
+
+                    @if($motor->mileage)
+                    <div>
+                      <div class="product-list-info-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512"><path fill="grey" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm320 96c0-26.9-16.5-49.9-40-59.3V88c0-13.3-10.7-24-24-24s-24 10.7-24 24V292.7c-23.5 9.5-40 32.5-40 59.3c0 35.3 28.7 64 64 64s64-28.7 64-64zM144 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm-16 80a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm288 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64zM400 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+                        <div class="product-list-info-item__title">Mileage</div>
+                        <div class="product-list-info-item__value">{{$motor->mileage}} KM</div>
+                      </div>
+                    </div>
+                    @endif
+
+
+                    @if($motor->mileage)
+                    <div>
+                      <div class="product-list-info-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" d="M22 3H2c-1.09.04-1.96.91-2 2v14c.04 1.09.91 1.96 2 2h20c1.09-.04 1.96-.91 2-2V5a2.074 2.074 0 0 0-2-2m0 16H2V5h20zm-8-2v-1.25c0-1.66-3.34-2.5-5-2.5c-1.66 0-5 .84-5 2.5V17zM9 7a2.5 2.5 0 0 0-2.5 2.5A2.5 2.5 0 0 0 9 12a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 9 7m5 0v1h6V7zm0 2v1h6V9zm0 2v1h4v-1z"/></svg>
+                        <div class="product-list-info-item__title">Registration Date</div>
+                        <div class="product-list-info-item__value">{{$motor->vehicle_registration_date}} </div>
+                      </div>
+                    </div>
+                    @endif
+
+                    @if($motor->mileage)
+                    <div>
+                      <div class="product-list-info-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 19L8 5m8 0l4 14M12 8V6m0 7v-2m0 7v-2"/></svg>                        <div class="product-list-info-item__title">Road Tax Expiry</div>
+                        <div class="product-list-info-item__value">{{$motor->road_tax_expiry_date}} </div>
+                      </div>
+                    </div>
+                    @endif
 
                   </div>
                 </div>
@@ -670,8 +745,36 @@
   <script src="{{asset('frontend/js/slick.min.js')}}"></script>
   <script src="{{asset('frontend/js/ion.rangeSlider.min.js')}}"></script>
   <script src="{{asset('frontend/js/main.js')}}"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
+
+
+  <script>
+        document.getElementById('shareMotorBtn').addEventListener('click', function() {
+        var dropdown = document.getElementById('shareMotorDropdown');
+        dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+    });
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.danger')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === "block") {
+                    openDropdown.style.display = "none";
+                }
+            }
+        }
+    }
+
+  </script>
+
+
+    <script>
+        window.onload = function() {
+            fb_share.href ='http://www.facebook.com/share.php?u=' + encodeURIComponent(location.href);
+        }
+    </script>
 
 
 </body>

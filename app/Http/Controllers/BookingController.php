@@ -41,6 +41,7 @@ class BookingController extends Controller
             // Get motorcycle details
             $data = $booking->with('motorcycle')->first();
 
+            dd($data);
             // Send Email Notification
             Mail::to($request->email)->send(new BookingInvoice($data));
             // Redirect or respond as needed

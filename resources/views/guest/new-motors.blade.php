@@ -358,7 +358,7 @@
 
 
 
-              <div class="uk-margin-large-top uk-text-center">
+              {{-- <div class="uk-margin-large-top uk-text-center">
                 <ul class="uk-pagination uk-flex-center">
                   <li><a href="#"><span data-uk-pagination-previous></span></a></li>
                   <li class="uk-active"><span>1</span></li>
@@ -367,7 +367,7 @@
                   <li><a href="#">4</a></li>
                   <li><a href="#"><span data-uk-pagination-next></span></a></li>
                 </ul>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>

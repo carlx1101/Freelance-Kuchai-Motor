@@ -471,7 +471,7 @@
                   <div class="input-group">
                     <input type="text" class="js-input-mask form-control @error('salesman_id') is-invalid @enderror"
                       id="addAccessoriesPrice" placeholder="RM x,xx.xx" data-hs-mask-options='{
-                        "mask": "RM 00,000.00"
+                        "mask": "RM 000000"
                       }' name="pricing" value="{{ old('pricing') }}">
                   </div>
 
@@ -1599,18 +1599,18 @@
           maxFiles: 1,
           acceptedFiles: "image/*",
         });
-        
+
         accessoryCoverDropzone.on('addedfile', function(file){
           document.getElementById('addAccessorySubmitBtn').setAttribute("disabled", "disabled");
         });
-        
+
         accessoryCoverDropzone.on('complete', function(file){
         if(file.accepted){
           document.getElementById('hiddenAccessoryCover').value = JSON.stringify(file);
           document.getElementById('addAccessorySubmitBtn').removeAttribute("disabled");
         }
         });
-        
+
         accessoryCoverDropzone.on('removedfile', function(file){
         document.getElementById('hiddenAccessoryCover').value = null;
         });
@@ -1620,17 +1620,17 @@
         paramName: "accessory_images",
         acceptedFiles: "image/*",
         });
-        
+
         accessoryImagesDropzone.on('addedfile', function(file){
         document.getElementById('addAccessorySubmitBtn').setAttribute("disabled", "disabled");
         });
-        
+
         accessoryImagesDropzone.on('complete', function(file){
           if(file.accepted){
             document.getElementById('addAccessorySubmitBtn').removeAttribute("disabled");
           }
         });
-        
+
         document.getElementById('addAccessoryForm').addEventListener('submit', function(event) {
         event.preventDefault();
         $('<input>').attr({type:'hidden', name:'accessory_images', value:JSON.stringify(accessoryImagesDropzone.files)}).appendTo(this);
@@ -1642,11 +1642,11 @@
         // =======================================================
         HSCore.components.HSQuill.init('.js-quill')
         var quill_instance = Quill.find(document.getElementById('quill_description'));
-        
+
         @if(old('description'))
         quill_instance.clipboard.dangerouslyPasteHTML({!! json_encode(old('description')) !!});
         @endif
-        
+
         quill_instance.on('text-change', function(delta, oldDelta, source) {
         $('#description').val(quill_instance.root.innerHTML);
         });

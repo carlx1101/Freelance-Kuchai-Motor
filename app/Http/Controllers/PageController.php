@@ -13,7 +13,16 @@ class PageController extends Controller
     public function home(){
         $motors = Motorcycle::all();
 
-        return view('guest.welcome', compact('motors'));
+
+        $usedMotors = Motorcycle::whereNotNull('mileage')
+        ->whereNotNull('road_tax_expiry_date')
+        ->whereNotNull('vehicle_registration_date')
+        ->orderBy('created_at', 'desc')
+        ->take(3)
+        ->get();
+
+
+        return view('guest.welcome', compact('motors', 'usedMotors'));
     }
 
     public function contact(){

@@ -468,7 +468,7 @@
                   <div class="input-group">
                     <input type="text" class="js-input-mask form-control @error('salesman_id') is-invalid @enderror"
                       id="addAccessoriesPrice" placeholder="RM x,xx.xx" data-hs-mask-options='{
-                        "mask": "RM 00,000.00"
+                        "mask": "RM 000000"
                       }' name="pricing" value="{{ $accessory->pricing }}">
                   </div>
 
@@ -1599,12 +1599,12 @@
         // =======================================================
         let accessoryCoverDropzone = Dropzone.forElement('#accessoryCoverDropzone');
         let accessoryImagesDropzone = Dropzone.forElement('#accessoryImagesDropzone');
-        
+
         document.getElementById('hiddenAccessoryCover').value = JSON.stringify({
         "remove": [],
         "new_upload":[]
         }, null, 2);
-        
+
         document.getElementById('hiddenAccessoryImages').value = JSON.stringify({
         "remove": [],
         "new_upload":[]
@@ -1615,7 +1615,7 @@
           hiddenInputValue.remove.push({"name": file.name, "image_url": file.image_url});
           document.getElementById('hiddenAccessoryCover').value = JSON.stringify(hiddenInputValue, null, 2);
         });
-        
+
         accessoryCoverDropzone.on('complete', function(file){
           if(file.accepted){
             let hiddenInputValue = JSON.parse(document.getElementById('hiddenAccessoryCover').value);
@@ -1629,7 +1629,7 @@
           hiddenInputValue.remove.push({"name": file.name, "image_url": file.image_url});
           document.getElementById('hiddenAccessoryImages').value = JSON.stringify(hiddenInputValue, null, 2);
         });
-        
+
         accessoryImagesDropzone.on('complete', function(file){
           if(file.accepted){
             let hiddenInputValue = JSON.parse(document.getElementById('hiddenAccessoryImages').value);
@@ -1641,12 +1641,12 @@
         @isset($accessory->accessory_cover_url) // Display Motor Cover Image
         let filename = "{{ $accessory->accessory_cover_filename }}";
         var mockFile = {name: filename, image_url: "{{ $accessory->accessory_cover_url }}", accepted: true, status: 'success'};
-        
+
         accessoryCoverDropzone.files.push(mockFile);
-        
+
         accessoryCoverDropzone.emit('addedfile', mockFile);
         accessoryCoverDropzone.emit('thumbnail', mockFile, "{{ $accessory->accessory_cover_url }}");
-        
+
         // Remove unwanted notification
         document.querySelector("#accessoryCoverDropzone .dz-size").remove();
         document.querySelector("#accessoryCoverDropzone .dz-progress.progress").remove();
@@ -1657,16 +1657,16 @@
 
         @if(count($accessory->accessoryImages) > 0) // Display Motor Images
         let accessoryImages = @json($accessory->accessoryImages);
-        
+
         accessoryImages.forEach(function(image){
         var filename = image.name;
         var mockFile = {name: filename, image_url: image.url, accepted: true,};
-        
+
         accessoryImagesDropzone.files.push(mockFile);
-        
+
         accessoryImagesDropzone.emit('addedfile', mockFile);
         accessoryImagesDropzone.emit('thumbnail', mockFile, image.url);
-        
+
         document.querySelector("#accessoryImagesDropzone .dz-size").remove();
         document.querySelector("#accessoryImagesDropzone .dz-progress.progress").remove();
         document.querySelector("#accessoryImagesDropzone .dz-success-mark").remove();
@@ -1680,11 +1680,11 @@
         // =======================================================
         HSCore.components.HSQuill.init('.js-quill')
         var quill_instance = Quill.find(document.getElementById('quill_description'));
-        
+
         @if(isset($accessory->description))
         quill_instance.clipboard.dangerouslyPasteHTML({!! json_encode($accessory->description) !!});
         @endif
-        
+
         quill_instance.on('text-change', function(delta, oldDelta, source) {
         $('#description').val(quill_instance.root.innerHTML);
         });

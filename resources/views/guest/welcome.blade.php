@@ -43,6 +43,33 @@
         <div data-uk-slideshow="autoplay: true; min-height: 560; max-height: 950; animation: fade">
           <div class="uk-position-relative" tabindex="-1">
             <ul class="uk-slideshow-items" style="background-color: black">
+
+            <li class="slideshow-item"><img src="{{asset('frontend/img/img-home-slideshow-3.jpg')}}" alt data-uk-cover>
+                <div class="uk-position-center uk-position-small">
+                    <div class="uk-container">
+                    <div class="uk-grid" data-uk-grid>
+                        <div class="uk-width-3-5@m">
+                        <div class="slideshow-item__content">
+                            {{-- <div class="slideshow-item__decor" data-uk-slideshow-parallax="opacity: 0,1">Kuchai Motor</div> --}}
+                            <div class="slideshow-item__title" data-uk-slideshow-parallax="x: 100,-100"><span>Taking rides
+                                to a newer level</span>
+                            <div class="uk-h2">Elevate Your Ride with Kuchai Motor</div>
+                            </div>
+                            <div class="slideshow-item__desc" data-uk-slideshow-parallax="x: 200,-200">
+                            <p>Discover the sleek, modern design of Kuchai Motor. Perfect blend of style and performance for the discerning rider.</p>
+                            </div>
+                            <div class="slideshow-item__btns" data-uk-slideshow-parallax="x: 300,-300">
+                                <a
+                                class="uk-button uk-button-danger" href="{{route('new.motors')}}">Browse Motorbikes </a>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="uk-width-2-5@m uk-visible@l"></div>
+                    </div>
+                    </div>
+                </div>
+            </li>
+
               <li class="slideshow-item">
                 <img src="{{asset('frontend/img/img-home-slideshow.jpg')}}" alt data-uk-cover>
                 <div class="uk-position-center uk-position-small">
@@ -50,18 +77,18 @@
                     <div class="uk-grid" data-uk-grid>
                       <div class="uk-width-3-5@m">
                         <div class="slideshow-item__content">
-                          <div class="slideshow-item__decor" data-uk-slideshow-parallax="opacity: 0,1">KeyMoto</div>
+                          {{-- <div class="slideshow-item__decor" data-uk-slideshow-parallax="opacity: 0,1">KUCHAI MOTOR</div> --}}
                           <div class="slideshow-item__title" data-uk-slideshow-parallax="x: 100,-100"><span>Taking rides
                               to a newer level</span>
-                            <div class="uk-h2">the combination of<br> power & perfection</div>
+                            <div class="uk-h2">Unleash Power with KUCHAI MOTOR</div>
                           </div>
                           <div class="slideshow-item__desc" data-uk-slideshow-parallax="x: 200,-200">
-                            <p>Consectetur adipiscing elit sed ipsum eiusmod tempor ncdidunt<br> labore et dolore magna
-                              aliqua quis ipsum suspendisse.</p>
+                            <p>Experience the fusion of power and perfection. KUCHAI MOTOR brings unparalleled performance to every ride.</p>
                           </div>
-                          <div class="slideshow-item__btns" data-uk-slideshow-parallax="x: 300,-300"><a
-                              class="uk-button uk-button-danger" href="#section-about">Learn more </a><a
-                              class="uk-button uk-button-secondary" href="#section-category">Motorcycles </a></div>
+                          <div class="slideshow-item__btns" data-uk-slideshow-parallax="x: 300,-300">
+                            <a
+                            class="uk-button uk-button-danger" href="{{route('new.motors')}}">Browse Motorbikes </a>
+                            </div>
                         </div>
                       </div>
                       <div class="uk-width-2-5@m uk-visible@l"></div>
@@ -76,49 +103,25 @@
                       <div class="uk-width-2-5@m uk-visible@l"></div>
                       <div class="uk-width-3-5@m">
                         <div class="slideshow-item__content">
-                          <div class="slideshow-item__decor" data-uk-slideshow-parallax="opacity: 0,1">KeyMoto</div>
+                          {{-- <div class="slideshow-item__decor" data-uk-slideshow-parallax="opacity: 0,1">KeyMoto</div> --}}
                           <div class="slideshow-item__title" data-uk-slideshow-parallax="x: 100,-100"><span>Taking rides
                               to a newer level</span>
-                            <div class="uk-h2">putting a reliable<br> machine on road</div>
+                            <div class="uk-h2">Trust Your Journey with Kuchai Motor</div>
                           </div>
                           <div class="slideshow-item__desc" data-uk-slideshow-parallax="x: 200,-200">
-                            <p>Consectetur adipiscing elit sed ipsum eiusmod tempor ncdidunt<br> labore et dolore magna
-                              aliqua quis ipsum suspendisse.</p>
+                            <p>Where reliability meets the road. Engineered for safety, designed for the journey ahead.</p>
                           </div>
-                          <div class="slideshow-item__btns" data-uk-slideshow-parallax="x: 300,-300"><a
-                              class="uk-button uk-button-danger" href="#!">Learn more </a><a
-                              class="uk-button uk-button-secondary" href="#!">Motorcycles </a></div>
+                          <div class="slideshow-item__btns" data-uk-slideshow-parallax="x: 300,-300">
+                            <a
+                            class="uk-button uk-button-danger" href="{{route('new.motors')}}">Browse Motorbikes </a>
+                            </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </li>
-              <li class="slideshow-item"><img src="{{asset('frontend/img/img-home-slideshow-3.jpg')}}" alt data-uk-cover>
-                <div class="uk-position-center uk-position-small">
-                  <div class="uk-container">
-                    <div class="uk-grid" data-uk-grid>
-                      <div class="uk-width-3-5@m">
-                        <div class="slideshow-item__content">
-                          <div class="slideshow-item__decor" data-uk-slideshow-parallax="opacity: 0,1">KeyMoto</div>
-                          <div class="slideshow-item__title" data-uk-slideshow-parallax="x: 100,-100"><span>Taking rides
-                              to a newer level</span>
-                            <div class="uk-h2">modern designed<br> for a Sleek look</div>
-                          </div>
-                          <div class="slideshow-item__desc" data-uk-slideshow-parallax="x: 200,-200">
-                            <p>Consectetur adipiscing elit sed ipsum eiusmod tempor ncdidunt<br> labore et dolore magna
-                              aliqua quis ipsum suspendisse.</p>
-                          </div>
-                          <div class="slideshow-item__btns" data-uk-slideshow-parallax="x: 300,-300"><a
-                              class="uk-button uk-button-danger" href="#!">Learn more </a><a
-                              class="uk-button uk-button-secondary" href="#!">Motorcycles </a></div>
-                        </div>
-                      </div>
-                      <div class="uk-width-2-5@m uk-visible@l"></div>
-                    </div>
-                  </div>
-                </div>
-              </li>
+
             </ul>
           </div>
           <div class="slideshow-nav"><a href="#" data-uk-slidenav-previous data-uk-slideshow-item="previous"></a>
@@ -255,7 +258,7 @@
         <div class="uk-section-large uk-container">
           <div class="section-title uk-text-center"><img src="assets/img/logo-dark.svg" alt=""><span>Taking rides to a
               newer level</span>
-            <h3 class="uk-h2">Choose a motorcycle</h3>
+            <h3 class="uk-h2">Our Brand New Motorcycle</h3>
           </div>
           <div class="section-content">
             <div class="uk-text-center uk-margin-medium-bottom">
@@ -372,65 +375,13 @@
               @endforeach
 
             </div>
-            <div class="uk-text-center uk-margin-medium-top"><a class="uk-button uk-button-danger"
-                href="page-shop-grid.html">View all models</a></div>
+            <div class="uk-text-center uk-margin-medium-top">
+                <a class="uk-button uk-button-danger" href="{{route('new.motors')}}">View all models</a></div>
           </div>
         </div>
       </div>
-      <div class="section-info">
-        <div class="uk-container uk-container-expand">
-          <div class="uk-grid uk-flex-middle uk-child-width-1-2@m" data-uk-grid>
-            <div><img class="section-info__img" src="{{asset('frontend/img/img-info.png')}}" alt="img-info"></div>
-            <div>
-              <div class="section-info__content">
-                <div class="section-title"> <span>Taking rides to a newer level </span>
-                  <h3 class="uk-h2">A step above with<br> rider-friendly nature</h3>
-                </div>
-                <div class="section-content">
-                  <p>Explore our diverse range of motorcycles, each crafted to elevate your riding experience. Our
-                    collection offers advanced, rider-friendly features, ensuring both comfort and performance. Whether
-                    you're seeking an adrenaline-fueled adventure or a smooth, efficient commute, we have a motorcycle
-                    tailored to your needs. Dive into our selection and find the perfect match for your lifestyle,
-                    embodying excellence in engineering and design.</p>
-                  <div class="uk-margin-medium-top">
-                    <div class="uk-grid uk-grid-small uk-child-width-1-3@l uk-child-width-1-2@m uk-child-width-1-3@s"
-                      data-uk-grid>
-                      <div>
-                        <div class="block-icon">
-                          <div class="block-icon__icon"><img class="block-icon__img" src="{{asset('frontend/img/icons/info-1.svg')}}"
-                              alt="icon-info"></div>
-                          <div class="block-icon__desc">
-                            <div class="block-icon__title">Easy To Book for rentals</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="block-icon">
-                          <div class="block-icon__icon"><img class="block-icon__img" src="{{asset('frontend/img/icons/info-2.svg')}}"
-                              alt="icon-info"></div>
-                          <div class="block-icon__desc">
-                            <div class="block-icon__title">Longer rides for All day</div>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <div class="block-icon">
-                          <div class="block-icon__icon"><img class="block-icon__img" src="{{asset('frontend/img/icons/info-3.svg')}}"
-                              alt="icon-info"></div>
-                          <div class="block-icon__desc">
-                            <div class="block-icon__title">Get mileage Unlimited</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="section-video">
+
+      {{-- <div class="section-video">
         <div class="video-block">
           <div class="video-info">
             <div class="video-info__title">The Powerful performance<br> With optimized balanced </div>
@@ -438,690 +389,217 @@
             </div>
             <div class="video-info__list-thumb">
               <ul>
-                <li><img src="assets/img/img-video-thumb-1.jpg" alt="img-video-thumb"></li>
-                <li><img src="assets/img/img-video-thumb-2.jpg" alt="img-video-thumb"></li>
-                <li><img src="assets/img/img-video-thumb-3.jpg" alt="img-video-thumb"></li>
+                <li><img src="{{asset('frontend/img/img-video-thumb-1.jpg')}}" alt="img-video-thumb"></li>
+                <li><img src="{{asset('frontend/img/img-video-thumb-2.jpg')}}" alt="img-video-thumb"></li>
+                <li><img src="{{asset('frontend/img/img-video-thumb-3.jpg')}}" alt="img-video-thumb"></li>
               </ul>
             </div>
           </div>
           <div class="video-box" data-uk-lightbox="video-autoplay: true"><a
               href="https://www.youtube.com/watch?v=c2pz2mlSfXA" data-caption="YouTube"
               data-attrs="width: 1280; height: 720;">
-              <div class="btn-play"><img src="assets/img/icons/play.png" alt="play"><span>Play video</span></div>
+              <div class="btn-play"><img src="{{asset('frontend/img/icons/play.png')}}" alt="play"><span>Play video</span></div>
             </a></div>
         </div>
-      </div>
+      </div> --}}
+
+
       <div class="section-rental">
         <div class="uk-section uk-container">
-          <div class="section-title uk-text-center"><img src="assets/img/logo-dark.svg" alt=""><span>Taking rides to a
+          <div class="section-title uk-text-center"><img src="{{asset('frontend/img/logo-dark.svg')}}" alt=""><span>Taking rides to a
               newer level</span>
             <h3 class="uk-h2">Motorcycles on rent</h3>
           </div>
           <div class="section-content">
             <div class="uk-text-center uk-margin-medium-bottom">
-              <p>Dolore magna aliqua quis nostrud exercitation ullamco laboris nisi ut aliquip exa comds<br> consequat
-                duis aute irure dolor repreh enderit in voluptate velit esse cilum.</p>
+              {{-- <p>Dolore magna aliqua quis nostrud exercitation ullamco laboris nisi ut aliquip exa comds<br> consequat
+                duis aute irure dolor repreh enderit in voluptate velit esse cilum.</p> --}}
             </div>
             <div data-uk-slider="autoplay:true">
-              <div class="uk-position-relative" tabindex="-1">
-                <ul class="uk-slider-items uk-child-width-1-1">
-                  <li>
-                    <div class="rental-item">
-                      <div class="uk-grid uk-grid-small uk-flex-middle" data-uk-grid>
-                        <div class="uk-width-3-5@m uk-flex-last@m">
-                          <div class="rental-item__img"><img src="assets/img/img-rental.jpg" alt="Ducati X Diavel S">
-                          </div>
-                        </div>
-                        <div class="uk-width-2-5@m uk-flex-first@m">
-                          <div class="rental-item__desc">
-                            <div class="rental-item__title">2021 Ducati X Diavel S<br> - Glossy Black</div>
-                            <div class="rental-item__price">
-                              <div class="label">Rent for as low as</div>
-                              <div class="price">$35</div>
-                              <div class="value"> <span>per </span><span>day</span></div>
+                <div class="uk-position-relative" tabindex="-1">
+                    <ul class="uk-slider-items uk-child-width-1-1">
+                        @foreach ($usedMotors as $usedMotor)
+                        <li>
+                            <div class="rental-item">
+                                <div class="uk-grid uk-grid-small uk-flex-middle" data-uk-grid>
+                                    <div class="uk-width-3-5@m uk-flex-last@m">
+                                        <div class="rental-item__img d-flex">
+                                            <div class="d-flex justify-content-center">
+                                                <img src="{{ $usedMotor->motor_cover_url }}" alt="{{ $usedMotor->name }}" style="width: 300px; height: 250px; object-fit: cover;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-width-2-5@m uk-flex-first@m">
+                                        <div class="rental-item__desc">
+                                            <div class="rental-item__title" ><a href="{{ route('motor.show', $motor->id) }}"> {{ $usedMotor->model }} </a> </div>
+                                            <div class="product-item__manufacturer">Powered by {{$usedMotor->brand}}</div>
+                                            <!-- Assume you have price and other details in $usedMotor -->
+                                            <div class="rental-item__price">
+                                                <br><br>
+                                                {{-- <div class="label">Rent for as low as</div> --}}
+                                                <div class="price">{{$usedMotor->pricing}}</div>
+                                                {{-- <div class="value"> <span>per </span><span>day</span></div> --}}
+
+
+                                            </div>
+                                            {{-- <div class="rental-item__text">{!!$usedMotor->description !! }}</div> --}}
+                                            <!-- Specifications List -->
+                                            <div class="rental-item__specifications">
+                                                <ul class="specifications-list">
+                                                    <li class="specifications-list-item">
+                                                      <div class="specifications-list-item__icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="gray" d="M17.5 12a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 17.5 9a1.5 1.5 0 0 1 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5m-3-4A1.5 1.5 0 0 1 13 6.5A1.5 1.5 0 0 1 14.5 5A1.5 1.5 0 0 1 16 6.5A1.5 1.5 0 0 1 14.5 8m-5 0A1.5 1.5 0 0 1 8 6.5A1.5 1.5 0 0 1 9.5 5A1.5 1.5 0 0 1 11 6.5A1.5 1.5 0 0 1 9.5 8m-3 4A1.5 1.5 0 0 1 5 10.5A1.5 1.5 0 0 1 6.5 9A1.5 1.5 0 0 1 8 10.5A1.5 1.5 0 0 1 6.5 12M12 3a9 9 0 0 0-9 9a9 9 0 0 0 9 9a1.5 1.5 0 0 0 1.5-1.5c0-.39-.15-.74-.39-1c-.23-.27-.38-.62-.38-1a1.5 1.5 0 0 1 1.5-1.5H16a5 5 0 0 0 5-5c0-4.42-4.03-8-9-8Z"/></svg>
+
+                                                        </div>
+                                                      <div class="specifications-list-item__desc">
+                                                        <div class="specifications-list-item__title">Color</div>
+                                                        <div class="specifications-list-item__value">{{$usedMotor->colour}} </div>
+                                                      </div>
+                                                    </li>
+                                                    <li class="specifications-list-item">
+                                                      <div class="specifications-list-item__icon">
+
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="gray" d="M7 4v2h3v2H7l-2 2v3H3v-3H1v8h2v-3h2v3h3l2 2h8v-4h2v3h3V9h-3v3h-2V8h-6V6h3V4H7Z"/></svg>
+
+                                                        </div>
+                                                      <div class="specifications-list-item__desc">
+                                                        <div class="specifications-list-item__title">Engine type</div>
+                                                        <div class="specifications-list-item__value">{{$usedMotor->engine_type}}</div>
+                                                      </div>
+                                                    </li>
+                                                    <li class="specifications-list-item">
+                                                      <div class="specifications-list-item__icon">
+
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="gray" d="M10.45 15.5q.625.625 1.575.588T13.4 15.4L19 7l-8.4 5.6q-.65.45-.712 1.362t.562 1.538ZM5.1 20q-.55 0-1.012-.238t-.738-.712q-.65-1.175-1-2.437T2 14q0-2.075.788-3.9t2.137-3.175q1.35-1.35 3.175-2.137T12 4q2.05 0 3.85.775T19 6.888q1.35 1.337 2.15 3.125t.825 3.837q.025 1.375-.312 2.688t-1.038 2.512q-.275.475-.737.713T18.874 20H5.1Z"/></svg>
+
+
+                                                        </div>
+                                                      <div class="specifications-list-item__desc">
+                                                        <div class="specifications-list-item__title">Max Power</div>
+                                                        <div class="specifications-list-item__value">{{$usedMotor->max_power}} </div>
+                                                      </div>
+                                                    </li>
+                                                    <li class="specifications-list-item">
+                                                      <div class="specifications-list-item__icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 16 16"><g fill="gray"><path d="M3 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5z"/><path d="M1 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v8a2 2 0 0 1 2 2v.5a.5.5 0 0 0 1 0V8h-.5a.5.5 0 0 1-.5-.5V4.375a.5.5 0 0 1 .5-.5h1.495c-.011-.476-.053-.894-.201-1.222a.97.97 0 0 0-.394-.458c-.184-.11-.464-.195-.9-.195a.5.5 0 0 1 0-1c.564 0 1.034.11 1.412.336c.383.228.634.551.794.907c.295.655.294 1.465.294 2.081v3.175a.5.5 0 0 1-.5.501H15v4.5a1.5 1.5 0 0 1-3 0V12a1 1 0 0 0-1-1v4h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1zm9 0a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v13h8z"/></g></svg>
+
+
+                                                        </div>
+                                                      <div class="specifications-list-item__desc">
+                                                        <div class="specifications-list-item__title">Fuel System</div>
+                                                        <div class="specifications-list-item__value">{{$usedMotor->fuel_system}}</div>
+                                                      </div>
+                                                    </li>
+                                                    <li class="specifications-list-item">
+                                                      <div class="specifications-list-item__icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M17 17v4h1a2 2 0 1 0 0-4h-1zm0-6h1.5a1.5 1.5 0 0 0 0-3H17v5M3 5a2 2 0 1 0 4 0a2 2 0 1 0-4 0"/><path d="M5 7v3a1 1 0 0 0 1 1h3v7a1 1 0 0 0 1 1h3m-4-8h4"/></g></svg>
+
+                                                        </div>
+                                                      <div class="specifications-list-item__desc">
+                                                        <div class="specifications-list-item__title">Transmission</div>
+                                                        <div class="specifications-list-item__value">{{$usedMotor->transmission}}</div>
+                                                      </div>
+                                                    </li>
+                                                    <li class="specifications-list-item">
+                                                      <div class="specifications-list-item__icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="gray" d="M3 2h3c.28 0 .53.11.71.29l2.08 2.09l.8-.79C10 3.2 10.5 3 11 3h6c.5 0 1 .2 1.41.59l1 1C19.8 5 20 5.5 20 6v13a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8c0-.5.2-1 .59-1.41l.79-.8L5.59 4H3V2m8 3v2h6V5h-6m.41 6l-2-2H8v1.41l2 2v3.18l-2 2V19h1.41l2-2h3.18l2 2H18v-1.41l-2-2v-3.18l2-2V9h-1.41l-2 2h-3.18m.59 2h2v2h-2v-2Z"/></svg>
+
+                                                        </div>
+                                                      <div class="specifications-list-item__desc">
+                                                        <div class="specifications-list-item__title">Fuel Capacity</div>
+                                                        <div class="specifications-list-item__value">{{$usedMotor->ignition_system}}</div>
+                                                      </div>
+                                                    </li>
+                                                  </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="rental-item__text">Meet the new Ducati - A beauty with high speed excitement
-                              cruiser control, best of both worlds & sporty power.</div>
-                            <div class="rental-item__specifications">
-                              <ul class="specifications-list">
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-5.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Color</div>
-                                    <div class="specifications-list-item__value">Black </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-6.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Category</div>
-                                    <div class="specifications-list-item__value">Adventure</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-4.svg" alt="Bore/Stroke"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Bore/Stroke</div>
-                                    <div class="specifications-list-item__value">80mm / 49.7mm </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-3.svg" alt="Displacement"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Displacement</div>
-                                    <div class="specifications-list-item__value">999 cc</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-1.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine type</div>
-                                    <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-2.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine Power</div>
-                                    <div class="specifications-list-item__value">205hp (151 kW)</div>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="slider-nav">
+                    <a href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
+                    <div class="slider-nav__count">
+                        <ul>
+                            @for ($i = 0; $i < count($usedMotors); $i++)
+                            <li data-uk-slider-item="{{ $i }}"><span>{{ $i + 1 }}</span></li>
+                            @endfor
+                        </ul><span>/ {{ count($usedMotors) }}</span>
                     </div>
-                  </li>
-                  <li>
-                    <div class="rental-item">
-                      <div class="uk-grid uk-grid-small uk-flex-middle" data-uk-grid>
-                        <div class="uk-width-3-5@m uk-flex-last@m">
-                          <div class="rental-item__img"><img src="assets/img/img-rental.jpg" alt="Ducati X Diavel S">
-                          </div>
-                        </div>
-                        <div class="uk-width-2-5@m uk-flex-first@m">
-                          <div class="rental-item__desc">
-                            <div class="rental-item__title">2021 Ducati X Diavel S<br> - Glossy Black</div>
-                            <div class="rental-item__price">
-                              <div class="label">Rent for as low as</div>
-                              <div class="price">$35</div>
-                              <div class="value"> <span>per </span><span>day</span></div>
-                            </div>
-                            <div class="rental-item__text">Meet the new Ducati - A beauty with high speed excitement
-                              cruiser control, best of both worlds & sporty power.</div>
-                            <div class="rental-item__specifications">
-                              <ul class="specifications-list">
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-5.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Color</div>
-                                    <div class="specifications-list-item__value">Black </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-6.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Category</div>
-                                    <div class="specifications-list-item__value">Adventure</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-4.svg" alt="Bore/Stroke"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Bore/Stroke</div>
-                                    <div class="specifications-list-item__value">80mm / 49.7mm </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-3.svg" alt="Displacement"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Displacement</div>
-                                    <div class="specifications-list-item__value">999 cc</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-1.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine type</div>
-                                    <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-2.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine Power</div>
-                                    <div class="specifications-list-item__value">205hp (151 kW)</div>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rental-item">
-                      <div class="uk-grid uk-grid-small uk-flex-middle" data-uk-grid>
-                        <div class="uk-width-3-5@m uk-flex-last@m">
-                          <div class="rental-item__img"><img src="assets/img/img-rental.jpg" alt="Ducati X Diavel S">
-                          </div>
-                        </div>
-                        <div class="uk-width-2-5@m uk-flex-first@m">
-                          <div class="rental-item__desc">
-                            <div class="rental-item__title">2021 Ducati X Diavel S<br> - Glossy Black</div>
-                            <div class="rental-item__price">
-                              <div class="label">Rent for as low as</div>
-                              <div class="price">$35</div>
-                              <div class="value"> <span>per </span><span>day</span></div>
-                            </div>
-                            <div class="rental-item__text">Meet the new Ducati - A beauty with high speed excitement
-                              cruiser control, best of both worlds & sporty power.</div>
-                            <div class="rental-item__specifications">
-                              <ul class="specifications-list">
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-5.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Color</div>
-                                    <div class="specifications-list-item__value">Black </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-6.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Category</div>
-                                    <div class="specifications-list-item__value">Adventure</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-4.svg" alt="Bore/Stroke"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Bore/Stroke</div>
-                                    <div class="specifications-list-item__value">80mm / 49.7mm </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-3.svg" alt="Displacement"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Displacement</div>
-                                    <div class="specifications-list-item__value">999 cc</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-1.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine type</div>
-                                    <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-2.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine Power</div>
-                                    <div class="specifications-list-item__value">205hp (151 kW)</div>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rental-item">
-                      <div class="uk-grid uk-grid-small uk-flex-middle" data-uk-grid>
-                        <div class="uk-width-3-5@m uk-flex-last@m">
-                          <div class="rental-item__img"><img src="assets/img/img-rental.jpg" alt="Ducati X Diavel S">
-                          </div>
-                        </div>
-                        <div class="uk-width-2-5@m uk-flex-first@m">
-                          <div class="rental-item__desc">
-                            <div class="rental-item__title">2021 Ducati X Diavel S<br> - Glossy Black</div>
-                            <div class="rental-item__price">
-                              <div class="label">Rent for as low as</div>
-                              <div class="price">$35</div>
-                              <div class="value"> <span>per </span><span>day</span></div>
-                            </div>
-                            <div class="rental-item__text">Meet the new Ducati - A beauty with high speed excitement
-                              cruiser control, best of both worlds & sporty power.</div>
-                            <div class="rental-item__specifications">
-                              <ul class="specifications-list">
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-5.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Color</div>
-                                    <div class="specifications-list-item__value">Black </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-6.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Category</div>
-                                    <div class="specifications-list-item__value">Adventure</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-4.svg" alt="Bore/Stroke"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Bore/Stroke</div>
-                                    <div class="specifications-list-item__value">80mm / 49.7mm </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-3.svg" alt="Displacement"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Displacement</div>
-                                    <div class="specifications-list-item__value">999 cc</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-1.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine type</div>
-                                    <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-2.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine Power</div>
-                                    <div class="specifications-list-item__value">205hp (151 kW)</div>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rental-item">
-                      <div class="uk-grid uk-grid-small uk-flex-middle" data-uk-grid>
-                        <div class="uk-width-3-5@m uk-flex-last@m">
-                          <div class="rental-item__img"><img src="assets/img/img-rental.jpg" alt="Ducati X Diavel S">
-                          </div>
-                        </div>
-                        <div class="uk-width-2-5@m uk-flex-first@m">
-                          <div class="rental-item__desc">
-                            <div class="rental-item__title">2021 Ducati X Diavel S<br> - Glossy Black</div>
-                            <div class="rental-item__price">
-                              <div class="label">Rent for as low as</div>
-                              <div class="price">$35</div>
-                              <div class="value"> <span>per </span><span>day</span></div>
-                            </div>
-                            <div class="rental-item__text">Meet the new Ducati - A beauty with high speed excitement
-                              cruiser control, best of both worlds & sporty power.</div>
-                            <div class="rental-item__specifications">
-                              <ul class="specifications-list">
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-5.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Color</div>
-                                    <div class="specifications-list-item__value">Black </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-6.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Category</div>
-                                    <div class="specifications-list-item__value">Adventure</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-4.svg" alt="Bore/Stroke"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Bore/Stroke</div>
-                                    <div class="specifications-list-item__value">80mm / 49.7mm </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-3.svg" alt="Displacement"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Displacement</div>
-                                    <div class="specifications-list-item__value">999 cc</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-1.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine type</div>
-                                    <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-2.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine Power</div>
-                                    <div class="specifications-list-item__value">205hp (151 kW)</div>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rental-item">
-                      <div class="uk-grid uk-grid-small uk-flex-middle" data-uk-grid>
-                        <div class="uk-width-3-5@m uk-flex-last@m">
-                          <div class="rental-item__img"><img src="assets/img/img-rental.jpg" alt="Ducati X Diavel S">
-                          </div>
-                        </div>
-                        <div class="uk-width-2-5@m uk-flex-first@m">
-                          <div class="rental-item__desc">
-                            <div class="rental-item__title">2021 Ducati X Diavel S<br> - Glossy Black</div>
-                            <div class="rental-item__price">
-                              <div class="label">Rent for as low as</div>
-                              <div class="price">$35</div>
-                              <div class="value"> <span>per </span><span>day</span></div>
-                            </div>
-                            <div class="rental-item__text">Meet the new Ducati - A beauty with high speed excitement
-                              cruiser control, best of both worlds & sporty power.</div>
-                            <div class="rental-item__specifications">
-                              <ul class="specifications-list">
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-5.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Color</div>
-                                    <div class="specifications-list-item__value">Black </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-6.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Category</div>
-                                    <div class="specifications-list-item__value">Adventure</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-4.svg" alt="Bore/Stroke"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Bore/Stroke</div>
-                                    <div class="specifications-list-item__value">80mm / 49.7mm </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-3.svg" alt="Displacement"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Displacement</div>
-                                    <div class="specifications-list-item__value">999 cc</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-1.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine type</div>
-                                    <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-2.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine Power</div>
-                                    <div class="specifications-list-item__value">205hp (151 kW)</div>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rental-item">
-                      <div class="uk-grid uk-grid-small uk-flex-middle" data-uk-grid>
-                        <div class="uk-width-3-5@m uk-flex-last@m">
-                          <div class="rental-item__img"><img src="assets/img/img-rental.jpg" alt="Ducati X Diavel S">
-                          </div>
-                        </div>
-                        <div class="uk-width-2-5@m uk-flex-first@m">
-                          <div class="rental-item__desc">
-                            <div class="rental-item__title">2021 Ducati X Diavel S<br> - Glossy Black</div>
-                            <div class="rental-item__price">
-                              <div class="label">Rent for as low as</div>
-                              <div class="price">$35</div>
-                              <div class="value"> <span>per </span><span>day</span></div>
-                            </div>
-                            <div class="rental-item__text">Meet the new Ducati - A beauty with high speed excitement
-                              cruiser control, best of both worlds & sporty power.</div>
-                            <div class="rental-item__specifications">
-                              <ul class="specifications-list">
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-5.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Color</div>
-                                    <div class="specifications-list-item__value">Black </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-6.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Category</div>
-                                    <div class="specifications-list-item__value">Adventure</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-4.svg" alt="Bore/Stroke"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Bore/Stroke</div>
-                                    <div class="specifications-list-item__value">80mm / 49.7mm </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-3.svg" alt="Displacement"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Displacement</div>
-                                    <div class="specifications-list-item__value">999 cc</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-1.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine type</div>
-                                    <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-2.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine Power</div>
-                                    <div class="specifications-list-item__value">205hp (151 kW)</div>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="rental-item">
-                      <div class="uk-grid uk-grid-small uk-flex-middle" data-uk-grid>
-                        <div class="uk-width-3-5@m uk-flex-last@m">
-                          <div class="rental-item__img"><img src="assets/img/img-rental.jpg" alt="Ducati X Diavel S">
-                          </div>
-                        </div>
-                        <div class="uk-width-2-5@m uk-flex-first@m">
-                          <div class="rental-item__desc">
-                            <div class="rental-item__title">2021 Ducati X Diavel S<br> - Glossy Black</div>
-                            <div class="rental-item__price">
-                              <div class="label">Rent for as low as</div>
-                              <div class="price">$35</div>
-                              <div class="value"> <span>per </span><span>day</span></div>
-                            </div>
-                            <div class="rental-item__text">Meet the new Ducati - A beauty with high speed excitement
-                              cruiser control, best of both worlds & sporty power.</div>
-                            <div class="rental-item__specifications">
-                              <ul class="specifications-list">
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-5.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Color</div>
-                                    <div class="specifications-list-item__value">Black </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-6.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Category</div>
-                                    <div class="specifications-list-item__value">Adventure</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-4.svg" alt="Bore/Stroke"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Bore/Stroke</div>
-                                    <div class="specifications-list-item__value">80mm / 49.7mm </div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-3.svg" alt="Displacement"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Displacement</div>
-                                    <div class="specifications-list-item__value">999 cc</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-1.svg" alt="Engine type"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine type</div>
-                                    <div class="specifications-list-item__value">4-Stroke Cylinder</div>
-                                  </div>
-                                </li>
-                                <li class="specifications-list-item">
-                                  <div class="specifications-list-item__icon"><img
-                                      src="assets/img/icons/specifications-2.svg" alt="Engine Power"></div>
-                                  <div class="specifications-list-item__desc">
-                                    <div class="specifications-list-item__title">Engine Power</div>
-                                    <div class="specifications-list-item__value">205hp (151 kW)</div>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="slider-nav"><a href="#" data-uk-slidenav-previous data-uk-slider-item="previous"></a>
-                <div class="slider-nav__count">
-                  <ul>
-                    <li data-uk-slider-item="0"><span>1</span></li>
-                    <li data-uk-slider-item="1"><span>2</span></li>
-                    <li data-uk-slider-item="2"><span>3</span></li>
-                    <li data-uk-slider-item="3"><span>4</span></li>
-                    <li data-uk-slider-item="4"><span>5</span></li>
-                    <li data-uk-slider-item="5"><span>6</span></li>
-                    <li data-uk-slider-item="6"><span>7</span></li>
-                    <li data-uk-slider-item="7"><span>8</span></li>
-                  </ul><span>/ 8</span>
-                </div><a href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
-              </div>
+                    <a href="#" data-uk-slidenav-next data-uk-slider-item="next"></a>
+                </div>
+
             </div>
           </div>
+
+          <div class="uk-text-center uk-margin-medium-top">
+            <a class="uk-button uk-button-danger" href="{{route('new.motors')}}">View all models</a></div>
+
+
         </div>
+
       </div>
+
+
+
+
       <div class="section-gallery">
+        <div class="section-title uk-text-center"><img src="assets/img/logo-dark.svg" alt=""><span>Taking rides to a
+            newer level</span>
+          <h3 class="uk-h2">Gallery</h3>
+        </div>
+
         <div class="uk-section uk-container uk-container-large">
           <div class="uk-grid uk-child-width-1-4@m uk-child-width-1-3@s" data-uk-grid data-uk-lightbox>
             <div>
-              <div><a href="assets/img/img-gallery-1-big.jpg"><img class="uk-width-1-1"
-                    src="assets/img/img-gallery-1.jpg" alt="img-gallery"></a></div>
+              <div><a href="{{asset('frontend/img/gallery/gallery8.jpg')}}"><img class="uk-width-1-1"
+                    src="{{asset('frontend/img/gallery/gallery8.jpg')}}" alt="img-gallery"></a></div>
             </div>
             <div>
-              <div><a href="assets/img/img-gallery-2-big.jpg"><img class="uk-width-1-1"
-                    src="assets/img/img-gallery-2.jpg" alt="img-gallery"></a></div>
+              <div><a href="{{asset('frontend/img/gallery/gallery2.jpg')}}"><img class="uk-width-1-1"
+                    src="{{asset('frontend/img/gallery/gallery2.jpg')}}" alt="img-gallery"></a></div>
             </div>
             <div>
-              <div><a href="assets/img/img-gallery-3-big.jpg"><img class="uk-width-1-1"
-                    src="assets/img/img-gallery-3.jpg" alt="img-gallery"></a></div>
+              <div><a href="{{asset('frontend/img/gallery/gallery12.jpg')}}"><img class="uk-width-1-1"
+                    src="{{asset('frontend/img/gallery/gallery12.jpg')}}" alt="img-gallery"></a></div>
             </div>
             <div>
-              <div><a href="assets/img/img-gallery-4-big.jpg"><img class="uk-width-1-1"
-                    src="assets/img/img-gallery-4.jpg" alt="img-gallery"></a></div>
+              <div><a href="{{asset('frontend/img/gallery/gallery4.jpg')}}"><img class="uk-width-1-1"
+                    src="{{asset('frontend/img/gallery/gallery4.jpg')}}" alt="img-gallery"></a></div>
             </div>
             <div>
-              <div><a href="assets/img/img-gallery-5-big.jpg"><img class="uk-width-1-1"
-                    src="assets/img/img-gallery-5.jpg" alt="img-gallery"></a></div>
+              <div><a href="{{asset('frontend/img/gallery/gallery5.jpg')}}"><img class="uk-width-1-1"
+                    src="{{asset('frontend/img/gallery/gallery5.jpg')}}" alt="img-gallery"></a></div>
             </div>
             <div>
-              <div><a href="assets/img/img-gallery-6-big.jpg"><img class="uk-width-1-1"
-                    src="assets/img/img-gallery-6.jpg" alt="img-gallery"></a></div>
+              <div><a href="{{asset('frontend/img/gallery/gallery9.jpg')}}"><img class="uk-width-1-1"
+                    src="{{asset('frontend/img/gallery/gallery9.jpg')}}" alt="img-gallery"></a></div>
             </div>
             <div>
-              <div><a href="assets/img/img-gallery-7-big.jpg"><img class="uk-width-1-1"
-                    src="assets/img/img-gallery-7.jpg" alt="img-gallery"></a></div>
+              <div><a href="{{asset('frontend/img/gallery/gallery3.jpg')}}"><img class="uk-width-1-1"
+                    src="{{asset('frontend/img/gallery/gallery3.jpg')}}" alt="img-gallery"></a></div>
             </div>
             <div>
-              <div><a href="assets/img/img-gallery-8-big.jpg"><img class="uk-width-1-1"
-                    src="assets/img/img-gallery-8.jpg" alt="img-gallery"></a></div>
+              <div><a href="{{asset('frontend/img/gallery/gallery11.jpg')}}"><img class="uk-width-1-1"
+                    src="{{asset('frontend/img/gallery/gallery11.jpg')}}" alt="img-gallery"></a></div>
             </div>
           </div>
         </div>
       </div>
       <div class="section-reviews">
+        <div class="section-title uk-text-center"><img src="assets/img/logo-dark.svg" alt=""><span>Taking rides to a
+            newer level</span>
+          <h3 class="uk-h2">Testimonials</h3>
+        </div>
         <div class="uk-section uk-container uk-container-large">
           <div class="uk-grid uk-grid-collapse uk-flex-middle uk-child-width-1-2@m" data-uk-grid>
-            <div class="uk-text-center"> <img src="assets/img/img-reviews.png" alt="img-reviews"></div>
+            <div class="uk-text-center"> <img src="{{asset('frontend/img/img-reviews.png')}}" alt="img-reviews"></div>
             <div>
               <div class="section-title"> <span>Taking rides to a newer level</span>
-                <div class="uk-h2">Why people are<br> talking about us</div>
+                <div class="uk-h2">What client are<br> talking about us</div>
               </div>
               <div class="section-content">
                 <div class="reviews-vertical">
@@ -1131,19 +609,17 @@
                         <li>
                           <div class="review-item">
                             <div class="review-item__desc">
-                              <p>Magna aliqua quis nostrud exercitation ullamco laboris nisut aliqua yxa consequat duis
-                                aute irure dolor iny reprehenderit voluptate velit esse cilum dols sed ipsum nulla
-                                pariatur nostrul doney quis nostrud saercitation ullamco laboris nisi ut aliquip
-                                reprehenderit.</p>
-                            </div>
+                                <p>First time buy motor at Kuchai Motor ! Doesn’t know the process was so smooth with interchange car plate number as well. the boss, sales staff, cashier and runner are so helpful to get the things done within a day ! Strongly recommended !
+                                </p>
+                                </div>
                             <div class="review-item__user">
                               <div>
-                                <div class="review-item__user-avatar"><img src="assets/img/img-review-thumb.jpg"
-                                    alt="John Martin"></div>
+                                {{-- <div class="review-item__user-avatar"><img src="{{asset('frontend/img/img-review-thumb.jpg')}}"
+                                    alt="John Martin"></div> --}}
                               </div>
                               <div>
-                                <div class="review-item__user-name">John Martin</div>
-                                <div class="review-item__user-position">KTM Motorcycle Buyer</div>
+                                <div class="review-item__user-name">Pangkal Majujaya</div>
+                                <div class="review-item__user-position">Happy Customer</div>
                               </div>
                             </div>
                           </div>
@@ -1151,19 +627,17 @@
                         <li>
                           <div class="review-item">
                             <div class="review-item__desc">
-                              <p>Magna aliqua quis nostrud exercitation ullamco laboris nisut aliqua yxa consequat duis
-                                aute irure dolor iny reprehenderit voluptate velit esse cilum dols sed ipsum nulla
-                                pariatur nostrul doney quis nostrud saercitation ullamco laboris nisi ut aliquip
-                                reprehenderit.</p>
+                                <p>Sooo much bike we can get here(almost all bike)with reliable price..and very nice and humble tauke.. Tq sifu rahman! </p>
+
                             </div>
                             <div class="review-item__user">
                               <div>
-                                <div class="review-item__user-avatar"><img src="assets/img/img-review-thumb.jpg"
-                                    alt="John Martin"></div>
+                                {{-- <div class="review-item__user-avatar"><img src="assets/img/img-review-thumb.jpg"
+                                    alt="John Martin"></div> --}}
                               </div>
                               <div>
-                                <div class="review-item__user-name">John Martin</div>
-                                <div class="review-item__user-position">KTM Motorcycle Buyer</div>
+                                <div class="review-item__user-name">Syed Shahril81</div>
+                                <div class="review-item__user-position">Happy Customer</div>
                               </div>
                             </div>
                           </div>
@@ -1171,19 +645,17 @@
                         <li>
                           <div class="review-item">
                             <div class="review-item__desc">
-                              <p>Magna aliqua quis nostrud exercitation ullamco laboris nisut aliqua yxa consequat duis
-                                aute irure dolor iny reprehenderit voluptate velit esse cilum dols sed ipsum nulla
-                                pariatur nostrul doney quis nostrud saercitation ullamco laboris nisi ut aliquip
-                                reprehenderit.</p>
+                              <p>This place seller service is very nice and so friendly, they've sell many brand and type motorcycle and they've help people to register the motorcycle bank loan</p>
+                              {{-- <img src="" alt=""> --}}
                             </div>
                             <div class="review-item__user">
-                              <div>
+                              {{-- <div>
                                 <div class="review-item__user-avatar"><img src="assets/img/img-review-thumb.jpg"
                                     alt="John Martin"></div>
-                              </div>
+                              </div> --}}
                               <div>
-                                <div class="review-item__user-name">John Martin</div>
-                                <div class="review-item__user-position">KTM Motorcycle Buyer</div>
+                                <div class="review-item__user-name">Lee</div>
+                                <div class="review-item__user-position">Happy Customer</div>
                               </div>
                             </div>
                           </div>
@@ -1204,7 +676,9 @@
             <div class="uk-position-relative" tabindex="-1">
               <ul
                 class="uk-slider-items uk-grid uk-flex-middle uk-text-center uk-child-width-1-1 uk-child-width-1-3@s uk-child-width-1-5@m">
-
+                <li><img src="{{asset('frontend/img/partnering/honda.png')}}" width="70%" alt="brand-logo"></li>
+                <li><img src="{{asset('frontend/img/partnering/modenas.png')}}" width="80%" alt="brand-logo"></li>
+                <li><img src="{{asset('frontend/img/partnering/kawasaki.png')}}" width="100%" alt="brand-logo"></li>
                 <li><img src="{{asset('frontend/img/partnering/suzuki.png')}}" width="60%" alt="brand-logo"></li>
                 <li><img src="{{asset('frontend/img/partnering/yamaha.png')}}" width="80%" alt="brand-logo"></li>
                 <li><img src="{{asset('frontend/img/partnering/keeway.png')}}"  width="80%" alt="brand-logo"></li>

@@ -105,7 +105,7 @@
 
                   </div>
                   <div class="contact-info-item__title">Reach us by email</div>
-                  <div class="contact-info-item__value"> <a href="mailto:dealers@keymoto.com">kuchaimotor@hotmail.my</a></div>
+                  <div class="contact-info-item__value"> <a href="mailto:kuchaimotor@hotmail.my">kuchaimotor@hotmail.my</a></div>
 
                 </div>
               </div>

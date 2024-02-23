@@ -828,7 +828,7 @@ c:\Users\carly\Downloads\keymoto\keymoto\assets<!DOCTYPE html>
                   <div class="input-group">
                     <input type="text" class="js-input-mask form-control @error('pricing') is-invalid @enderror"
                       id="priceLabel" placeholder="RM x,xx.xx" data-hs-mask-options='{
-                      "mask": "RM 00,000.00"
+                      "mask": "RM 000000"
                     }' name="pricing" value="{{ $motorcycle->pricing }}">
                     @error('pricing')
                     <div class="invalid-feedback">

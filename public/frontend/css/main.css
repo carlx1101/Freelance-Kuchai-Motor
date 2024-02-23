@@ -2953,7 +2953,7 @@ body.page-home .section-hero__content {
   color: transparent;
   font: 700 200px/1 Oswald;
   text-transform: uppercase;
-  content: 'KeyMoto';
+  content: '';
   opacity: 0.5;
   writing-mode: tb-rl;
 }
@@ -5065,8 +5065,8 @@ body.page-home .section-hero__content {
   .product-item__price {
     font-size: calc(18px + 12 * (100vw / 1920));
   }
-    
-    
+
+
 
   .list-info-item__title {
     font-size: calc(14px + 2 * (100vw / 1920));

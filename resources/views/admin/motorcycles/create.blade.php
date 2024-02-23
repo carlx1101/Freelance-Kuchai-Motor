@@ -827,7 +827,7 @@
                   <div class="input-group">
                     <input type="text" class="js-input-mask form-control @error('pricing') is-invalid @enderror"
                       id="priceLabel" placeholder="RM x,xx.xx" data-hs-mask-options='{
-                      "mask": "RM 00,000.00"
+                      "mask": "RM 000000"
                     }' name="pricing" value="{{ old('pricing') }}">
                     @error('pricing')
                     <div class="invalid-feedback">
@@ -2064,7 +2064,7 @@
         motorCoverDropzone.on('addedfile', function(file){
           document.getElementById('addMotorcycleFormSubmitBtn').setAttribute("disabled", "disabled");
         });
-        
+
         motorCoverDropzone.on('complete', function(file){
           if(file.accepted){
             document.getElementById('hiddenMotorCover').value = JSON.stringify(file);

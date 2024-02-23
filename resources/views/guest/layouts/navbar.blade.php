@@ -117,7 +117,7 @@
             </div>
           </li>
 
-          <li><a href="{{route('branch')}}">Branch</a></li>
+          {{-- <li><a href="{{route('branch')}}">Branch</a></li> --}}
         </ul>
       </nav>
     </div>
@@ -140,14 +140,14 @@
       </a>
       @endauth
 
-        @guest
+        {{-- @guest
         <!-- User is not authenticated, show login button -->
         <div style="padding-right:10px;">
             <a href="{{ route('login') }}" class="uk-button uk-button-danger" >Login </a>
 
         </div>
 
-        @endguest
+        @endguest --}}
 
       <a class="uk-navbar-toggle menu-btn" href="#offcanvas" data-uk-toggle>
         <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-list"

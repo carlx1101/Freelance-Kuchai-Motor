@@ -408,7 +408,7 @@
         <div class="uk-section uk-container">
           <div class="section-title uk-text-center"><img src="{{asset('frontend/img/logo-dark.svg')}}" alt=""><span>Taking rides to a
               newer level</span>
-            <h3 class="uk-h2">Motorcycles on rent</h3>
+            <h3 class="uk-h2">Used Motorcycles</h3>
           </div>
           <div class="section-content">
             <div class="uk-text-center uk-margin-medium-bottom">
@@ -424,20 +424,22 @@
                                 <div class="uk-grid uk-grid-small uk-flex-middle" data-uk-grid>
                                     <div class="uk-width-3-5@m uk-flex-last@m">
                                         <div class="rental-item__img d-flex">
-                                            <div class="d-flex justify-content-center">
-                                                <img src="{{ $usedMotor->motor_cover_url }}" alt="{{ $usedMotor->name }}" style="width: 300px; height: 250px; object-fit: cover;">
+                                            <div class="text-right">
+                                                <img src="{{ $usedMotor->motor_cover_url }}" alt="{{ $usedMotor->name }}" style="width: 450px; height: 350px; object-fit: cover;">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="uk-width-2-5@m uk-flex-first@m">
                                         <div class="rental-item__desc">
-                                            <div class="rental-item__title" ><a href="{{ route('motor.show', $motor->id) }}"> {{ $usedMotor->model }} </a> </div>
+                                            <div class="rental-item__title" ><a href="{{ route('motor.show', $motor->id) }}"> {{ $usedMotor->model }} </a>
+                                             </div>
                                             <div class="product-item__manufacturer">Powered by {{$usedMotor->brand}}</div>
                                             <!-- Assume you have price and other details in $usedMotor -->
                                             <div class="rental-item__price">
                                                 <br><br>
                                                 {{-- <div class="label">Rent for as low as</div> --}}
                                                 <div class="price">{{$usedMotor->pricing}}</div>
+
                                                 {{-- <div class="value"> <span>per </span><span>day</span></div> --}}
 
 

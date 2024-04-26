@@ -117,7 +117,7 @@
             </div>
           </li>
 
-          {{-- <li><a href="{{route('branch')}}">Branch</a></li> --}}
+          <li><a href="https://hondaimpianx.kuchaimotor.com/">Branch</a></li>
         </ul>
       </nav>
     </div>

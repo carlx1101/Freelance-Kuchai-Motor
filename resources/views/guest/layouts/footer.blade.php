@@ -4,15 +4,18 @@
       <div class="uk-grid uk-grid-small uk-child-width-1-4@l uk-child-width-1-2@s" data-uk-grid>
         <div>
           <div class="uk-margin-medium">
-            <div class="logo"><a class="logo__link" href="index.html">
+            <div class="logo"><a class="logo__link" href="{{route('home')}}">
                 <div class="logo__icon"><img src="{{asset('frontend/img/logo.png')}}" width="35%"
                     alt="Kuchai Motor Sdn Bhd"></div>
                 <div class="logo__text">Kuchai Motor Sdn Bhd (1117745-D)</div>
               </a></div>
           </div>
           <div class="uk-margin-medium">
-            <p>Dolore magna aliq quis nostrud ulamco laboris nisi ut aliquip exa comads conseq asuis aute irure dolor
-              reprehenderit.</p>
+            <div class="logo"><a class="logo__link" href="{{route('home')}}">
+                <div class="logo__icon"><img src="{{asset('frontend/img/hondaimpianx.png')}}" width="80%"
+                    alt="Kuchai Motor Sdn Bhd"></div>
+                <div class="logo__text">Honda Impian X (1117745-D)</div>
+              </a></div>
           </div>
           <div class="uk-margin-medium">
             <div class="support"><a class="support__link" href="tel:0379810331">
@@ -48,46 +51,14 @@
               <li> <a href="{{route('used.motors')}}">Used Motorcycles</a></li>
               <li> <a href="">Accessories</a></li>
               <li> <a href="{{route('contact')}}">Contact Us</a></li>
+              <li> <a href="">Honda Impian X</a></li>
             </ul>
           </div>
         </div>
-        {{-- <div>
-          <div class="page-footer__column page-footer__news">
-            <div class="uk-h4">Latest News</div>
-            <ul class="latest-news-list">
-              <li>
-                <div class="latest-news-item">
-                  <div class="latest-news-item__thumb"><img src="assets/img/news-thumb-1.jpg" alt="news-thumb"></div>
-                  <div class="latest-news-item__info"><a class="latest-news-item__title"
-                      href="page-blog-article.html">We Allow Each Rider To Customize Their Rides.</a>
-                    <div class="latest-news-item__date">August 25, 2021</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="latest-news-item">
-                  <div class="latest-news-item__thumb"><img src="assets/img/news-thumb-2.jpg" alt="news-thumb"></div>
-                  <div class="latest-news-item__info"><a class="latest-news-item__title"
-                      href="page-blog-article.html">Motorcycles Which Feels Just Right Like Ease.</a>
-                    <div class="latest-news-item__date">August 25, 2021</div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="latest-news-item">
-                  <div class="latest-news-item__thumb"><img src="assets/img/news-thumb-3.jpg" alt="news-thumb"></div>
-                  <div class="latest-news-item__info"><a class="latest-news-item__title"
-                      href="page-blog-article.html">Gaze Upon Unbelievably Exciting To Futuristic.</a>
-                    <div class="latest-news-item__date">August 25, 2021</div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div> --}}
+
         <div>
           <div class="page-footer__column page-footer__info">
-            <div class="uk-h4">Contact Us</div>
+            <div class="uk-h4">Kuchai Motor Sdn Bhd</div>
             <ul class="info-list">
 
 
@@ -102,14 +73,14 @@
               <li>
                 <div class="info-list-item">
                   <div class="info-list-item__title">Operation Hours</div>
-                  <div class="info-list-item__value">Monday - Saturday: <br> 09:00 am to 07:00 pm</div>
+                  <div class="info-list-item__value">Monday - Saturday: <br> 09:00 am to 07:00 pm <br> Sunday CLOSED</div>
                 </div>
               </li>
 
               <li>
                 <div class="info-list-item">
                   <div class="info-list-item__title">Reach us by email</div>
-                  <div class="info-list-item__value">kuchaimotor@hotmail.my</div>
+                  <div class="info-list-item__value">kuchaimotor56@gmail.com</div>
                 </div>
               </li>
 
@@ -124,15 +95,65 @@
 
 
 
-              {{-- <li>
-                <div class="info-list-item">
-                  <div class="info-list-item__title">Parts Shop Hours</div>
-                  <div class="info-list-item__value">Monday - Friday: <br> 09:00 am to 06:00 pm</div>
-                </div>
-              </li> --}}
+
             </ul>
           </div>
         </div>
+
+        <div>
+            <div class="page-footer__column page-footer__info">
+              <div class="uk-h4">Honda Impian X
+            </div>
+              <ul class="info-list">
+
+
+                <li>
+                  <div class="info-list-item">
+                    <div class="info-list-item__title">Call us on </div>
+                    <div class="info-list-item__value">0125100331</div>
+                  </div>
+                </li>
+
+
+                <li>
+                  <div class="info-list-item">
+                    <div class="info-list-item__title">Operation Hours</div>
+                    <div class="info-list-item__value">Monday - Saturday: <br> 09:00 am to 07:00 pm  Sunday CLOSED
+                    </div>
+                  </div>
+                </li>
+
+                <li>
+                  <div class="info-list-item">
+                    <div class="info-list-item__title">Reach us by email</div>
+                    <div class="info-list-item__value">kuchaimotor.equine33@gmail.com</div>
+                  </div>
+                </li>
+
+
+                <li>
+                  <div class="info-list-item">
+                    <div class="info-list-item__title">Showroom Address </div>
+                    <div class="info-list-item__value">
+                        31, 33, 35, Jalan LP 1a/2, Lestari Perdana, 43300 Seri Kembangan, Selangor
+
+
+                    </div>
+                  </div>
+                </li>
+
+
+
+
+                {{-- <li>
+                  <div class="info-list-item">
+                    <div class="info-list-item__title">Parts Shop Hours</div>
+                    <div class="info-list-item__value">Monday - Friday: <br> 09:00 am to 06:00 pm</div>
+                  </div>
+                </li> --}}
+              </ul>
+            </div>
+          </div>
       </div>
     </div>
   </div>

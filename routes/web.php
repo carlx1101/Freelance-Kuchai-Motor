@@ -26,7 +26,7 @@ Route::get('/contact-us', [PageController::class, 'contact'])->name('contact');
 Route::get('/new-motors', [PageController::class, 'newMotors'])->name('new.motors');
 Route::get('/used-motors', [PageController::class, 'usedMotors'])->name('used.motors');
 Route::get('/accessories', [PageController::class, 'accessories'])->name('accessories');
-Route::get('/accessories/{accessory}',[PageController::class, 'accessory'])->name('accessory');
+Route::get('/accessories/{accessory}', [PageController::class, 'accessory'])->name('accessory');
 Route::get('/branch', [PageController::class, 'branch'])->name('branch');
 
 Route::get('/motor/{id}',  [PageController::class, 'motor'])->name('motor.show');
@@ -63,8 +63,8 @@ Route::middleware([
 
 
     // Manage Booking
+    Route::patch('/bookings/{id}/mark-as-paid', [BookingController::class, 'markAsPaid'])->name('admin.bookings.markPaid');
     Route::resource('/bookings', BookingController::class);
-
 
 
     // Categories
@@ -72,7 +72,6 @@ Route::middleware([
 
     // Subcategories
     Route::resource('/subcategories', SubCategoryController::class);
-
 });
 
 
@@ -82,6 +81,7 @@ Route::middleware([
     'verified',
     'user-access:salesman'
 ])->prefix('salesman')->group(function () {
-    Route::get('/dashboard', [HomeController::class, 'salesmanHome'])->name('salesman.dashboard');
-    Route::get('/bookings', [SalesmanController::class, 'salesmanBookings'])->name('salesman.bookings');
+    Route::get('/dashboard', [SalesmanController::class, 'salesmanBookings'])->name('salesman.dashboard');
+    // Route::get('/bookings', [SalesmanController::class, 'salesmanBookings'])->name('salesman.bookings');
+    Route::post('/bookings/{booking_id}/close-deal', [BookingController::class, 'closeDeal'])->name('salesman.bookings.close-deal');
 });

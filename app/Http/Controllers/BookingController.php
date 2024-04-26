@@ -41,7 +41,7 @@ class BookingController extends Controller
             // Get motorcycle details
             $data = $booking->with('motorcycle')->first();
 
- 
+
             // Send Email Notification
             Mail::to($request->email)->send(new BookingInvoice($data));
             // Redirect or respond as needed
@@ -61,6 +61,34 @@ class BookingController extends Controller
         // Toggle the booking status
         $booking->status = $booking->status === 'Active' ? 'Resolved' : 'Active';
         $booking->save();
+
+        return back()->with('success', 'Booking status updated');
+    }
+
+    public function closeDeal(request $request, $id)
+    {
+        $request->validate([
+            'remarks' => 'required|string',
+        ]);
+
+        $booking = Booking::findOrFail($id);
+
+        $booking->update([
+            'remarks' => $request->remarks,
+            'status' => 'Closed',
+        ]);
+
+        return back()->with('success', 'Booking has been closed!');
+    }
+
+    public function markAsPaid($id)
+    {
+        // Find the booking record by ID
+        $booking = Booking::findOrFail($id);
+
+        $booking->update([
+            'status' => 'Paid',
+        ]);
 
         return back()->with('success', 'Booking status updated');
     }

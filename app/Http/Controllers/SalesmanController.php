@@ -101,12 +101,13 @@ class SalesmanController extends Controller
     }
 
 
-    public function salesmanBookings(){
+    public function salesmanBookings()
+    {
 
         $userId = auth()->id();
 
         $bookings = Booking::where('salesman_id', $userId)->get();
 
-        return view('salesman.bookings.index',['bookings' => $bookings]);
+        return view('salesman.dashboard', ['bookings' => $bookings]);
     }
 }

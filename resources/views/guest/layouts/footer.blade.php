@@ -14,7 +14,7 @@
             <div class="logo"><a class="logo__link" href="{{route('home')}}">
                 <div class="logo__icon"><img src="{{asset('frontend/img/hondaimpianx.png')}}" width="80%"
                     alt="Kuchai Motor Sdn Bhd"></div>
-                <div class="logo__text">Honda Impian X (1117745-D)</div>
+                <div class="logo__text">Kuchai Motor x Honda Impian X (1117745-D)</div>
               </a></div>
           </div>
           <div class="uk-margin-medium">
@@ -73,7 +73,8 @@
               <li>
                 <div class="info-list-item">
                   <div class="info-list-item__title">Operation Hours</div>
-                  <div class="info-list-item__value">Monday - Saturday: <br> 09:00 am to 07:00 pm <br> Sunday CLOSED</div>
+                  <div class="info-list-item__value">Monday - Saturday: <br> 09:00 am to 07:00 pm <br> Sunday CLOSED
+                  </div>
                 </div>
               </li>
 
@@ -88,7 +89,8 @@
               <li>
                 <div class="info-list-item">
                   <div class="info-list-item__title">Showroom Address </div>
-                  <div class="info-list-item__value">56-58, Jalan 2/116B, Kuchai Entrepreneurs Park, 58200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</div>
+                  <div class="info-list-item__value">56-58, Jalan 2/116B, Kuchai Entrepreneurs Park, 58200 Kuala Lumpur,
+                    Wilayah Persekutuan Kuala Lumpur</div>
                 </div>
               </li>
 
@@ -101,59 +103,59 @@
         </div>
 
         <div>
-            <div class="page-footer__column page-footer__info">
-              <div class="uk-h4">Honda Impian X
+          <div class="page-footer__column page-footer__info">
+            <div class="uk-h4">Honda Impian X
             </div>
-              <ul class="info-list">
+            <ul class="info-list">
 
 
-                <li>
-                  <div class="info-list-item">
-                    <div class="info-list-item__title">Call us on </div>
-                    <div class="info-list-item__value">0125100331</div>
+              <li>
+                <div class="info-list-item">
+                  <div class="info-list-item__title">Call us on </div>
+                  <div class="info-list-item__value">0125100331</div>
+                </div>
+              </li>
+
+
+              <li>
+                <div class="info-list-item">
+                  <div class="info-list-item__title">Operation Hours</div>
+                  <div class="info-list-item__value">Monday - Saturday: <br> 09:00 am to 07:00 pm Sunday CLOSED
                   </div>
-                </li>
+                </div>
+              </li>
+
+              <li>
+                <div class="info-list-item">
+                  <div class="info-list-item__title">Reach us by email</div>
+                  <div class="info-list-item__value">kuchaimotor.equine33@gmail.com</div>
+                </div>
+              </li>
 
 
-                <li>
-                  <div class="info-list-item">
-                    <div class="info-list-item__title">Operation Hours</div>
-                    <div class="info-list-item__value">Monday - Saturday: <br> 09:00 am to 07:00 pm  Sunday CLOSED
-                    </div>
+              <li>
+                <div class="info-list-item">
+                  <div class="info-list-item__title">Showroom Address </div>
+                  <div class="info-list-item__value">
+                    31, 33, 35, Jalan LP 1a/2, Lestari Perdana, 43300 Seri Kembangan, Selangor
+
+
                   </div>
-                </li>
-
-                <li>
-                  <div class="info-list-item">
-                    <div class="info-list-item__title">Reach us by email</div>
-                    <div class="info-list-item__value">kuchaimotor.equine33@gmail.com</div>
-                  </div>
-                </li>
-
-
-                <li>
-                  <div class="info-list-item">
-                    <div class="info-list-item__title">Showroom Address </div>
-                    <div class="info-list-item__value">
-                        31, 33, 35, Jalan LP 1a/2, Lestari Perdana, 43300 Seri Kembangan, Selangor
-
-
-                    </div>
-                  </div>
-                </li>
+                </div>
+              </li>
 
 
 
 
-                {{-- <li>
-                  <div class="info-list-item">
-                    <div class="info-list-item__title">Parts Shop Hours</div>
-                    <div class="info-list-item__value">Monday - Friday: <br> 09:00 am to 06:00 pm</div>
-                  </div>
-                </li> --}}
-              </ul>
-            </div>
+              {{-- <li>
+                <div class="info-list-item">
+                  <div class="info-list-item__title">Parts Shop Hours</div>
+                  <div class="info-list-item__value">Monday - Friday: <br> 09:00 am to 06:00 pm</div>
+                </div>
+              </li> --}}
+            </ul>
           </div>
+        </div>
       </div>
     </div>
   </div>
@@ -188,9 +190,9 @@
             </ul>
           </li>
 
-            <li><a href="{{route('accessories')}}">Accessories</a></li>
+          <li><a href="{{route('accessories')}}">Accessories</a></li>
 
-            <li><a href="{{route('contact')}}">Contact Us</a></li>
+          <li><a href="{{route('contact')}}">Contact Us</a></li>
 
           <li class="uk-parent"><a href="#">Languages</a>
             <ul class="uk-nav-sub">

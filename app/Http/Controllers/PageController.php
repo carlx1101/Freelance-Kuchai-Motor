@@ -7,37 +7,48 @@ use App\Models\AccessoryImage;
 use App\Models\Motorcycle;
 use App\Models\MotorImage;
 use Illuminate\Http\Request;
+use Faker\Factory as Faker;
 
 class PageController extends Controller
 {
-    public function home(){
+    public function home()
+    {
         $motors = Motorcycle::all();
 
 
         $usedMotors = Motorcycle::whereNotNull('mileage')
-        ->whereNotNull('road_tax_expiry_date')
-        ->whereNotNull('vehicle_registration_date')
-        ->orderBy('created_at', 'desc')
-        ->take(3)
-        ->get();
+            ->whereNotNull('road_tax_expiry_date')
+            ->whereNotNull('vehicle_registration_date')
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
 
+        $motor = Motorcycle::inRandomOrder()->first();
+        $stickyData = (object)
+        [
+            'customer_name' => Faker::create()->name,
+            'brand' => $motor->model,
+            'motor_cover_url' => $motor->motor_cover_url
+        ];
 
-        return view('guest.welcome', compact('motors', 'usedMotors'));
+        return view('guest.welcome', compact('motors', 'usedMotors', 'stickyData'));
     }
 
-    public function contact(){
+    public function contact()
+    {
         return view('guest.contact');
     }
 
-    public function usedMotors() {
+    public function usedMotors()
+    {
 
-          // Retrieve unique brands from the database
+        // Retrieve unique brands from the database
         $brands = Motorcycle::select('brand')->distinct()->pluck('brand');
 
         $usedMotors = Motorcycle::whereNotNull('mileage')
-                                ->whereNotNull('road_tax_expiry_date')
-                                ->whereNotNull('vehicle_registration_date')
-                                ->get();
+            ->whereNotNull('road_tax_expiry_date')
+            ->whereNotNull('vehicle_registration_date')
+            ->get();
 
 
         return view('guest.used-motors', compact('usedMotors', 'brands'));
@@ -45,20 +56,22 @@ class PageController extends Controller
 
 
 
-    public function newMotors() {
+    public function newMotors()
+    {
 
         // Retrieve unique brands from the database
         $brands = Motorcycle::select('brand')->distinct()->pluck('brand');
 
         $newMotors = Motorcycle::whereNull('mileage')
-                               ->whereNull('road_tax_expiry_date')
-                               ->whereNull('vehicle_registration_date')
-                               ->get();
-        return view('guest.new-motors', compact('newMotors','brands'));
+            ->whereNull('road_tax_expiry_date')
+            ->whereNull('vehicle_registration_date')
+            ->get();
+        return view('guest.new-motors', compact('newMotors', 'brands'));
     }
 
 
-    public function motor($id) {
+    public function motor($id)
+    {
         $motor = Motorcycle::findOrFail($id);
         $motorImages = MotorImage::where('motorcycle_id', $id)->get();
 
@@ -115,12 +128,11 @@ class PageController extends Controller
 
         $accessoryImages = AccessoryImage::where('accessory_id', $accessoryId)->get();
 
-        return view('guest.accessory', compact('accessory','accessoryImages'));
+        return view('guest.accessory', compact('accessory', 'accessoryImages'));
     }
 
-    public function branch(){
-
+    public function branch()
+    {
         return view('guest.branch');
     }
-
 }

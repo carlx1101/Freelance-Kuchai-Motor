@@ -34,15 +34,9 @@
             </div>
           </li>
 
-          <li><a href="{{route('accessories')}}">Accessories</a>
-            {{-- <div class="uk-navbar-dropdown">
-              <ul class="uk-nav uk-navbar-dropdown-nav">
-                <li><a href="page-blog-grid.html">Page Blog grid</a></li>
-                <li><a href="page-blog-list.html">Page Blog list</a></li>
-                <li><a href="page-blog-article.html">Page Blog article</a></li>
-              </ul>
-            </div> --}}
-          </li>
+          <li><a href="{{route('accessories')}}">Accessories</a></li>
+          <li><a href="{{ route('accessories', ['category' => 'Sparepart & Oil']) }}">Spareparts</a></li>
+
 
           <li><a href="{{route('contact')}}">Contact</a></li>
 

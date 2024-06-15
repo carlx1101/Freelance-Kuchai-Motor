@@ -65,8 +65,11 @@
 </head>
 
 <body class="page-home">
-  <x-sticky-note motor_image_url="{{ $stickyData->motor_cover_url }}" customer_name="{{ $stickyData->customer_name }}"
-    brand="{{ $stickyData->brand }}" />
+    @if (($stickyData->motor_cover_url) && ($stickyData->customer_name) && ($stickyData->brand))
+        <x-sticky-note motor_image_url="{{ $stickyData->motor_cover_url }}" customer_name="{{ $stickyData->customer_name }}"
+            brand="{{ $stickyData->brand }}" />
+    @endif
+
 
   <div class="page-wrapper">
     @include('guest.layouts.navbar')

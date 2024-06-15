@@ -203,7 +203,7 @@
 
 
                       <li>
-                        <img class="image-full" src="{{$motor->motor_cover_url}}" alt="Motor Image">
+                        <img class="image-full" src="{{$motor->motor_cover_url}}" alt="Motor Image" style="border-radius: 2%" >
                     </li>
 
                       @foreach ($motorImages as $motorImage)
@@ -530,7 +530,9 @@
         <div class="uk-section uk-container">
           <div class="uk-h2 uk-margin-medium-bottom">You May Also Like...</div>
           <div class="uk-grid uk-child-width-1-3@m" data-uk-grid>
-            <div>
+            <div><li tabindex="-1" class="uk-active uk-transition-active" style="transform: translate3d(0px, 0px, 0px);">
+                        <img class="image-full" src="http://127.0.0.1:8000/storage/motor_covers/27fb4273-71ea-4592-a609-88050c5e18ea_1718413548.jpg" alt="Motor Image">
+                    </li>
               <div class="product-item uk-transition-toggle">
                 <div class="product-item__head">
                   <div>

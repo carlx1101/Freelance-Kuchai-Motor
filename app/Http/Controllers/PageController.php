@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Accessory;
-use App\Models\AccessoryImage;
 use App\Models\Motorcycle;
 use App\Models\MotorImage;
-use Illuminate\Http\Request;
 use Faker\Factory as Faker;
+use Illuminate\Http\Request;
+use App\Models\AccessoryImage;
 
 class PageController extends Controller
 {
@@ -24,11 +25,10 @@ class PageController extends Controller
             ->get();
 
         $motor = Motorcycle::inRandomOrder()->first();
-        $stickyData = (object)
-        [
+        $stickyData = (object) [
             'customer_name' => Faker::create()->name,
-            'brand' => $motor->model,
-            'motor_cover_url' => $motor->motor_cover_url
+            'brand' => $motor->model ?? 'Motor',
+            'motor_cover_url' => $motor->motor_cover_url ?? 'default_image_url.jpg'
         ];
 
         return view('guest.welcome', compact('motors', 'usedMotors', 'stickyData'));
@@ -110,13 +110,34 @@ class PageController extends Controller
         return view('guest.new-motors', compact('results', 'brands'));
     }
 
-    public function accessories()
+    public function accessories(Request $request)
     {
+        $category = $request->query('category');
 
-        $accessories = Accessory::all();
+        if ($category) {
+            // Fetch the category first
+            $categoryModel = Category::where('category_name', $category)->first();
+
+            if ($categoryModel) {
+                // Fetch subcategories for the category
+                $subcategoryIds = $categoryModel->subcategories->pluck('id');
+
+                // Fetch accessories for the subcategories
+                $accessories = Accessory::whereIn('subcategory_id', $subcategoryIds)->get();
+
+                // Debugging output
+                // dd($categoryModel, $subcategoryIds, $accessories);
+            } else {
+                // If the category is not found
+                dd("Category not found");
+            }
+        } else {
+            $accessories = Accessory::all();
+        }
 
         return view('guest.accessories', compact('accessories'));
     }
+
 
 
     public function accessory($accessoryId)

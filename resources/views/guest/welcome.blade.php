@@ -80,7 +80,7 @@
           <div class="uk-position-relative" tabindex="-1">
             <ul class="uk-slideshow-items" style="background-color: black">
 
-              <li class="slideshow-item"><img src="{{asset('frontend/img/img-home-slideshow-3.jpg')}}" alt
+              <li class="slideshow-item"><img src="{{asset('frontend/img/covers/3.png')}}" alt
                   data-uk-cover>
                 <div class="uk-position-center uk-position-small">
                   <div class="uk-container">
@@ -109,7 +109,7 @@
               </li>
 
               <li class="slideshow-item">
-                <img src="{{asset('frontend/img/img-home-slideshow.jpg')}}" alt data-uk-cover>
+                <img src="{{asset('frontend/img/covers/1.png')}}" alt data-uk-cover>
                 <div class="uk-position-center uk-position-small">
                   <div class="uk-container">
                     <div class="uk-grid" data-uk-grid>
@@ -135,7 +135,7 @@
                   </div>
                 </div>
               </li>
-              <li class="slideshow-item"><img src="{{asset('frontend/img/img-home-slideshow-2.jpg')}}" alt
+              <li class="slideshow-item"><img src="{{asset('frontend/img/covers/2.png')}}" alt
                   data-uk-cover>
                 <div class="uk-position-center uk-position-small">
                   <div class="uk-container">

@@ -20,6 +20,12 @@
 
 
 
+  <meta property="og:title" content="Motor Brand - Motor Model" />
+  <meta property="og:description" content="Check out this amazing motor!" />
+  <meta property="og:image" content="{{$motor->motor_cover_url}}" />
+  <meta property="og:url" content="{{url()->current()}}" />
+  <meta property="og:type" content="website" />
+
   <style>
 
     .image-full {
@@ -110,11 +116,11 @@
                     <div class="page-product__btns">
                         <button class="danger" type="button" id="shareMotorBtn">Share Motor</button>
                         <div id="shareMotorDropdown" class="dropdown-content" style="display:none;">
-
-                            <a href="" id="fb_share">Facebook</a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}" id="fb_share">Facebook</a>
                             <a href="whatsapp://send?text={{url()->current()}}" >Whatsapp</a>
                             {{-- <a href="#" id="fb_share">Tiktok</a> --}}
                         </div>
+
                     </div>
 
 

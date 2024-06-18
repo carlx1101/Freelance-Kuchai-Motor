@@ -191,6 +191,7 @@
           </li>
 
           <li><a href="{{route('accessories')}}">Accessories</a></li>
+          <li><a href="{{ route('accessories', ['category' => 'Sparepart & Oil']) }}">Spareparts</a></li>
 
           <li><a href="{{route('contact')}}">Contact Us</a></li>
 

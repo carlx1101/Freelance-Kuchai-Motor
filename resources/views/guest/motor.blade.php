@@ -20,11 +20,12 @@
 
 
 
-  <meta property="og:title" content="Motor Brand - Motor Model" />
+  <meta property="og:title" content="{{$motor->model - $motor->brand}}" />
   <meta property="og:description" content="Check out this amazing motor!" />
   <meta property="og:image" content="{{$motor->motor_cover_url}}" />
   <meta property="og:url" content="{{url()->current()}}" />
   <meta property="og:type" content="website" />
+
 
   <style>
 

@@ -6,7 +6,7 @@ use App\Models\Category;
 use App\Models\Accessory;
 use App\Models\Motorcycle;
 use App\Models\MotorImage;
-use Faker\Factory as Faker;
+// use Faker\Factory as Faker;
 use Illuminate\Http\Request;
 use App\Models\AccessoryImage;
 
@@ -26,7 +26,7 @@ class PageController extends Controller
 
         $motor = Motorcycle::inRandomOrder()->first();
         $stickyData = (object) [
-            'customer_name' => Faker::create()->name,
+            'customer_name' => 'Customer Name',
             'brand' => $motor->model ?? 'Motor',
             'motor_cover_url' => $motor->motor_cover_url ?? 'default_image_url.jpg'
         ];
